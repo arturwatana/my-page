@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
-import { Link } from "react-router-dom";
 
 export default function Footer() {
   const Footer = styled.footer`
