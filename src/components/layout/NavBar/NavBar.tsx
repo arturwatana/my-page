@@ -8,6 +8,7 @@ export default function NavBar() {
     height: 5em;
     background-color: #464855;
     position: fixed;
+    z-index: 10;
   `;
   const Ul = styled.ul`
     display: flex;

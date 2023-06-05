@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ProjectInfo from "../ProjectInfo/ProjectInfo";
 import svg from "../../assets/react.svg";
+import schedule from "../../assets/Schedule.png";
 
 export default function ProjectsContainer() {
   const ProjectContainer = styled.div`
@@ -12,6 +13,7 @@ export default function ProjectsContainer() {
     flex-direction: column;
     padding: 3em 0 3em 0;
     margin-bottom: 2em;
+    margin-top: 2em;
   `;
 
   return (
@@ -20,7 +22,33 @@ export default function ProjectsContainer() {
         name="Project Name"
         description="Project Description "
         techs="React, Node"
-        img="svg"
+        img={schedule}
+      />
+      <ProjectInfo
+        name="Project Name"
+        description="Project Description "
+        techs="React, Node"
+        img={svg}
+        row="row-reverse"
+      />
+      <ProjectInfo
+        name="Project Name"
+        description="Project Description "
+        techs="React, Node"
+        img={svg}
+      />
+      <ProjectInfo
+        name="Project Name"
+        description="Project Description "
+        techs="React, Node"
+        img={svg}
+        row="row-reverse"
+      />
+      <ProjectInfo
+        name="Project Name"
+        description="Project Description "
+        techs="React, Node"
+        img={svg}
       />
     </ProjectContainer>
   );

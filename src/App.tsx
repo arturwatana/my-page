@@ -23,7 +23,6 @@ function App() {
   `;
 
   const Body = styled.body`
-    height: 100em;
     background-color: #ededed;
     font-family: "Roboto";
   `;
