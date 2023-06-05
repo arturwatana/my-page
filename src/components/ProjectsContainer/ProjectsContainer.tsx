@@ -2,6 +2,9 @@ import styled from "styled-components";
 import ProjectInfo from "../ProjectInfo/ProjectInfo";
 import svg from "../../assets/react.svg";
 import schedule from "../../assets/Schedule.png";
+import { useEffect } from "react";
+
+import AOS from "aos";
 
 export default function ProjectsContainer() {
   const ProjectContainer = styled.div`
@@ -16,8 +19,14 @@ export default function ProjectsContainer() {
     margin-top: 2em;
   `;
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
+
   return (
-    <ProjectContainer>
+    <ProjectContainer data-aos="fade-up">
       <ProjectInfo
         name="Project Name"
         description="Project Description "

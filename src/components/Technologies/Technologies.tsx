@@ -78,7 +78,7 @@ export default function Technologies() {
   }, [techState]);
 
   return (
-    <ContentContainer height="419px" width="989px">
+    <ContentContainer height="419px" width="989px" fade="fade-up">
       <Flex>
         <TechArea>
           <Tittle>Tecnologias</Tittle>

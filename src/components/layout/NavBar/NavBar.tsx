@@ -20,14 +20,43 @@ export default function NavBar() {
     margin-right: 2em;
     font-size: 22px;
     color: #fff4f4;
+    transition: 0.5s;
+    cursor: pointer;
+
+    &:hover {
+      color: #399fbf;
+    }
   `;
+
+  function scrollUser(e: any) {
+    switch (e.target.innerText) {
+      case "Sobre mim":
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+        break;
+      case "Tecnologias":
+        window.scrollTo({
+          top: 500,
+          behavior: "smooth",
+        });
+        break;
+      case "Projetos":
+        window.scrollTo({
+          top: 1100,
+          behavior: "smooth",
+        });
+        break;
+    }
+  }
 
   return (
     <Nav>
       <Ul>
-        <Li>Sobre mim</Li>
-        <Li>Tecnologias</Li>
-        <Li>Projetos</Li>
+        <Li onClick={scrollUser}>Sobre mim</Li>
+        <Li onClick={scrollUser}> Tecnologias</Li>
+        <Li onClick={scrollUser}>Projetos</Li>
       </Ul>
     </Nav>
   );
