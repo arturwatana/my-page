@@ -20,6 +20,12 @@ export default function ContentContainer(props: ContentContainerProps) {
     background-color: #c6c2c7;
     border-radius: 20px;
     display: flex;
+
+    @media (max-width: 1430px) {
+      width: 95%;
+      height: 110%;
+      flex-direction: column;
+    }
   `;
 
   useEffect(() => {

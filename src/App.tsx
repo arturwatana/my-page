@@ -32,11 +32,17 @@ function App() {
     display: flex;
     flex-direction: column;
     margin-left: 3em;
+
+    @media (max-width: 1430px) {
+      text-align: center;
+      margin-top: 1em;
+    }
   `;
 
   const Img = styled.img`
     height: 20em;
     border-radius: 2em;
+    object-fit: contain;
   `;
   return (
     <Body>

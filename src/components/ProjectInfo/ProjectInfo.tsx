@@ -28,6 +28,11 @@ export default function ProjectInfo(props: ProjectInfoProps) {
     margin-bottom: 2em;
     height: 20em;
     width: 100%;
+
+    @media (max-width: 1180px) {
+      flex-direction: column;
+      height: 100%;
+    }
   `;
 
   const ProjectDetails = styled.div`
@@ -37,6 +42,12 @@ export default function ProjectInfo(props: ProjectInfoProps) {
     flex-direction: column;
     justify-content: space-between;
     padding-left: 2em;
+
+    @media (max-width: 1180px) {
+      margin-top: 1em;
+      gap: 1em;
+      width: 100%;
+    }
   `;
 
   const ProjectTittle = styled.h1`
