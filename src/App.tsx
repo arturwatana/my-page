@@ -40,6 +40,7 @@ function App() {
 
   const Img = styled.img`
     height: 20em;
+    border-radius: 2em;
   `;
 
   return (

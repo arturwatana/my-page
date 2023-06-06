@@ -12,6 +12,7 @@ export default function ProjectsContainer() {
     width: 100%;
     display: flex;
     justify-content: center;
+    border-radius: 2em;
     align-items: center;
     flex-direction: column;
     padding: 3em 0 3em 0;
