@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { useState } from "react";
+import alt from "../../assets/aguarde-em-breve.png";
 
 type ProjectInfoProps = {
   name: string;
   description: string;
   techs: string;
-  img: string;
+  img?: string;
   row?: string;
   deployLink?: string;
   repoFrontend?: string;
@@ -17,6 +18,7 @@ export default function ProjectInfo(props: ProjectInfoProps) {
   const Img = styled.img`
     width: 30em;
     height: 100%;
+    object-fit: contain;
   `;
   const ProjectCard = styled.div`
     display: flex;
@@ -47,6 +49,7 @@ export default function ProjectInfo(props: ProjectInfoProps) {
   `;
 
   const ProjectTechs = styled.p`
+    font-size: 20px;
     span {
       font-weight: bold;
     }
@@ -65,6 +68,11 @@ export default function ProjectInfo(props: ProjectInfoProps) {
   const ImageBlock = styled.div`
     position: relative;
     height: 100%;
+    transition: 0.5s;
+
+    &:hover {
+      scale: 1.1;
+    }
   `;
 
   const ContentBlock = styled.div`
@@ -87,17 +95,28 @@ export default function ProjectInfo(props: ProjectInfoProps) {
     transition: 0.5s;
     cursor: pointer;
 
-    &:hover {
-      background-color: #222;
+    a {
+      text-decoration: none;
+      color: #222;
+    }
+    &:hover > a {
       color: #fff;
+    }
+    &:hover {
+      color: #fff;
+      background-color: #222;
     }
   `;
 
   const RepositoryInfo = styled.div`
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     text-align: center;
+
+    > div:first-child {
+      margin-right: 2em;
+    }
   `;
 
   function ProjectHover(e: any) {
@@ -116,23 +135,47 @@ export default function ProjectInfo(props: ProjectInfoProps) {
             <Layer></Layer>
             <ContentBlock>
               <h1>Deploy</h1>
-              <Button>Acessar</Button>
-              <h1>Repositorios</h1>
+              {props.deployLink ? (
+                <>
+                  <Button>
+                    <a href={props.deployLink} target="_blank">
+                      Acessar
+                    </a>
+                  </Button>
+                </>
+              ) : null}
+              <h1>Repositórios</h1>
               <RepositoryInfo>
                 <div>
-                  <h2>Front-end</h2>
-                  <Button>Acessar</Button>
+                  {props.repoFrontend ? (
+                    <>
+                      <h2>Front-end</h2>
+                      <Button>
+                        <a href={props.repoFrontend} target="_blank">
+                          Acessar
+                        </a>
+                      </Button>
+                    </>
+                  ) : null}
                 </div>
                 <div>
-                  <h2>Back-end</h2>
-                  <Button>Acessar</Button>
+                  {props.repoBackend ? (
+                    <>
+                      <h2>Back-end</h2>
+                      <Button>
+                        <a href={props.repoBackend} target="_blank">
+                          Acessar
+                        </a>
+                      </Button>
+                    </>
+                  ) : null}
                 </div>
               </RepositoryInfo>
             </ContentBlock>
           </>
         ) : null}
 
-        <Img src={props.img} alt="" />
+        <Img src={props.img} alt={alt || "comming soon"} />
       </ImageBlock>
       <ProjectDetails>
         <ProjectTittle>{props.name}</ProjectTittle>

@@ -29,10 +29,10 @@ export default function Footer() {
   return (
     <Footer>
       <Icons>
-        <a href="https://github.com/arturwatana">
+        <a href="https://github.com/arturwatana" target="_blank">
           <BsLinkedin />
         </a>
-        <a href="https://github.com/arturwatana">
+        <a href="https://github.com/arturwatana" target="_blank">
           <BsGithub />
         </a>
       </Icons>

@@ -15,7 +15,7 @@ export default function ContentContainer(props: ContentContainerProps) {
   const ContentContainer = styled.div`
     width: ${props.width};
     height: ${props.height || ""};
-    margin: 3em 0 2em 0;
+    margin: ${props.margin || "0"};
     padding: ${props.padding || "0"};
     background-color: #c6c2c7;
     border-radius: 20px;

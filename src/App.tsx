@@ -47,6 +47,7 @@ function App() {
           width="1400px"
           padding="5em"
           fade="fade-up"
+          margin="0 0 10em 0"
         >
           <Img src={me}></Img>
           <AboutMe>
@@ -62,7 +63,12 @@ function App() {
             </About>
           </AboutMe>
         </ContentContainer>
-        <ContentContainer height="419px" width="989px" fade="fade-up">
+        <ContentContainer
+          height="419px"
+          width="989px"
+          fade="fade-up"
+          margin="0 0 3em 0"
+        >
           <Technologies />
         </ContentContainer>
 
