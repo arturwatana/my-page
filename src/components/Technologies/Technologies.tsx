@@ -24,7 +24,7 @@ export default function Technologies() {
   `;
 
   const Tittle = styled.h1`
-    color: #ffffff;
+    color: #0c0d0c;
     font-size: 28px;
   `;
 
@@ -36,7 +36,8 @@ export default function Technologies() {
   const TechLi = styled.li`
     font-size: 24px;
     margin-top: 0.7em;
-    color: #ffff;
+    color: #0c0d0c;
+
     transition: 0.5s;
     cursor: pointer;
 
@@ -54,7 +55,7 @@ export default function Technologies() {
   `;
 
   const ProjectLi = styled.li`
-    color: #ffff;
+    color: #0c0d0c;
     font-size: 22px;
     margin-top: 0.3em;
   `;
@@ -126,7 +127,7 @@ export default function Technologies() {
         </Ul>
       </TechArea>
       <Projects>
-        <Tittle>Projetos utilizados: </Tittle>
+        <Tittle>Projetos utilizando {techState}: </Tittle>
         <ProjectList>
           {techProjects.map((techProject) => {
             return <ProjectLi key={techProject}>{techProject}</ProjectLi>;

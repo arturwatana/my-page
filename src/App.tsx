@@ -7,23 +7,24 @@ import "typeface-roboto";
 import Technologies from "./components/Technologies/Technologies";
 import Footer from "./components/layout/Footer/Footer";
 import ProjectsContainer from "./components/ProjectsContainer/ProjectsContainer";
-import me from "./assets/me.png";
+import me from "./assets/mebw.png";
 import "aos/dist/aos.css";
 
 function App() {
   const Tittle = styled.h1`
     font-size: 42px;
-    color: white;
+    color: #0c0d0c;
   `;
   const About = styled.p<{ $name?: boolean }>`
     color: #ffffff;
     font-size: 25px;
     margin: ${(props) => (props.$name ? "1em 0 0.5em 0" : "0")};
     line-height: 1.3em;
+    color: #0c0d0c;
   `;
 
   const Body = styled.body`
-    background-color: #ededed;
+    background-color: #eff1ef;
     font-family: "Roboto";
   `;
 
@@ -31,36 +32,33 @@ function App() {
     display: flex;
     flex-direction: column;
     margin-left: 3em;
-    margin-top: 4em;
-
-    h1 {
-      margin-bottom: 1em;
-    }
   `;
 
   const Img = styled.img`
     height: 20em;
     border-radius: 2em;
   `;
-
   return (
     <Body>
       <NavBar />
       <Container>
         <ContentContainer
           height="519px"
-          width="1200px"
+          width="1400px"
           padding="5em"
           fade="fade-up"
         >
           <Img src={me}></Img>
           <AboutMe>
             <Tittle>Olá,</Tittle>
-            <About $name>Sou Artur Watanabe, desenvolvedor full-stack. </About>
+            <About $name>
+              Eu sou Artur Watanabe, um desenvolvedor full-stack apaixonado por
+              games e tecnologia.{" "}
+            </About>
             <About>
-              Desde sempre apaixonado por games e tecnologia, fui conhecer o
-              mundo da programacao em 2021. Me dedicando cada vez mais em me
-              aprofundar e utilizar novas tecnologias.
+              Desde sempre, tive interesse pela programação e decidi explorar
+              esse mundo em 2021. Tenho me dedicado cada vez mais para aprimorar
+              minhas habilidades e acompanhar as novas tecnologias disponíveis.
             </About>
           </AboutMe>
         </ContentContainer>

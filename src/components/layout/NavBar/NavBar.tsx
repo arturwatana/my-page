@@ -5,14 +5,14 @@ export default function NavBar() {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    height: 5em;
-    background-color: #464855;
+    height: 4em;
+    background-color: #c6c2c7;
     position: fixed;
     z-index: 10;
   `;
   const Ul = styled.ul`
     display: flex;
-    align-items: end;
+    align-items: center;
     list-style: none;
     margin: 0 5em 1em 0;
   `;
@@ -22,6 +22,7 @@ export default function NavBar() {
     color: #fff4f4;
     transition: 0.5s;
     cursor: pointer;
+    color: #0c0d0c;
 
     &:hover {
       color: #399fbf;

@@ -10,8 +10,8 @@ export default function Container({ children }: ContainerProps) {
     height: 100%;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    padding: 4% 20% 0% 20%;
+    justify-content: space-evenly;
+    padding: 13em 10em 0em 10em;
   `;
 
   return <Container>{children}</Container>;

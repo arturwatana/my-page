@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import AOS from "aos";
-
 import { useEffect } from "react";
+
 type ContentContainerProps = {
   width: string;
   height?: string;
@@ -17,7 +17,7 @@ export default function ContentContainer(props: ContentContainerProps) {
     height: ${props.height || ""};
     margin: 3em 0 2em 0;
     padding: ${props.padding || "0"};
-    background-color: #5d5d5f;
+    background-color: #c6c2c7;
     border-radius: 20px;
     display: flex;
   `;
