@@ -137,11 +137,9 @@ export default function ProjectInfo(props: ProjectInfoProps) {
               <h1>Deploy</h1>
               {props.deployLink ? (
                 <>
-                  <Button>
-                    <a href={props.deployLink} target="_blank">
-                      Acessar
-                    </a>
-                  </Button>
+                  <a href={props.deployLink} target="_blank">
+                    <Button>Acessar</Button>
+                  </a>
                 </>
               ) : null}
               <h1>Repositórios</h1>
@@ -150,11 +148,9 @@ export default function ProjectInfo(props: ProjectInfoProps) {
                   {props.repoFrontend ? (
                     <>
                       <h2>Front-end</h2>
-                      <Button>
-                        <a href={props.repoFrontend} target="_blank">
-                          Acessar
-                        </a>
-                      </Button>
+                      <a href={props.repoFrontend} target="_blank">
+                        <Button>Acessar</Button>
+                      </a>
                     </>
                   ) : null}
                 </div>
@@ -162,11 +158,10 @@ export default function ProjectInfo(props: ProjectInfoProps) {
                   {props.repoBackend ? (
                     <>
                       <h2>Back-end</h2>
-                      <Button>
-                        <a href={props.repoBackend} target="_blank">
-                          Acessar
-                        </a>
-                      </Button>
+
+                      <a href={props.repoBackend} target="_blank">
+                        <Button>Acessar</Button>
+                      </a>
                     </>
                   ) : null}
                 </div>
