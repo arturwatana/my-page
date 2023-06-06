@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ContentContainer from "../layout/ContentContainer/ContentContainer";
 import { useEffect, useState } from "react";
 
 export default function Technologies() {
@@ -78,64 +77,62 @@ export default function Technologies() {
   }, [techState]);
 
   return (
-    <ContentContainer height="419px" width="989px" fade="fade-up">
-      <Flex>
-        <TechArea>
-          <Tittle>Tecnologias</Tittle>
-          <Ul>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              React.js
-            </TechLi>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              Node.js
-            </TechLi>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              PostgreSQL
-            </TechLi>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              MongoDB
-            </TechLi>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              Docker
-            </TechLi>
-            <TechLi
-              onMouseEnter={(e: any) => {
-                setTechState(e.target.innerText);
-              }}
-            >
-              AWS
-            </TechLi>
-          </Ul>
-        </TechArea>
-        <Projects>
-          <Tittle>Projetos utilizados: </Tittle>
-          <ProjectList>
-            {techProjects.map((techProject) => {
-              return <ProjectLi key={techProject}>{techProject}</ProjectLi>;
-            })}
-          </ProjectList>
-        </Projects>
-      </Flex>
-    </ContentContainer>
+    <Flex>
+      <TechArea>
+        <Tittle>Tecnologias</Tittle>
+        <Ul>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            React.js
+          </TechLi>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            Node.js
+          </TechLi>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            PostgreSQL
+          </TechLi>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            MongoDB
+          </TechLi>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            Docker
+          </TechLi>
+          <TechLi
+            onMouseEnter={(e: any) => {
+              setTechState(e.target.innerText);
+            }}
+          >
+            AWS
+          </TechLi>
+        </Ul>
+      </TechArea>
+      <Projects>
+        <Tittle>Projetos utilizados: </Tittle>
+        <ProjectList>
+          {techProjects.map((techProject) => {
+            return <ProjectLi key={techProject}>{techProject}</ProjectLi>;
+          })}
+        </ProjectList>
+      </Projects>
+    </Flex>
   );
 }

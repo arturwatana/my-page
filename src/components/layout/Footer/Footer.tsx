@@ -32,7 +32,7 @@ export default function Footer() {
         <a href="https://github.com/arturwatana">
           <BsLinkedin />
         </a>
-        <a href="github.com/arturwatana">
+        <a href="https://github.com/arturwatana">
           <BsGithub />
         </a>
       </Icons>

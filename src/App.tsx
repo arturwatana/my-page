@@ -63,7 +63,10 @@ function App() {
             </About>
           </AboutMe>
         </ContentContainer>
-        <Technologies />
+        <ContentContainer height="419px" width="989px" fade="fade-up">
+          <Technologies />
+        </ContentContainer>
+
         <ProjectsContainer />
       </Container>
       <Footer />
