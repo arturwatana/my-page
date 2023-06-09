@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import alt from "../../assets/aguarde-em-breve.png";
 import { Link } from "react-router-dom";
 

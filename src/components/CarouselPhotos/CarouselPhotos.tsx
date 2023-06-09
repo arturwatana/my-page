@@ -70,9 +70,14 @@ export default function CarouselPhotos({ photosGallery }: CarouselPhotosProps) {
   return (
     <Slider>
       <Slides className="slides">
-        {photosGallery.map((photo, index) => {
+        {photosGallery.map((a, index) => {
           return (
-            <Radio type="radio" id={`radio${index}`} onClick={handleCarousel} />
+            <Radio
+              type="radio"
+              name={`name${a}`}
+              id={`radio${index}`}
+              onClick={handleCarousel}
+            />
           );
         })}
 
@@ -93,7 +98,9 @@ export default function CarouselPhotos({ photosGallery }: CarouselPhotosProps) {
 
         <div className="navigation-auto">
           {photosGallery.map((photo, index) => {
-            return <div className={`auto-btn${index}`}></div>;
+            return (
+              <div id={`photo${photo}}`} className={`auto-btn${index}`}></div>
+            );
           })}
         </div>
       </Slides>
@@ -101,6 +108,7 @@ export default function CarouselPhotos({ photosGallery }: CarouselPhotosProps) {
         {photosGallery.map((photo, index) => {
           return (
             <ManualBtn
+              id={`photo${photo}`}
               htmlFor={`radio${index}`}
               className={`manual-btn`}
             ></ManualBtn>

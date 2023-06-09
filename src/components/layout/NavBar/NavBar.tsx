@@ -1,7 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [burgerIsOpen, setBurgerIsOpen] = useState<boolean>(false);
