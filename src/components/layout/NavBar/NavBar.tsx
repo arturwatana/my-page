@@ -1,14 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
   const [burgerIsOpen, setBurgerIsOpen] = useState<boolean>(false);
   const Nav = styled.nav`
     width: 100%;
     display: flex;
-    justify-content: flex-end;
-    height: 3em;
+    justify-content: center;
+    align-items: center;
+    height: 3.5em;
     background-color: #c6c2c7;
     position: fixed;
     z-index: 10;
@@ -16,19 +18,25 @@ export default function NavBar() {
   const Ul = styled.ul`
     display: flex;
     align-items: center;
+    justify-content: center;
+    height: 100%;
     list-style: none;
-    margin: 0 5em 1em 0;
   `;
   const Li = styled.li`
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-right: 2em;
     font-size: 22px;
     color: #fff4f4;
-    transition: 0.5s;
+    transition: 0.3s;
     cursor: pointer;
     color: #0c0d0c;
 
     &:hover {
       color: #399fbf;
+      border-bottom: 4px solid #399fbf;
     }
   `;
   const BurgerUL = styled.ul`
@@ -104,8 +112,8 @@ export default function NavBar() {
       </Burger>
 
       <Ul>
-        <Li onClick={scrollUser}>Sobre mim</Li>
-        <Li onClick={scrollUser}> Tecnologias</Li>
+        <Li onClick={scrollUser}> Sobre mim</Li>
+        <Li onClick={scrollUser}>Tecnologias</Li>
         <Li onClick={scrollUser}>Projetos</Li>
       </Ul>
     </Nav>

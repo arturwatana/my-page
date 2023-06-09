@@ -20,6 +20,7 @@ export default function ContentContainer(props: ContentContainerProps) {
     background-color: #c6c2c7;
     border-radius: 20px;
     display: flex;
+    box-shadow: 0.5em 0.5em 2em #222;
 
     @media (max-width: 1430px) {
       width: 95%;

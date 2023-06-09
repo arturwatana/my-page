@@ -78,7 +78,7 @@ export default function Technologies() {
   }, [techState]);
 
   return (
-    <Flex>
+    <Flex id="technologies">
       <TechArea>
         <Tittle>Tecnologias</Tittle>
         <Ul>
