@@ -98,7 +98,7 @@ export class ProjectsRepository implements IProjectRepository {
       photosGallery: [spotifyMain, spotifyLogin],
       tags: ["Desktop"],
       repoFrontEnd: "https://github.com/arturwatana/Spotify-clone",
-      deployLink: "https://to-do-list-artur.vercel.app/",
+      deployLink: "https://spotify-clone-kappa-taupe.vercel.app/",
     },
   ];
   showAll(): ProjectProps[] {
