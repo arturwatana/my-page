@@ -115,6 +115,8 @@ export default function Project() {
           return "#5299521f";
         case "Vitest":
           return "#6ecf481f";
+        case "TailWind CSS":
+          return "#0fafe01f";
       }
     }};
 

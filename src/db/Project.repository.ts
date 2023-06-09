@@ -3,6 +3,8 @@ import scheduleMobile from "../assets/Schedule/Mobile.png";
 import gamerBook from "../assets/gamerBook.png";
 import todolist from "../assets/todolist.png";
 import { IProjectRepository } from "./Project.repository.interface";
+import spotifyLogin from "../assets/SpotifyClone/Login.png";
+import spotifyMain from "../assets/SpotifyClone/Main.png";
 
 export type ProjectProps = {
   id: string;
@@ -84,6 +86,18 @@ export class ProjectsRepository implements IProjectRepository {
       tags: ["Desktop", "API"],
       repoFrontEnd: "https://github.com/arturwatana/to-do-list",
       repoBackEnd: "https://github.com/arturwatana/to-do-list",
+      deployLink: "https://to-do-list-artur.vercel.app/",
+    },
+    {
+      id: "4",
+      name: "Spotify Clone",
+      description:
+        "Esta é uma aplicação para clonar a UI do Spotify utilizando React e TailWind CSS.",
+      techs: ["React.js", "TypeScript", "TailWind CSS", "Vite"],
+      img: spotifyMain,
+      photosGallery: [spotifyMain, spotifyLogin],
+      tags: ["Desktop"],
+      repoFrontEnd: "https://github.com/arturwatana/Spotify-clone",
       deployLink: "https://to-do-list-artur.vercel.app/",
     },
   ];
