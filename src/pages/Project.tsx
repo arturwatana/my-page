@@ -137,6 +137,7 @@ export default function Project() {
     flex-direction: column;
     align-items: start;
     gap: 2em;
+
     button {
       border: none;
       border-radius: 1em;
@@ -146,6 +147,10 @@ export default function Project() {
       padding: 1em;
       text-align: center;
       cursor: pointer;
+      transition: 0.5s;
+      :hover {
+        transform: scale(1.2);
+      }
     }
   `;
 
@@ -220,23 +225,23 @@ export default function Project() {
             </ProjectDetails>
             <ProjectLinks>
               <Buttons>
-                <p>Deploy</p>
+                <p>Deploy:</p>
                 {project.deployLink ? (
-                  <Link to={project.deployLink}>
+                  <Link to={project.deployLink} target="_blank">
                     <button> Deploy</button>
                   </Link>
                 ) : null}
               </Buttons>
               <Buttons>
-                <p>Repositórios</p>
+                <p>Repositórios:</p>
                 <div>
                   {project.repoBackEnd ? (
-                    <Link to={project.repoBackEnd}>
+                    <Link to={project.repoBackEnd} target="_blank">
                       <button> Back-end</button>
                     </Link>
                   ) : null}
                   {project.repoFrontEnd ? (
-                    <Link to={project.repoFrontEnd}>
+                    <Link to={project.repoFrontEnd} target="_blank">
                       <button> Front-end</button>
                     </Link>
                   ) : null}
