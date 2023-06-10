@@ -20,16 +20,26 @@ export default function Footer() {
     align-items: center;
     padding-top: 0.2em;
 
-    & a {
+    a {
       text-decoration: none;
       color: #222;
+
+      :hover:first-child {
+        color: #0e76a8;
+      }
+      :hover:last-child {
+        color: #fff;
+      }
     }
   `;
 
   return (
     <Footer>
       <Icons>
-        <a href="https://github.com/arturwatana" target="_blank">
+        <a
+          href="https://www.linkedin.com/in/artur-watanabe-225020163/"
+          target="_blank"
+        >
           <BsLinkedin />
         </a>
         <a href="https://github.com/arturwatana" target="_blank">
