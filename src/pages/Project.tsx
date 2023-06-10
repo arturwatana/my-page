@@ -203,7 +203,10 @@ export default function Project() {
           <Project>
             <ProjectTittle>{project.name}</ProjectTittle>
             {project.photosGallery ? (
-              <CarouselPhotos photosGallery={project.photosGallery || []} />
+              <CarouselPhotos
+                photosGallery={project.photosGallery}
+                mainImg={project.img}
+              />
             ) : (
               <ProjectImg src={project.img} />
             )}
