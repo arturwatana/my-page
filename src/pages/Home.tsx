@@ -8,6 +8,7 @@ import me from "../assets/mebw.png";
 export default function Home() {
   const Tittle = styled.h1`
     font-size: 42px;
+    width: 100%;
     color: #0c0d0c;
   `;
   const About = styled.p<{ $name?: boolean }>`
@@ -21,6 +22,8 @@ export default function Home() {
   const AboutMe = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-left: 3em;
 
     @media (max-width: 1430px) {
