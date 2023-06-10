@@ -93,10 +93,10 @@ export default function CarouselPhotos({
   `;
 
   const ImgModal = styled.div`
-    object-fit: contain;
     width: 80%;
     height: 80%;
     img {
+      object-fit: contain;
       width: 100%;
       height: 100%;
     }
