@@ -10,7 +10,7 @@ export default function NavBar() {
     justify-content: center;
     align-items: center;
     height: 3.5em;
-    background-color: #c6c2c7;
+    background-color: #464855;
     position: fixed;
     z-index: 10;
   `;
@@ -31,7 +31,6 @@ export default function NavBar() {
     color: #fff4f4;
     transition: 0.3s;
     cursor: pointer;
-    color: #0c0d0c;
 
     &:hover {
       color: #399fbf;

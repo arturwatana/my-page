@@ -86,7 +86,7 @@ export default function CarouselPhotos({
       cursor: pointer;
       z-index: 80;
       height: 5em;
-      width: 5em;
+      width: 10em;
       border-radius: 2em;
       border: none;
     }
