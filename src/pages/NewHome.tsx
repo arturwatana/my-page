@@ -17,7 +17,10 @@ export default function NewHome() {
   });
   const [access, setAccess] = useState<boolean>(false);
   const [closeIntro, setCloseIntro] = useState<boolean>(false);
-  const [redirectToProject, setRedirectToProject] = useState<boolean>(false);
+  const [redirectToProject, setRedirectToProject] = useState<any>({
+    id: "",
+    redirect: false,
+  });
   const [lightMode, setLightMode] = useState<boolean>(false);
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
@@ -318,7 +321,7 @@ export default function NewHome() {
 
   function eraseScreenBeforeRedirect() {
     setTimeout(() => {
-      navigate("/1");
+      navigate(`/${redirectToProject.id}`);
     }, 2000);
   }
 
@@ -344,7 +347,7 @@ export default function NewHome() {
 
       {access ? (
         <>
-          <Wrapper className={redirectToProject ? "erase" : ""}>
+          <Wrapper className={redirectToProject.redirect ? "erase" : ""}>
             <NavBar
               setLightMode={setLightMode}
               textColor={

@@ -15,7 +15,7 @@ type ColorsProps = {
 
 type ProjectCardProps = {
   project: ProjectProps;
-  setRedirectToProject: React.Dispatch<React.SetStateAction<boolean>>;
+  setRedirectToProject: React.Dispatch<React.SetStateAction<any>>;
   colors: ColorsProps;
   theme: string;
 };
@@ -84,7 +84,14 @@ export default function NewProjectCard({
   `;
 
   return (
-    <CardContainer onClick={() => setRedirectToProject(true)}>
+    <CardContainer
+      onClick={() =>
+        setRedirectToProject({
+          id: project.id,
+          redirect: true,
+        })
+      }
+    >
       <div className="imgBlock">
         <img src={project.img} />
       </div>
