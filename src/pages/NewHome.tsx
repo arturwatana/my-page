@@ -277,12 +277,17 @@ export default function NewHome() {
     justify-content: center;
     align-items: center;
     padding: 0 5em 2em 5em;
+    color: ${lightMode
+      ? colors.lightMode["font-primary"]
+      : colors.darkMode["font-primary"]};
 
     h1 {
       font-size: 36px;
-      color: ${lightMode
-        ? colors.lightMode["font-primary"]
-        : colors.darkMode["font-primary"]};
+    }
+
+    p {
+      margin-top: 2em;
+      font-size: 22px;
     }
 
     div {
@@ -375,7 +380,11 @@ export default function NewHome() {
               </FirstSection>
             </div>
             <ProjectsSection className="section-2">
-              <h1>Projetos:</h1>
+              <h1>Melhores projetos:</h1>
+              <p>
+                Aqui destaquei os projetos mais desafiadores, sendo em
+                tecnologias, tempo ou esforco:
+              </p>
               <div className="cards">
                 {projects.map((project) => (
                   <NewProjectCard
@@ -386,6 +395,11 @@ export default function NewHome() {
                   />
                 ))}
               </div>
+
+              <p>
+                Gostaria de ver mais? Entre em contato que terei o prazer de
+                compartilhar. :)
+              </p>
             </ProjectsSection>
           </Wrapper>
         </>

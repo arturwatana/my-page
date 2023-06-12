@@ -37,7 +37,7 @@ export default function NewProjectCard({
         : colors.darkMode["font-primary"]};
     transition: 0.5s;
     border-radius: 1em;
-
+    cursor: pointer;
     :hover {
       transform: scale(1.05);
     }
@@ -70,6 +70,7 @@ export default function NewProjectCard({
 
         p {
           font-size: 18px;
+          text-align: left;
         }
       }
 
@@ -83,8 +84,8 @@ export default function NewProjectCard({
   `;
 
   return (
-    <CardContainer>
-      <div className="imgBlock" onClick={() => setRedirectToProject(true)}>
+    <CardContainer onClick={() => setRedirectToProject(true)}>
+      <div className="imgBlock">
         <img src={project.img} />
       </div>
       <div className="projectDetails">
