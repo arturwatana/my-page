@@ -282,12 +282,12 @@ export default function NewHome() {
       : colors.darkMode["font-primary"]};
 
     h1 {
-      font-size: 36px;
+      font-size: 40px;
     }
 
     p {
       margin-top: 2em;
-      font-size: 22px;
+      font-size: 25px;
     }
 
     div {
@@ -362,7 +362,7 @@ export default function NewHome() {
               <FirstSection className="section-1">
                 <div className="content">
                   <div className="tittle">
-                    <h1>Seja bem vindo!</h1>
+                    <h1>Que ótimo ter voce aqui!</h1>
                   </div>
                   <div className="description">
                     <p>
