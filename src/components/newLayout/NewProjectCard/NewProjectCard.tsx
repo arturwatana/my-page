@@ -31,7 +31,7 @@ export default function NewProjectCard({
     height: 32em;
     width: 50em;
     flex-direction: column;
-    border: 2px solid
+    border: 1px solid
       ${theme === "light"
         ? colors.lightMode["font-primary"]
         : colors.darkMode["font-primary"]};

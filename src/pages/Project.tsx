@@ -24,7 +24,7 @@ export default function Project() {
     font-size: 20px;
     color: white;
     position: fixed;
-    z-index: 50;
+    z-index: 90;
     top: 5%;
     gap: 10px;
     a {
@@ -269,7 +269,7 @@ export default function Project() {
         {project ? (
           <>
             <BackPageP>
-              <Link to="/newhome">Home</Link>
+              <Link to="/">Home</Link>
               <span> - </span>
               <p>{project.name}</p>
             </BackPageP>

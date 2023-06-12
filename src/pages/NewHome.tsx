@@ -313,7 +313,6 @@ export default function NewHome() {
 
   function eraseScreenBeforeRedirect() {
     setTimeout(() => {
-      console.log("2s");
       navigate("/1");
     }, 2000);
   }
