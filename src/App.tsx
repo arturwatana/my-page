@@ -12,9 +12,8 @@ function App() {
       {/* <Body> */}
       {/* <NavBar /> */}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<NewHome />} />
         <Route path="/:id" element={<Project />} />
-        <Route path="/newhome" element={<NewHome />} />
       </Routes>
       {/* <Footer /> */}
       {/* </Body> */}
