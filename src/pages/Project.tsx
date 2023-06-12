@@ -269,7 +269,7 @@ export default function Project() {
         {project ? (
           <>
             <BackPageP>
-              <Link to="/">Home</Link>
+              <Link to="/newhome">Home</Link>
               <span> - </span>
               <p>{project.name}</p>
             </BackPageP>
