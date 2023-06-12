@@ -2,7 +2,6 @@ import "./App.css";
 import "typeface-roboto";
 import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
 import Project from "./pages/Project";
 import NewHome from "./pages/NewHome";
 
