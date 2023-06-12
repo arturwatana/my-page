@@ -1,4 +1,3 @@
-import { text } from "stream/consumers";
 import styled from "styled-components";
 
 type NavBarProps = {

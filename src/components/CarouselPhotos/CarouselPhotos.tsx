@@ -122,8 +122,6 @@ export default function CarouselPhotos({
     cursor: pointer;
   `;
 
-  const ModalImg = styled.img``;
-
   function handleImg(e: any) {
     const imgIndex = e.target.id.slice(5, 7);
     setImg(parseInt(imgIndex));
