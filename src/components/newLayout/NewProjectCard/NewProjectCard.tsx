@@ -35,7 +35,12 @@ export default function NewProjectCard({
       ${theme === "light"
         ? colors.lightMode["font-primary"]
         : colors.darkMode["font-primary"]};
+    transition: 0.5s;
     border-radius: 1em;
+
+    :hover {
+      transform: scale(1.05);
+    }
     div {
       &.imgBlock {
         width: 100%;

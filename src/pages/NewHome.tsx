@@ -276,7 +276,7 @@ export default function NewHome() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5em 0 5em;
+    padding: 0 5em 2em 5em;
 
     h1 {
       font-size: 36px;
