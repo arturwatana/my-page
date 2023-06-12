@@ -14,15 +14,18 @@ export default function Project() {
   const project = projectsRepository.findById(props.id || "");
 
   const ProjectContainer = styled.div`
-    height: 100%;
-    padding: 5em;
+    height: 100vh;
+    width: 100vw;
+    background-color: #222;
   `;
 
   const BackPageP = styled.h1`
-    color: #222;
     display: flex;
     font-size: 20px;
-
+    color: white;
+    position: fixed;
+    z-index: 50;
+    top: 5%;
     gap: 10px;
     a {
       color: rgb(69, 69, 255);
@@ -38,20 +41,45 @@ export default function Project() {
     justify-content: space-evenly;
     gap: 3em;
     align-items: center;
+    color: #fff;
   `;
 
   const ProjectTittle = styled.h1`
     font-size: 40px;
+    width: 100%;
+    margin-bottom: 1em;
   `;
 
   const ProjectImg = styled.img`
-    object-fit: contain;
-    height: 40em;
+    display: none;
+    width: 100%;
+    opacity: 0;
   `;
 
   const ProjectDetails = styled.div`
     width: 100%;
-    height: 100%;
+    padding-left: 5em;
+    padding-bottom: 5em;
+    animation: RenderDetails 2s linear forwards;
+
+    @keyframes RenderDetails {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 0;
+      }
+      50% {
+        display: block;
+        opacity: 0;
+      }
+      75% {
+        opacity: 0.9;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
   `;
 
   const ProjectTags = styled.div`
@@ -59,6 +87,7 @@ export default function Project() {
     align-items: center;
     gap: 1em;
     margin-bottom: 2em;
+
     p {
       font-weight: bold;
       font-size: 18px;
@@ -69,6 +98,7 @@ export default function Project() {
     height: 3em;
     width: 6em;
     border-radius: 2em;
+    color: #fff;
     background-color: ${(props) => {
       switch (props.$name) {
         case "Mobile":
@@ -137,6 +167,18 @@ export default function Project() {
     flex-direction: column;
     align-items: start;
     gap: 2em;
+    animation: hideLinks 2s linear forwards;
+    opacity: 0;
+    display: none;
+
+    @keyframes hideLinks {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
 
     button {
       border: none;
@@ -191,77 +233,111 @@ export default function Project() {
       padding-top: 2em;
     }
   `;
+
+  const Wrapper = styled.div`
+    opacity: 1;
+    height: 100%;
+  `;
+
+  const WrapperCarousel = styled.div`
+    width: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    animation: RenderWrapper 2s linear forwards;
+    z-index: 80;
+    @keyframes RenderWrapper {
+      0% {
+        opacity: 0;
+      }
+      25% {
+        opacity: 0.3;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    img {
+    }
+  `;
   return (
     <ProjectContainer>
-      {project ? (
-        <>
-          <BackPageP>
-            <Link to="/">Home</Link>
-            <span> - </span>
-            <p>{project.name}</p>
-          </BackPageP>
-          <Project>
-            <ProjectTittle>{project.name}</ProjectTittle>
-            {project.photosGallery ? (
-              <CarouselPhotos
-                photosGallery={project.photosGallery}
-                mainImg={project.img}
-              />
-            ) : (
-              <ProjectImg src={project.img} />
-            )}
+      <Wrapper>
+        {project ? (
+          <>
+            <BackPageP>
+              <Link to="/">Home</Link>
+              <span> - </span>
+              <p>{project.name}</p>
+            </BackPageP>
+            <Project>
+              {project.photosGallery ? (
+                <WrapperCarousel>
+                  <CarouselPhotos
+                    photosGallery={project.photosGallery}
+                    mainImg={project.img}
+                  />
+                </WrapperCarousel>
+              ) : (
+                <ProjectImg src={project.img} />
+              )}
 
-            <ProjectDetails>
-              <ProjectTags>
-                <p>Plataformas:</p>
-                {project.tags.map((tag) => (
-                  <Tag $name={tag}>{tag}</Tag>
-                ))}
-              </ProjectTags>
-              <ProjectTags>
-                <p>Tecnologias utilizadas:</p>
-                {project.techs.map((tag) => (
-                  <Tag $name={tag}>{tag}</Tag>
-                ))}
-              </ProjectTags>
-              <ProjectDescription>{project.description}</ProjectDescription>
-            </ProjectDetails>
-            <ProjectLinks>
-              <Buttons>
-                <p>Deploy:</p>
-                {project.deployLink ? (
-                  <Link to={project.deployLink} target="_blank">
-                    <button> Deploy</button>
-                  </Link>
-                ) : null}
-              </Buttons>
-              <Buttons>
-                <p>Repositórios:</p>
-                <div>
-                  {project.repoBackEnd ? (
-                    <Link to={project.repoBackEnd} target="_blank">
-                      <button> Back-end</button>
+              <ProjectDetails>
+                <ProjectTittle>{project.name}</ProjectTittle>
+                <ProjectTags>
+                  <p>Plataformas:</p>
+                  {project.tags.map((tag) => (
+                    <Tag $name={tag}>{tag}</Tag>
+                  ))}
+                </ProjectTags>
+                <ProjectTags>
+                  <p>Tecnologias utilizadas:</p>
+                  {project.techs.map((tag) => (
+                    <Tag $name={tag}>{tag}</Tag>
+                  ))}
+                </ProjectTags>
+                <ProjectDescription>{project.description}</ProjectDescription>
+              </ProjectDetails>
+              <ProjectLinks>
+                <Buttons>
+                  <p>Deploy:</p>
+                  {project.deployLink ? (
+                    <Link to={project.deployLink} target="_blank">
+                      <button> Deploy</button>
                     </Link>
                   ) : null}
-                  {project.repoFrontEnd ? (
-                    <Link to={project.repoFrontEnd} target="_blank">
-                      <button> Front-end</button>
-                    </Link>
-                  ) : null}
-                </div>
-              </Buttons>
-            </ProjectLinks>
-          </Project>
-        </>
-      ) : (
-        <NotFound>
-          <img src={notFound} />
-          <p>
-            Ops, tentamos procurar em todas as dimensões e não encontramos essa
-            página :(
-          </p>
-        </NotFound>
-      )}
+                </Buttons>
+                <Buttons>
+                  <p>Repositórios:</p>
+                  <div>
+                    {project.repoBackEnd ? (
+                      <Link to={project.repoBackEnd} target="_blank">
+                        <button> Back-end</button>
+                      </Link>
+                    ) : null}
+                    {project.repoFrontEnd ? (
+                      <Link to={project.repoFrontEnd} target="_blank">
+                        <button> Front-end</button>
+                      </Link>
+                    ) : null}
+                  </div>
+                </Buttons>
+              </ProjectLinks>
+            </Project>
+          </>
+        ) : (
+          <NotFound>
+            <img src={notFound} />
+            <p>
+              Ops, tentamos procurar em todas as dimensões e não encontramos
+              essa página :(
+            </p>
+          </NotFound>
+        )}
+      </Wrapper>
     </ProjectContainer>
   );
 }

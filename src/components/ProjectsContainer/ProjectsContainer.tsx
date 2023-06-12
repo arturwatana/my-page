@@ -24,6 +24,10 @@ export default function ProjectsContainer() {
     @media (max-width: 1180px) {
       padding: 3em 1em 3em 1em;
     }
+
+    @media (max-width: 995px) {
+      padding: 1em;
+    }
   `;
 
   useEffect(() => {

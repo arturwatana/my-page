@@ -8,11 +8,19 @@ export default function Technologies() {
     border-right: 1px solid #222;
     width: 40%;
     padding: 2em;
+
+    @media (max-width: 708px) {
+      padding: 0.5em;
+    }
   `;
 
   const Projects = styled.div`
     width: 60%;
     padding: 2em;
+
+    @media (max-width: 708px) {
+      padding: 0.5em;
+    }
   `;
 
   const Flex = styled.div`
@@ -24,8 +32,11 @@ export default function Technologies() {
   `;
 
   const Tittle = styled.h1`
-    color: #0c0d0c;
+    color: #455a64;
     font-size: 28px;
+    @media (max-width: 501px) {
+      font-size: 20px;
+    }
   `;
 
   const Ul = styled.ul`
@@ -36,13 +47,16 @@ export default function Technologies() {
   const TechLi = styled.li`
     font-size: 24px;
     margin-top: 0.7em;
-    color: #0c0d0c;
+    color: #455a64;
 
     transition: 0.5s;
     cursor: pointer;
 
     &:hover {
       color: #399fbf;
+    }
+    @media (max-width: 501px) {
+      font-size: 20px;
     }
   `;
 
@@ -55,9 +69,13 @@ export default function Technologies() {
   `;
 
   const ProjectLi = styled.li`
-    color: #0c0d0c;
+    color: #455a64;
     font-size: 22px;
     margin-top: 0.3em;
+
+    @media (max-width: 501px) {
+      font-size: 20px;
+    }
   `;
 
   const projects = {

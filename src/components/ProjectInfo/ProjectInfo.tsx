@@ -45,9 +45,27 @@ export default function ProjectInfo(props: ProjectInfoProps) {
       }
     }
 
-    @media (max-width: 1180px) {
+    @media (max-width: 1920px) {
       flex-direction: column;
       height: 100%;
+
+      a {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 1430px) {
+      height: 50em;
+      a {
+        padding: 2em;
+        height: 100%;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 650px) {
+      height: 25em;
+      padding: 1em;
     }
   `;
 
@@ -64,20 +82,44 @@ export default function ProjectInfo(props: ProjectInfoProps) {
       gap: 1em;
       width: 100%;
     }
+    @media (max-width: 1430px) {
+      font-size: 25px;
+      width: 100%;
+    }
+    @media (max-width: 650px) {
+      width: 100%;
+      padding-left: 0;
+    }
   `;
 
   const ProjectTittle = styled.h1`
     text-align: center;
     color: #222;
+    @media (max-width: 650px) {
+      width: 100%;
+      font-size: 40px;
+    }
+    @media (max-width: 501px) {
+      font-size: 30px;
+    }
   `;
 
   const ProjectDescription = styled.p`
-    font-size: 20px;
+    font-size: 24px;
+    @media (max-width: 650px) {
+      display: none;
+    }
   `;
 
   const ImageBlock = styled.div`
     position: relative;
     transition: 0.5s;
+
+    @media (max-width: 1430px) {
+      img {
+        width: 100%;
+      }
+    }
   `;
 
   return (

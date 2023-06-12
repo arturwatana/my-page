@@ -1,8 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 type CarouselPhotosProps = {
-  photosGallery?: any[];
+  photosGallery: any[];
   mainImg: string;
 };
 
@@ -14,8 +14,8 @@ export default function CarouselPhotos({
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   const Carousel = styled.div`
-    height: 30em;
     position: relative;
+    width: 100%;
   `;
 
   const InputsContainer = styled.div`
@@ -35,16 +35,22 @@ export default function CarouselPhotos({
     height: 1em;
     border-radius: 4em;
     border: 1px solid white;
-    transition: 0.5s;
-    :hover {
+    transition: background-color 0.5s;
+    cursor: pointer;
+
+    &:hover {
       background-color: white;
     }
   `;
 
   const ImgContainer = styled.div`
+    width: 100%;
+    height: 100%;
     img {
-      height: 30em;
-      transition: 0.5s;
+      transition: transform 0.5s;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
     }
   `;
 
@@ -116,10 +122,27 @@ export default function CarouselPhotos({
     cursor: pointer;
   `;
 
+  const ModalImg = styled.img``;
+
   function handleImg(e: any) {
     const imgIndex = e.target.id.slice(5, 7);
-    setImg(imgIndex);
+    setImg(parseInt(imgIndex));
   }
+
+  function handlePreviousImg() {
+    if (img === 0) {
+      return;
+    }
+    setImg(img - 1);
+  }
+
+  function handleNextImg() {
+    if (img >= photosGallery.length - 1) {
+      return;
+    }
+    setImg(img + 1);
+  }
+
   return (
     <Carousel>
       {photosGallery ? (
@@ -140,49 +163,29 @@ export default function CarouselPhotos({
                   Fechar
                 </CloseModalButton>
                 <NavButtons>
-                  <button
-                    onClick={() => {
-                      if (img === 0) {
-                        return;
-                      }
-                      setImg(img - 1);
-                    }}
-                  >
-                    Anterior
-                  </button>
-                  <button
-                    onClick={() => {
-                      if (img >= photosGallery.length - 1) {
-                        return;
-                      }
-                      setImg(img + 1);
-                    }}
-                  >
-                    Proxima
-                  </button>
+                  <button onClick={handlePreviousImg}>Anterior</button>
+                  <button onClick={handleNextImg}>Próxima</button>
                 </NavButtons>
                 <Modal>
                   <ImgModal>
-                    <img src={photosGallery[img]} />
+                    <img src={photosGallery[img]} alt="" />
                   </ImgModal>
                 </Modal>
               </div>
             ) : null}
 
-            {photosGallery?.map((photo, index) => {
-              return (
-                <>
-                  <input
-                    type="radio"
-                    name="carousel-item"
-                    className={photo.slice(0, 1)}
-                    id={`radoo${index}`}
-                    onClick={handleImg}
-                  />
-                  <Label htmlFor={`radoo${index}`}></Label>
-                </>
-              );
-            })}
+            {photosGallery?.map((photo, index) => (
+              <React.Fragment key={index}>
+                <input
+                  type="radio"
+                  name="carousel-item"
+                  className={photo.slice(0, 1)}
+                  id={`radoo${index}`}
+                  onClick={handleImg}
+                />
+                <Label htmlFor={`radoo${index}`} />
+              </React.Fragment>
+            ))}
           </InputsContainer>
           <ImgContainer>
             <img
@@ -193,7 +196,7 @@ export default function CarouselPhotos({
           </ImgContainer>
         </>
       ) : (
-        <img src={mainImg} />
+        <img src={mainImg} alt="" />
       )}
     </Carousel>
   );

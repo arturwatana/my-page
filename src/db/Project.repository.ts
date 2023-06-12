@@ -1,10 +1,10 @@
-import schedule from "../assets/Schedule.png";
+import schedule from "../assets/Schedule/Main1920x1080.png";
 import scheduleMobile from "../assets/Schedule/Mobile.png";
-import gamerBook from "../assets/gamerBook.png";
+import gamerBook from "../assets/GamrBook/Main1920x1080.png";
 import todolist from "../assets/todolist.png";
 import { IProjectRepository } from "./Project.repository.interface";
 import spotifyLogin from "../assets/SpotifyClone/Login.png";
-import spotifyMain from "../assets/SpotifyClone/Main.png";
+import spotifyMain from "../assets/SpotifyClone/Main1920x10808.png";
 
 export type ProjectProps = {
   id: string;
