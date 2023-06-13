@@ -19,11 +19,7 @@ export default function NewHome() {
   const projects = projectsRepository.showAll();
   const [access, setAccess] = useState<boolean>(false);
 
-  const { theme, setTheme, firstAccess, setFirstAccess } =
-    useContext(ContentContext);
-  useEffect(() => {
-    console.log(firstAccess, closeIntro);
-  }, []);
+  const { theme, setTheme } = useContext(ContentContext);
   const colors = {
     lightMode: {
       "bg-primary": "#EDEDED",
