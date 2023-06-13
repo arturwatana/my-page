@@ -3,14 +3,10 @@ import styled from "styled-components";
 type NavBarProps = {
   textColor: string;
   bgColor: string;
-  setLightMode: React.Dispatch<React.SetStateAction<boolean>>;
+  setTheme: React.Dispatch<React.SetStateAction<string>> | undefined;
 };
 
-export default function NavBar({
-  bgColor,
-  textColor,
-  setLightMode,
-}: NavBarProps) {
+export default function NavBar({ bgColor, textColor, setTheme }: NavBarProps) {
   const Nav = styled.nav`
     color: ${textColor};
     display: flex;
@@ -75,7 +71,13 @@ export default function NavBar({
     <NavContainer>
       <div className="centered">
         <ToggleLightMode>
-          <button onClick={() => setLightMode((prev) => !prev)}>
+          <button
+            onClick={() => {
+              setTheme
+                ? setTheme((prev) => (prev === "dark" ? "light" : "dark"))
+                : null;
+            }}
+          >
             {textColor === "#222" ? "Dark Mode" : "Light Mode"}
           </button>
         </ToggleLightMode>

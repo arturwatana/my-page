@@ -4,62 +4,67 @@ type TagProps = {
   name: string;
   width: string;
   height: string;
+  theme: string;
+  children: React.ReactNode;
 };
 
-export default function Tag({ name, width, height }: TagProps) {
+export default function Tag({ name, width, height, theme }: TagProps) {
   const Tag = styled.div<{ $name?: string }>`
     height: ${height};
     width: ${width};
     border-radius: 2em;
+    padding: 1em;
     color: #fff;
     background-color: ${() => {
       switch (name) {
         case "Mobile":
-          return "#f8050521";
+          return theme === "light" ? "#FFD1D9" : "#990019";
         case "Desktop":
-          return "#cc92ee21";
+          return theme === "light" ? "#C5B6E2" : "#392B6F";
         case "API":
-          return "#706f6f21";
+          return theme === "light" ? "#A9A9A9" : "#4D4D4D";
         case "Node.js":
-          return "#2af51720";
+          return theme === "light" ? "#C0FFC0" : "#036300";
         case "React.js":
-          return "#1bc7e61f";
+          return theme === "light" ? "#B4E5FE" : "#0047B2";
         case "Vite":
-          return "#1f51da1f";
+          return theme === "light" ? "#C1C9EF" : "#1A1F50";
         case "CSS":
-          return "#0252ff1f";
+          return theme === "light" ? "#82C2FF" : "#000E3C";
         case "TypeScript":
-          return "#46bfe41f";
+          return theme === "light" ? "#98FF98" : "#067F00";
         case "Express":
-          return "#28eb161f";
+          return theme === "light" ? "#A5F2A5" : "#2B6B2B";
         case "PostgreSQL":
-          return "#aa1d6a1f";
+          return theme === "light" ? "#F098D1" : "#600940";
         case "TypeORM":
-          return "#c9a8161f";
+          return theme === "light" ? "#F2D281" : "#66460F";
         case "JWT":
-          return "#c43eb21f";
+          return theme === "light" ? "#F18F3B" : "#633400";
         case "AWS":
-          return "#df7d0d1f";
+          return theme === "light" ? "#FFC000" : "#7F5000";
         case "MongoDB":
-          return "#4fc9161f";
+          return theme === "light" ? "#B3F38E" : "#2F5700";
         case "Mongoose":
-          return "#3bb6373b";
+          return theme === "light" ? "#9AE25C" : "#2A4900";
         case "HTML":
-          return "#df7d0d1f";
+          return theme === "light" ? "#FFC000" : "#7F5000";
         case "Vanilla JS":
-          return "#fffd82c0";
+          return theme === "light" ? "#FFFDA7" : "#A18D00";
         case "Axios":
-          return "#fabc741f";
+          return theme === "light" ? "#FDBE5C" : "#8C5300";
         case "Docker":
-          return "#2ecde21f";
+          return theme === "light" ? "#A9E4D7" : "#23574B";
         case "Prisma":
-          return "#70176944";
+          return theme === "light" ? "#9B85B6" : "#401057";
         case "Swagger":
-          return "#5299521f";
+          return theme === "light" ? "#89E689" : "#006400";
         case "Vitest":
-          return "#6ecf481f";
+          return theme === "light" ? "#A7D877" : "#3D6218";
         case "TailWind CSS":
-          return "#0fafe01f";
+          return theme === "light" ? "#78C4D4" : "#005F6B";
+        default:
+          return "";
       }
     }};
 

@@ -1,33 +1,29 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/newLayout/NavBar/NavBar";
 import visionaryImg from "../assets/undraw_visionary_technology_re_jfp7.svg";
 import { ProjectsRepository } from "../db/Project.repository";
 import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCard";
+import { ContentContext } from "../App";
 
 export default function NewHome() {
-  const [text, setText] = useState({
-    text: "",
-    completed: false,
-  });
-  const [text2, setText2] = useState({
-    text: "",
-    completed: false,
-  });
-  const [access, setAccess] = useState<boolean>(false);
   const [closeIntro, setCloseIntro] = useState<boolean>(false);
   const [redirectToProject, setRedirectToProject] = useState<any>({
     id: "",
     redirect: false,
   });
-  const [lightMode, setLightMode] = useState<boolean>(false);
+
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
-  const textToWrite = "Olá, sou Artur Watanabe";
-  const textToWrite2 = "Desenvolvedor Full Stack.";
+  const [access, setAccess] = useState<boolean>(false);
 
+  const { theme, setTheme, firstAccess, setFirstAccess } =
+    useContext(ContentContext);
+  useEffect(() => {
+    console.log(firstAccess, closeIntro);
+  }, []);
   const colors = {
     lightMode: {
       "bg-primary": "#EDEDED",
@@ -38,7 +34,202 @@ export default function NewHome() {
       "font-primary": "#fff",
     },
   };
+
+  const Body = styled.body`
+    background-color: ${theme === "light"
+      ? colors.lightMode["bg-primary"]
+      : colors.darkMode["bg-primary"]};
+    height: 100%;
+    width: 100%;
+    transition: 1s;
+    transition: background-color 0.5s ease;
+    animation: colorTransition 1s linear forwards;
+
+    @keyframes colorTransition {
+      from {
+        background-color: ${theme === "light"
+          ? colors.darkMode["bg-primary"]
+          : colors.lightMode["bg-primary"]};
+      }
+
+      to {
+        background-color: ${theme === "light"
+          ? colors.lightMode["bg-primary"]
+          : colors.darkMode["bg-primary"]};
+      }
+    }
+  `;
+
+  const FirstSection = styled.section`
+    height: 100vh;
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: ${theme === "light"
+      ? colors.lightMode["bg-primary"]
+      : colors.darkMode["bg-primary"]};
+
+    animation: colorTransition 1s linear forwards;
+
+    @keyframes colorTransition {
+      from {
+        background-color: ${theme === "light"
+          ? colors.darkMode["bg-primary"]
+          : colors.lightMode["bg-primary"]};
+      }
+
+      to {
+        background-color: ${theme === "light"
+          ? colors.lightMode["bg-primary"]
+          : colors.darkMode["bg-primary"]};
+      }
+    }
+
+    div {
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+      height: 25%;
+
+      &.description {
+        p {
+          font-size: 32px;
+          color: ${theme === "light"
+            ? colors.lightMode["font-primary"]
+            : colors.darkMode["font-primary"]};
+        }
+      }
+
+      h1,
+      h2 {
+        color: ${theme === "light"
+          ? colors.lightMode["font-primary"]
+          : colors.darkMode["font-primary"]};
+      }
+      h1 {
+        font-size: 60px;
+      }
+      h2 {
+        font-size: 37px;
+      }
+    }
+
+    &.green {
+      background-color: green;
+    }
+    &.blue {
+      background-color: blue;
+    }
+  `;
+
+  const Wrapper = styled.div`
+    div {
+      &.centerContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+    }
+
+    &.erase {
+      animation: eraseBody 0.5s linear forwards;
+
+      @keyframes eraseBody {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
+  `;
+  const ProjectsSection = styled.section`
+    background-color: ${theme === "light"
+      ? colors.lightMode["bg-primary"]
+      : colors.darkMode["bg-primary"]};
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5em 2em 5em;
+    color: ${theme === "light"
+      ? colors.lightMode["font-primary"]
+      : colors.darkMode["font-primary"]};
+    animation: colorTransition 1s linear forwards;
+
+    @keyframes colorTransition {
+      from {
+        background-color: ${theme === "light"
+          ? colors.darkMode["bg-primary"]
+          : colors.lightMode["bg-primary"]};
+      }
+
+      to {
+        background-color: ${theme === "light"
+          ? colors.lightMode["bg-primary"]
+          : colors.darkMode["bg-primary"]};
+      }
+    }
+
+    h1 {
+      font-size: 40px;
+    }
+
+    p {
+      margin-top: 2em;
+      font-size: 25px;
+    }
+
+    div {
+      &.cards {
+        margin-top: 3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 80%;
+        height: 100%;
+        gap: 2em;
+      }
+    }
+  `;
+
+  useEffect(() => {
+    if (redirectToProject) {
+      eraseScreenBeforeRedirect();
+    }
+  }, [redirectToProject]);
+
+  function closeIntroContainer() {
+    setAccess(true);
+    setTimeout(() => {
+      setCloseIntro(true);
+    }, 2000);
+  }
+
+  function eraseScreenBeforeRedirect() {
+    setTimeout(() => {
+      navigate(`/${redirectToProject.id}`);
+    }, 2000);
+  }
+  const textToWrite = "Olá, sou Artur Watanabe";
+  const textToWrite2 = "Desenvolvedor Full Stack.";
+
+  const [text, setText] = useState({
+    text: "",
+    completed: false,
+  });
+  const [text2, setText2] = useState({
+    text: "",
+    completed: false,
+  });
+
   const Intro = styled.div`
+    position: static;
     height: 100vh;
     width: 100%;
     background-color: #222;
@@ -47,18 +238,17 @@ export default function NewHome() {
     align-items: center;
     color: #fff;
     overflow: hidden;
-
     &.animation {
       animation: CloseIntro 2s forwards;
 
       @keyframes CloseIntro {
-        from {
+        0% {
           filter: blur(0);
           height: 100vh;
         }
-        to {
-          height: 0vh;
+        100% {
           filter: blur(4px);
+          height: 0vh;
         }
       }
     }
@@ -71,6 +261,7 @@ export default function NewHome() {
     align-items: center;
     width: 100%;
     height: 30%;
+    z-index: 100;
 
     div {
       align-items: center;
@@ -114,13 +305,15 @@ export default function NewHome() {
       }
     }
   `;
-
   const TextContainers = styled.div`
     h1 {
+      width: 100%;
       font-size: 40px;
       border-right: ${text.completed ? "none" : "1px solid white"};
     }
     p {
+      width: 100%;
+
       font-size: 30px;
       animation: typingBorderAnimation 1.5s infinite;
       padding-right: 0.2em;
@@ -192,139 +385,6 @@ export default function NewHome() {
     };
   }, [text]);
 
-  const Body = styled.body`
-    background-color: ${lightMode
-      ? colors.lightMode["bg-primary"]
-      : colors.darkMode["bg-primary"]};
-    height: 100%;
-    width: 100%;
-    transition: 1s;
-  `;
-
-  const FirstSection = styled.section`
-    height: 100vh;
-    display: flex;
-    width: 70%;
-    justify-content: space-between;
-    align-items: center;
-    background-color: ${lightMode
-      ? colors.lightMode["bg-primary"]
-      : colors.darkMode["bg-primary"]};
-
-    div {
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: column;
-      height: 25%;
-
-      &.description {
-        p {
-          font-size: 32px;
-          color: ${lightMode
-            ? colors.lightMode["font-primary"]
-            : colors.darkMode["font-primary"]};
-        }
-      }
-
-      h1,
-      h2 {
-        color: ${lightMode
-          ? colors.lightMode["font-primary"]
-          : colors.darkMode["font-primary"]};
-      }
-      h1 {
-        font-size: 60px;
-      }
-      h2 {
-        font-size: 37px;
-      }
-    }
-
-    &.green {
-      background-color: green;
-    }
-    &.blue {
-      background-color: blue;
-    }
-  `;
-
-  const Wrapper = styled.div`
-    div {
-      &.centerContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-      }
-    }
-    &.erase {
-      animation: eraseBody 0.5s linear forwards;
-
-      @keyframes eraseBody {
-        from {
-          opacity: 1;
-        }
-        to {
-          opacity: 0;
-        }
-      }
-    }
-  `;
-  const ProjectsSection = styled.section`
-    background-color: ${lightMode
-      ? colors.lightMode["bg-primary"]
-      : colors.darkMode["bg-primary"]};
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5em 2em 5em;
-    color: ${lightMode
-      ? colors.lightMode["font-primary"]
-      : colors.darkMode["font-primary"]};
-
-    h1 {
-      font-size: 40px;
-    }
-
-    p {
-      margin-top: 2em;
-      font-size: 25px;
-    }
-
-    div {
-      &.cards {
-        margin-top: 3em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        width: 80%;
-        height: 100%;
-        gap: 2em;
-      }
-    }
-  `;
-
-  useEffect(() => {
-    if (redirectToProject) {
-      eraseScreenBeforeRedirect();
-    }
-  }, [redirectToProject]);
-  function closeIntroContainer() {
-    setAccess(true);
-    setTimeout(() => {
-      setCloseIntro(true);
-    }, 2000);
-  }
-
-  function eraseScreenBeforeRedirect() {
-    setTimeout(() => {
-      navigate(`/${redirectToProject.id}`);
-    }, 2000);
-  }
-
   return (
     <Body>
       {!closeIntro ? (
@@ -347,16 +407,16 @@ export default function NewHome() {
 
       {access ? (
         <>
-          <Wrapper className={redirectToProject.redirect ? "erase" : ""}>
+          <Wrapper className={`${redirectToProject.redirect ? "erase" : ""}`}>
             <NavBar
-              setLightMode={setLightMode}
+              setTheme={setTheme}
               textColor={
-                lightMode
+                theme === "light"
                   ? colors.lightMode["font-primary"]
                   : colors.darkMode["font-primary"]
               }
               bgColor={
-                lightMode
+                theme === "light"
                   ? colors.lightMode["bg-primary"]
                   : colors.darkMode["bg-primary"]
               }
@@ -391,7 +451,7 @@ export default function NewHome() {
               <div className="cards">
                 {projects.map((project) => (
                   <NewProjectCard
-                    theme={lightMode ? "light" : "dark"}
+                    theme={theme === "light" ? "light" : "dark"}
                     colors={colors}
                     project={project}
                     setRedirectToProject={setRedirectToProject}

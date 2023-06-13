@@ -4,6 +4,9 @@ import styled from "styled-components";
 import notFound from "../assets/Lovepik_com-401803274-404-error-code.png";
 import CarouselPhotos from "../components/CarouselPhotos/CarouselPhotos";
 import { TbSquareRoundedLetterX } from "react-icons/tb";
+import Tag from "../components/newLayout/Tag/Tag";
+import { ContentContext } from "../App";
+import { useContext } from "react";
 
 type MatchParams = {
   id: string;
@@ -13,6 +16,7 @@ export default function Project() {
   const projectsRepository = new ProjectsRepository();
   const props = useParams<MatchParams>();
   const project = projectsRepository.findById(props.id || "");
+  const { theme } = useContext(ContentContext);
 
   const ProjectContainer = styled.div`
     height: 100vh;
@@ -99,67 +103,6 @@ export default function Project() {
       font-weight: bold;
       font-size: 18px;
     }
-  `;
-
-  const Tag = styled.div<{ $name?: string }>`
-    height: 3em;
-    width: 6em;
-    border-radius: 2em;
-    color: #fff;
-    background-color: ${(props) => {
-      switch (props.$name) {
-        case "Mobile":
-          return "#f8050521";
-        case "Desktop":
-          return "#cc92ee21";
-        case "API":
-          return "#706f6f21";
-        case "Node.js":
-          return "#2af51720";
-        case "React.js":
-          return "#1bc7e61f";
-        case "Vite":
-          return "#1f51da1f";
-        case "CSS":
-          return "#0252ff1f";
-        case "TypeScript":
-          return "#46bfe41f";
-        case "Express":
-          return "#28eb161f";
-        case "PostgreSQL":
-          return "#aa1d6a1f";
-        case "TypeORM":
-          return "#c9a8161f";
-        case "JWT":
-          return "#c43eb21f";
-        case "AWS":
-          return "#df7d0d1f";
-        case "MongoDB":
-          return "#4fc9161f";
-        case "Mongoose":
-          return "#3bb6373b";
-        case "HTML":
-          return "#df7d0d1f";
-        case "Vanilla JS":
-          return "#fffd82c0";
-        case "Axios":
-          return "#fabc741f";
-        case "Docker":
-          return "#2ecde21f";
-        case "Prisma":
-          return "#70176944";
-        case "Swagger":
-          return "#5299521f";
-        case "Vitest":
-          return "#6ecf481f";
-        case "TailWind CSS":
-          return "#0fafe01f";
-      }
-    }};
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
   `;
 
   const ProjectDescription = styled.p`
@@ -297,13 +240,27 @@ export default function Project() {
                 <ProjectTags>
                   <p>Plataformas:</p>
                   {project.tags.map((tag) => (
-                    <Tag $name={tag}>{tag}</Tag>
+                    <Tag
+                      height="2.5em"
+                      width="8em"
+                      theme={theme ? theme : "dark"}
+                      name={tag}
+                    >
+                      {tag}
+                    </Tag>
                   ))}
                 </ProjectTags>
                 <ProjectTags>
                   <p>Tecnologias utilizadas:</p>
                   {project.techs.map((tag) => (
-                    <Tag $name={tag}>{tag}</Tag>
+                    <Tag
+                      height="2.5em"
+                      width="8em"
+                      theme={theme ? theme : "dark"}
+                      name={tag}
+                    >
+                      {tag}
+                    </Tag>
                   ))}
                 </ProjectTags>
                 <ProjectDescription>{project.description}</ProjectDescription>

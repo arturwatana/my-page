@@ -99,7 +99,9 @@ export default function NewProjectCard({
         <h1>{project.name}</h1>
         <div className="projectTags">
           {project.tags.map((tag) => (
-            <Tag name={tag} height="1.5em" width="4em" />
+            <Tag theme={theme} name={tag} height="1.5em" width="4em">
+              {tag}
+            </Tag>
           ))}
         </div>
         <p>{project.description}</p>
