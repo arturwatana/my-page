@@ -3,6 +3,7 @@ import { ProjectsRepository } from "../db/Project.repository";
 import styled from "styled-components";
 import notFound from "../assets/Lovepik_com-401803274-404-error-code.png";
 import CarouselPhotos from "../components/CarouselPhotos/CarouselPhotos";
+import { TbSquareRoundedLetterX } from "react-icons/tb";
 
 type MatchParams = {
   id: string;
@@ -22,14 +23,20 @@ export default function Project() {
   const BackPageP = styled.h1`
     display: flex;
     font-size: 20px;
-    color: white;
     position: fixed;
     z-index: 90;
     top: 5%;
+    left: 10%;
     gap: 10px;
     a {
-      color: rgb(69, 69, 255);
+      font-size: 50px;
+      color: #ff9a9a;
       text-decoration: none;
+      transition: 0.4s;
+
+      :hover {
+        color: red;
+      }
     }
   `;
 
@@ -269,9 +276,9 @@ export default function Project() {
         {project ? (
           <>
             <BackPageP>
-              <Link to="/">Home</Link>
-              <span> - </span>
-              <p>{project.name}</p>
+              <Link to="/">
+                <TbSquareRoundedLetterX />
+              </Link>
             </BackPageP>
             <Project>
               {project.photosGallery ? (

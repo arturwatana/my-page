@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 type CarouselPhotosProps = {
-  photosGallery: any[];
+  photosGallery?: any[];
   mainImg: string;
 };
 
@@ -135,10 +135,12 @@ export default function CarouselPhotos({
   }
 
   function handleNextImg() {
-    if (img >= photosGallery.length - 1) {
-      return;
+    if (photosGallery) {
+      if (img >= photosGallery.length - 1) {
+        return;
+      }
+      setImg(img + 1);
     }
-    setImg(img + 1);
   }
 
   return (

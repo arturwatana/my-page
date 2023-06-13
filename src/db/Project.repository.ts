@@ -61,6 +61,7 @@ export class ProjectsRepository implements IProjectRepository {
         "Vitest",
       ],
       img: gamerBook,
+      photosGallery: [gamerBook],
       tags: ["API"],
       repoBackEnd: "https://github.com/arturwatana/gamerBook",
       deployLink: "https://gamer-book.vercel.app/docs/",
@@ -83,6 +84,8 @@ export class ProjectsRepository implements IProjectRepository {
         "Axios",
       ],
       img: todolist,
+      photosGallery: [todolist],
+
       tags: ["Desktop", "API"],
       repoFrontEnd: "https://github.com/arturwatana/to-do-list",
       repoBackEnd: "https://github.com/arturwatana/to-do-list",
