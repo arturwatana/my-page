@@ -204,11 +204,13 @@ const Intro = styled.div`
     @keyframes CloseIntro {
       0% {
         filter: blur(0);
+        opacity: 1;
         height: 100vh;
       }
       100% {
         filter: blur(4px);
         height: 0vh;
+        opacity: 0;
       }
     }
   }
@@ -238,30 +240,24 @@ const IntroContainer = styled.div`
     color: white;
     height: 2.5em;
     border-radius: 3em;
-    transition: 0.5s;
     font-size: 20px;
     opacity: 0;
-    animation: PopUpBtn 2s forwards;
+    transform: scale(0);
+    transition: 1s ease;
 
     &.visible {
       opacity: 1;
+    }
+
+    &.render {
+      opacity: 1;
+      transform: scale(1);
     }
 
     :hover {
       background-color: white;
       border: 1px solid #222;
       color: #222;
-    }
-
-    @keyframes PopUpBtn {
-      from {
-        opacity: 0;
-        transform: scale(0);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
     }
   }
 `;
@@ -411,9 +407,13 @@ export default function NewHome() {
                 <p>{text2.text}</p>
               </TextContainers>
             </div>
-            {text2.completed ? (
-              <button onClick={closeIntroContainer}>Acessar</button>
-            ) : null}
+
+            <button
+              onClick={closeIntroContainer}
+              className={text2.completed ? "render" : ""}
+            >
+              Acessar
+            </button>
           </IntroContainer>
         </Intro>
       ) : null}

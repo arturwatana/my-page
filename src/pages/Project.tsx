@@ -59,7 +59,7 @@ const BackPageP = styled.h1`
   }
 `;
 
-const ProjectDiv = styled.div`
+const ProjectDiv = styled.div<{ $theme: string; $colors: ColorsProps }>`
   width: 100%;
   height: 100%;
   display: flex;
@@ -67,7 +67,10 @@ const ProjectDiv = styled.div`
   justify-content: space-evenly;
   gap: 3em;
   align-items: center;
-  color: #fff;
+  color: ${(props) =>
+    props.$theme === "dark"
+      ? props.$colors.darkMode["font-primary"]
+      : props.$colors.lightMode["font-primary"]};
 `;
 
 const ProjectTittle = styled.h1`
@@ -123,6 +126,7 @@ const ProjectTags = styled.div`
 const ProjectDescription = styled.p`
   font-size: 20px;
   margin-top: 2em;
+  width: 80%;
 `;
 
 const ProjectLinks = styled.div`
@@ -245,7 +249,7 @@ export default function Project() {
                 <TbSquareRoundedLetterX />
               </Link>
             </BackPageP>
-            <ProjectDiv>
+            <ProjectDiv $theme={theme} $colors={colors}>
               {project.photosGallery ? (
                 <WrapperCarousel>
                   <CarouselPhotos

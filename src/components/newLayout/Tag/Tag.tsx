@@ -14,7 +14,7 @@ export default function Tag({ name, width, height, theme }: TagProps) {
     width: ${width};
     border-radius: 2em;
     padding: 1em;
-    color: #fff;
+    color: ${theme === "dark" ? "#fff" : "#222"};
     background-color: ${() => {
       switch (name) {
         case "Mobile":
