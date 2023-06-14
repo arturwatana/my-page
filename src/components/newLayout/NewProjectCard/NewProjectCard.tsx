@@ -1,17 +1,7 @@
 import styled from "styled-components";
 import { ProjectProps } from "../../../db/Project.repository";
 import Tag from "../Tag/Tag";
-
-type ColorsProps = {
-  lightMode: {
-    "bg-primary": string;
-    "font-primary": string;
-  };
-  darkMode: {
-    "bg-primary": string;
-    "font-primary": string;
-  };
-};
+import { ColorsProps } from "../../../App";
 
 type ProjectCardProps = {
   project: ProjectProps;

@@ -8,13 +8,38 @@ import { createContext, useState } from "react";
 
 export type myContextProps = {
   theme: string;
-  setTheme?: React.Dispatch<React.SetStateAction<string>>;
+  setTheme: React.Dispatch<React.SetStateAction<string>>;
   firstAccess?: boolean;
   setFirstAccess?: React.Dispatch<React.SetStateAction<boolean>>;
+  colors: ColorsProps;
+};
+
+export type ColorsProps = {
+  lightMode: {
+    "bg-primary": string;
+    "font-primary": string;
+  };
+  darkMode: {
+    "bg-primary": string;
+    "font-primary": string;
+  };
+};
+
+const colors = {
+  lightMode: {
+    "bg-primary": "#EDEDED",
+    "font-primary": "#222",
+  },
+  darkMode: {
+    "bg-primary": "#222",
+    "font-primary": "#fff",
+  },
 };
 
 export const ContentContext = createContext<myContextProps>({
   theme: "dark",
+  colors,
+  setTheme: () => {},
 });
 function App() {
   const [theme, setTheme] = useState<string>("dark");
@@ -25,6 +50,7 @@ function App() {
     setTheme,
     firstAccess,
     setFirstAccess,
+    colors,
   };
 
   return (

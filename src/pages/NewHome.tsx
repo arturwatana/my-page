@@ -5,24 +5,13 @@ import NavBar from "../components/newLayout/NavBar/NavBar";
 import visionaryImg from "../assets/undraw_visionary_technology_re_jfp7.svg";
 import { ProjectsRepository } from "../db/Project.repository";
 import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCard";
-import { ContentContext } from "../App";
+import { ColorsProps, ContentContext } from "../App";
 
-const colors = {
-  lightMode: {
-    "bg-primary": "#EDEDED",
-    "font-primary": "#222",
-  },
-  darkMode: {
-    "bg-primary": "#222",
-    "font-primary": "#fff",
-  },
-};
-
-const Body = styled.body<{ $theme: string }>`
+const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
     props.$theme === "dark"
-      ? colors.darkMode["bg-primary"]
-      : colors.lightMode["bg-primary"]};
+      ? props.$colors.darkMode["bg-primary"]
+      : props.$colors.lightMode["bg-primary"]};
   height: 100%;
   width: 100%;
   transition: background-color 0.5s ease;
@@ -32,20 +21,20 @@ const Body = styled.body<{ $theme: string }>`
     from {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
 
     to {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
   }
 `;
 
-const FirstSection = styled.section<{ $theme: string }>`
+const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
   height: 100vh;
   display: flex;
   width: 70%;
@@ -53,8 +42,8 @@ const FirstSection = styled.section<{ $theme: string }>`
   align-items: center;
   background-color: ${(props) =>
     props.$theme === "dark"
-      ? colors.darkMode["bg-primary"]
-      : colors.lightMode["bg-primary"]};
+      ? props.$colors.darkMode["bg-primary"]
+      : props.$colors.lightMode["bg-primary"]};
   transition: background-color 0.5s ease;
   animation: colorTransition 0.5s linear;
 
@@ -62,15 +51,15 @@ const FirstSection = styled.section<{ $theme: string }>`
     from {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
 
     to {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
   }
 
@@ -85,8 +74,8 @@ const FirstSection = styled.section<{ $theme: string }>`
         font-size: 32px;
         color: ${(props) =>
           props.$theme === "dark"
-            ? colors.darkMode["font-primary"]
-            : colors.lightMode["font-primary"]};
+            ? props.$colors.darkMode["font-primary"]
+            : props.$colors.lightMode["font-primary"]};
       }
     }
 
@@ -94,8 +83,8 @@ const FirstSection = styled.section<{ $theme: string }>`
     h2 {
       color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["font-primary"]
-          : colors.lightMode["font-primary"]};
+          ? props.$colors.darkMode["font-primary"]
+          : props.$colors.lightMode["font-primary"]};
     }
     h1 {
       font-size: 60px;
@@ -137,11 +126,14 @@ const Wrapper = styled.div`
   }
 `;
 
-const ProjectsSection = styled.section<{ $theme: string }>`
+const ProjectsSection = styled.section<{
+  $theme: string;
+  $colors: ColorsProps;
+}>`
   background-color: ${(props) =>
     props.$theme === "dark"
-      ? colors.darkMode["bg-primary"]
-      : colors.lightMode["bg-primary"]};
+      ? props.$colors.darkMode["bg-primary"]
+      : props.$colors.lightMode["bg-primary"]};
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -150,8 +142,8 @@ const ProjectsSection = styled.section<{ $theme: string }>`
   padding: 0 5em 2em 5em;
   color: ${(props) =>
     props.$theme === "dark"
-      ? colors.darkMode["font-primary"]
-      : colors.lightMode["font-primary"]};
+      ? props.$colors.darkMode["font-primary"]
+      : props.$colors.lightMode["font-primary"]};
   transition: background-color 0.5s ease;
 
   animation: colorTransition 0.5s linear;
@@ -160,15 +152,15 @@ const ProjectsSection = styled.section<{ $theme: string }>`
     from {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
 
     to {
       background-color: ${(props) =>
         props.$theme === "dark"
-          ? colors.darkMode["bg-primary"]
-          : colors.lightMode["bg-primary"]};
+          ? props.$colors.darkMode["bg-primary"]
+          : props.$colors.lightMode["bg-primary"]};
     }
   }
 
@@ -312,7 +304,7 @@ export default function NewHome() {
     id: "",
     redirect: false,
   });
-  const { theme, setTheme } = useContext(ContentContext);
+  const { theme, setTheme, colors } = useContext(ContentContext);
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
@@ -400,7 +392,7 @@ export default function NewHome() {
   }, [text]);
 
   return (
-    <Body $theme={theme}>
+    <Body $theme={theme} $colors={colors}>
       {!closeIntro ? (
         <Intro className={access ? "animation" : ""}>
           <IntroContainer>
@@ -436,7 +428,11 @@ export default function NewHome() {
               }
             />
             <div className="centerContainer">
-              <FirstSection $theme={theme} className="section-1">
+              <FirstSection
+                $theme={theme}
+                className="section-1"
+                $colors={colors}
+              >
                 <div className="content">
                   <div className="tittle">
                     <h1>Que ótimo ter voce aqui!</h1>
@@ -456,7 +452,11 @@ export default function NewHome() {
                 />
               </FirstSection>
             </div>
-            <ProjectsSection $theme={theme} className="section-2">
+            <ProjectsSection
+              $theme={theme}
+              className="section-2"
+              $colors={colors}
+            >
               <h1>Melhores projetos:</h1>
               <p>
                 Aqui destaquei os projetos mais desafiadores, sendo em
