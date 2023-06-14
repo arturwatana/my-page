@@ -233,7 +233,7 @@ export default function Project() {
   const projectsRepository = new ProjectsRepository();
   const props = useParams<MatchParams>();
   const project = projectsRepository.findById(props.id || "");
-  const { theme, setTheme, colors } = useContext(ContentContext);
+  const { theme, colors } = useContext(ContentContext);
 
   return (
     <ProjectContainer $theme={theme} $colors={colors}>
