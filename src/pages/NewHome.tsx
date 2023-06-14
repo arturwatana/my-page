@@ -6,6 +6,7 @@ import visionaryImg from "../assets/undraw_visionary_technology_re_jfp7.svg";
 import { ProjectsRepository } from "../db/Project.repository";
 import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCard";
 import { ColorsProps, ContentContext } from "../App";
+import Footer from "../components/layout/Footer/Footer";
 
 const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
@@ -299,16 +300,22 @@ const TextContainers = styled.div<{
 `;
 
 export default function NewHome() {
-  const [closeIntro, setCloseIntro] = useState<boolean>(false);
   const [redirectToProject, setRedirectToProject] = useState<any>({
     id: "",
     redirect: false,
   });
-  const { theme, setTheme, colors } = useContext(ContentContext);
+  const {
+    theme,
+    setTheme,
+    colors,
+    access,
+    setAccess,
+    closeIntro,
+    setCloseIntro,
+  } = useContext(ContentContext);
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
-  const [access, setAccess] = useState<boolean>(false);
 
   useEffect(() => {
     if (redirectToProject) {
@@ -479,6 +486,7 @@ export default function NewHome() {
               </p>
             </ProjectsSection>
           </Wrapper>
+          <Footer />
         </>
       ) : null}
     </Body>

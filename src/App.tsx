@@ -9,9 +9,11 @@ import { createContext, useState } from "react";
 export type myContextProps = {
   theme: string;
   setTheme: React.Dispatch<React.SetStateAction<string>>;
-  firstAccess?: boolean;
-  setFirstAccess?: React.Dispatch<React.SetStateAction<boolean>>;
+  access: boolean;
+  setAccess: React.Dispatch<React.SetStateAction<boolean>>;
   colors: ColorsProps;
+  closeIntro: boolean;
+  setCloseIntro: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type ColorsProps = {
@@ -40,16 +42,23 @@ export const ContentContext = createContext<myContextProps>({
   theme: "dark",
   colors,
   setTheme: () => {},
+  closeIntro: false,
+  setCloseIntro: () => {},
+  access: false,
+  setAccess: () => {},
 });
 function App() {
+  const [closeIntro, setCloseIntro] = useState<boolean>(false);
+  const [access, setAccess] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("dark");
-  const [firstAccess, setFirstAccess] = useState<boolean>(false);
 
   const contextValues = {
     theme,
     setTheme,
-    firstAccess,
-    setFirstAccess,
+    access,
+    setAccess,
+    closeIntro,
+    setCloseIntro,
     colors,
   };
 
@@ -62,7 +71,6 @@ function App() {
           <Route path="/" element={<NewHome />} />
           <Route path="/:id" element={<Project />} />
         </Routes>
-        {/* <Footer /> */}
         {/* </Body> */}
       </Router>
     </ContentContext.Provider>
