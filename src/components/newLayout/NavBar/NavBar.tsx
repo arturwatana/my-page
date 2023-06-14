@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 type NavBarProps = {
@@ -6,71 +7,70 @@ type NavBarProps = {
   setTheme: React.Dispatch<React.SetStateAction<string>> | undefined;
 };
 
+const Nav = styled.nav<{ $textColor: string }>`
+  color: ${(props) => props.$textColor};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Ul = styled.ul`
+  display: flex;
+  list-style: none;
+  gap: 2em;
+  align-items: center;
+  font-size: 25px;
+`;
+
+const Li = styled.li<{ $textColor: string }>`
+  a {
+    color: ${(props) => props.$textColor};
+    text-decoration: none;
+    transition: 0.5s;
+    :hover {
+      color: #399fbf;
+    }
+  }
+`;
+
+const ToggleLightMode = styled.div<{ $textColor: string; $bgColor: string }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  button {
+    border: none;
+    border-radius: 2em;
+    width: 7em;
+    height: 3em;
+    color: ${(props) => props.$bgColor};
+    background-color: ${(props) => props.$textColor};
+    transition: 0.5s;
+  }
+`;
+
+const NavContainer = styled.div`
+  height: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: absolute;
+
+  div {
+    &.centered {
+      display: flex;
+      width: 70%;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+`;
 export default function NavBar({ bgColor, textColor, setTheme }: NavBarProps) {
-  const Nav = styled.nav`
-    color: ${textColor};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  `;
-
-  const Ul = styled.ul`
-    display: flex;
-    list-style: none;
-    gap: 2em;
-    align-items: center;
-    font-size: 25px;
-  `;
-
-  const Li = styled.li`
-    a {
-      color: ${textColor};
-      text-decoration: none;
-      transition: 0.5s;
-      :hover {
-        color: #399fbf;
-      }
-    }
-  `;
-
-  const ToggleLightMode = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    button {
-      border: none;
-      border-radius: 2em;
-      width: 7em;
-      height: 3em;
-      color: ${bgColor};
-      background-color: ${textColor};
-      transition: 0.5s;
-    }
-  `;
-
-  const NavContainer = styled.div`
-    height: 7em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    position: absolute;
-
-    div {
-      &.centered {
-        display: flex;
-        width: 70%;
-        justify-content: space-between;
-        align-items: center;
-      }
-    }
-  `;
-
   return (
     <NavContainer>
       <div className="centered">
-        <ToggleLightMode>
+        <ToggleLightMode $bgColor={bgColor} $textColor={textColor}>
           <button
             onClick={() => {
               setTheme
@@ -81,15 +81,15 @@ export default function NavBar({ bgColor, textColor, setTheme }: NavBarProps) {
             {textColor === "#222" ? "Dark Mode" : "Light Mode"}
           </button>
         </ToggleLightMode>
-        <Nav>
+        <Nav $textColor={textColor}>
           <Ul>
-            <Li>
-              <a href="">Home</a>
+            <Li $textColor={textColor}>
+              <Link to="/">Home</Link>
             </Li>
-            <Li>
+            <Li $textColor={textColor}>
               <a href="">About</a>
             </Li>
-            <Li>
+            <Li $textColor={textColor}>
               <a href="">Projects</a>
             </Li>
           </Ul>

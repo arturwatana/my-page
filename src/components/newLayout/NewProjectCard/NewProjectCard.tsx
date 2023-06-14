@@ -20,71 +20,73 @@ type ProjectCardProps = {
   theme: string;
 };
 
+const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
+  display: flex;
+  height: 32em;
+  width: 50em;
+  flex-direction: column;
+  border: 1px solid
+    ${(props) =>
+      props.$theme === "light"
+        ? props.$colors.lightMode["font-primary"]
+        : props.$colors.darkMode["font-primary"]};
+  transition: 0.5s;
+  border-radius: 1em;
+  cursor: pointer;
+  :hover {
+    transform: scale(1.05);
+  }
+  div {
+    &.imgBlock {
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+      transition: 0.5s;
+      :hover {
+        height: 100%;
+      }
+      img {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 1em 1em 0 0;
+      }
+    }
+
+    &.projectDetails {
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1em 2em;
+      justify-content: space-evenly;
+      color: ${(props) =>
+        props.$theme === "light"
+          ? props.$colors.lightMode["font-primary"]
+          : props.$colors.darkMode["font-primary"]};
+      p {
+        font-size: 18px;
+        text-align: left;
+      }
+    }
+
+    &.projectTags {
+      display: flex;
+      width: 100%;
+      flex-wrap: wrap;
+      gap: 0.5em;
+    }
+  }
+`;
 export default function NewProjectCard({
   project,
   setRedirectToProject,
   colors,
   theme,
 }: ProjectCardProps) {
-  const CardContainer = styled.div`
-    display: flex;
-    height: 32em;
-    width: 50em;
-    flex-direction: column;
-    border: 1px solid
-      ${theme === "light"
-        ? colors.lightMode["font-primary"]
-        : colors.darkMode["font-primary"]};
-    transition: 0.5s;
-    border-radius: 1em;
-    cursor: pointer;
-    :hover {
-      transform: scale(1.05);
-    }
-    div {
-      &.imgBlock {
-        width: 100%;
-        height: 50%;
-        overflow: hidden;
-        transition: 0.5s;
-        :hover {
-          height: 100%;
-        }
-        img {
-          width: 100%;
-          object-fit: contain;
-          border-radius: 1em 1em 0 0;
-        }
-      }
-
-      &.projectDetails {
-        height: 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 1em 2em;
-        justify-content: space-evenly;
-        color: ${theme === "light"
-          ? colors.lightMode["font-primary"]
-          : colors.darkMode["font-primary"]};
-
-        p {
-          font-size: 18px;
-          text-align: left;
-        }
-      }
-
-      &.projectTags {
-        display: flex;
-        width: 100%;
-        flex-wrap: wrap;
-        gap: 0.5em;
-      }
-    }
-  `;
-
   return (
     <CardContainer
+      $colors={colors}
+      $theme={theme}
       onClick={() =>
         setRedirectToProject({
           id: project.id,

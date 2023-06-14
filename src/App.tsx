@@ -7,16 +7,18 @@ import NewHome from "./pages/NewHome";
 import { createContext, useState } from "react";
 
 export type myContextProps = {
-  theme?: string;
+  theme: string;
   setTheme?: React.Dispatch<React.SetStateAction<string>>;
   firstAccess?: boolean;
   setFirstAccess?: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export const ContentContext = createContext<myContextProps>({});
+export const ContentContext = createContext<myContextProps>({
+  theme: "dark",
+});
 function App() {
   const [theme, setTheme] = useState<string>("dark");
-  const [firstAccess, setFirstAccess] = useState<boolean>(true);
+  const [firstAccess, setFirstAccess] = useState<boolean>(false);
 
   const contextValues = {
     theme,
