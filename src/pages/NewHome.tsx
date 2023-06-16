@@ -7,6 +7,8 @@ import { ProjectsRepository } from "../db/Project.repository";
 import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCard";
 import { ColorsProps, ContentContext } from "../App";
 import Footer from "../components/layout/Footer/Footer";
+import About from "../components/newLayout/About/About";
+import AOS from "aos";
 
 const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
@@ -114,7 +116,7 @@ const Wrapper = styled.div`
   }
 
   &.erase {
-    animation: eraseBody 0.5s linear forwards;
+    animation: eraseBody 0.3s linear forwards;
 
     @keyframes eraseBody {
       from {
@@ -183,7 +185,7 @@ const ProjectsSection = styled.section<{
       flex-wrap: wrap;
       width: 80%;
       height: 100%;
-      gap: 2em;
+      gap: 4em;
     }
   }
 `;
@@ -211,6 +213,7 @@ const Intro = styled.div`
         filter: blur(4px);
         height: 0vh;
         opacity: 0;
+        display: none;
       }
     }
   }
@@ -277,8 +280,7 @@ const TextContainers = styled.div<{
     font-size: 30px;
     animation: typingBorderAnimation 1.5s infinite;
     padding-right: 0.2em;
-    border-right: ${(props) =>
-      props.$text2Completed ? "none" : "1px solid white"};
+
     text-align: left;
     text-align: center;
     margin-top: 2em;
@@ -295,6 +297,13 @@ const TextContainers = styled.div<{
   }
 `;
 
+const DivCenter = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`;
+
 export default function NewHome() {
   const [redirectToProject, setRedirectToProject] = useState<any>({
     id: "",
@@ -309,6 +318,7 @@ export default function NewHome() {
     closeIntro,
     setCloseIntro,
   } = useContext(ContentContext);
+
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
@@ -329,10 +339,10 @@ export default function NewHome() {
   function eraseScreenBeforeRedirect() {
     setTimeout(() => {
       navigate(`/${redirectToProject.id}`);
-    }, 2000);
+    }, 500);
   }
   const textToWrite = "Olá, sou Artur Watanabe";
-  const textToWrite2 = "Desenvolvedor Full Stack.";
+  const textToWrite2 = "Desenvolvedor Full Stack";
 
   const [text, setText] = useState({
     text: "",
@@ -362,7 +372,7 @@ export default function NewHome() {
           completed: false,
         };
       });
-    }, 150);
+    }, 100);
 
     return () => {
       clearInterval(write);
@@ -393,6 +403,12 @@ export default function NewHome() {
       clearInterval(write2);
     };
   }, [text]);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
 
   return (
     <Body $theme={theme} $colors={colors}>
@@ -452,17 +468,17 @@ export default function NewHome() {
                     <p>Espero que aproveite ao máximo!</p>
                   </div>
                 </div>
-                <img
-                  src={visionaryImg}
-                  onClick={eraseScreenBeforeRedirect}
-                  alt=""
-                />
+                <img src={visionaryImg} alt="" />
               </FirstSection>
             </div>
+            <DivCenter>
+              <About />
+            </DivCenter>
             <ProjectsSection
               $theme={theme}
               className="section-2"
               $colors={colors}
+              data-aos="fade-up"
             >
               <h1>Melhores projetos:</h1>
               <p>

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { ProjectsRepository } from "../db/Project.repository";
 import styled from "styled-components";
 import notFound from "../assets/Lovepik_com-401803274-404-error-code.png";
@@ -6,7 +6,7 @@ import CarouselPhotos from "../components/CarouselPhotos/CarouselPhotos";
 import { TbSquareRoundedLetterX } from "react-icons/tb";
 import Tag from "../components/newLayout/Tag/Tag";
 import { ColorsProps, ContentContext } from "../App";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 type MatchParams = {
   id: string;
@@ -47,7 +47,7 @@ const BackPageP = styled.h1`
   top: 5%;
   left: 10%;
   gap: 10px;
-  a {
+  svg {
     font-size: 50px;
     color: #ff9a9a;
     text-decoration: none;
@@ -229,6 +229,18 @@ const WrapperCarousel = styled.div`
     }
   }
 
+  &.redirect {
+    animation: redirectAnimation 0.3s linear forwards;
+    @keyframes redirectAnimation {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
+
   img {
   }
 `;
@@ -238,16 +250,27 @@ export default function Project() {
   const props = useParams<MatchParams>();
   const project = projectsRepository.findById(props.id || "");
   const { theme, colors } = useContext(ContentContext);
+  const [redirect, setRedirect] = useState<boolean>(false);
+  const navigate = useNavigate();
+
+  function redirectUser() {
+    setRedirect(true);
+    setTimeout(() => {
+      navigate("/");
+    }, 500);
+  }
 
   return (
-    <ProjectContainer $theme={theme} $colors={colors}>
+    <ProjectContainer
+      $theme={theme}
+      $colors={colors}
+      className={redirect ? "redirect" : ""}
+    >
       <Wrapper>
         {project ? (
           <>
             <BackPageP>
-              <Link to="/">
-                <TbSquareRoundedLetterX />
-              </Link>
+              <TbSquareRoundedLetterX onClick={redirectUser} />
             </BackPageP>
             <ProjectDiv $theme={theme} $colors={colors}>
               {project.photosGallery ? (

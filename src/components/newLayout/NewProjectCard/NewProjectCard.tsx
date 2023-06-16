@@ -15,7 +15,7 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   height: 32em;
   width: 50em;
   flex-direction: column;
-  border: 1px solid
+  box-shadow: 0.2em 0.2em 1em
     ${(props) =>
       props.$theme === "light"
         ? props.$colors.lightMode["font-primary"]

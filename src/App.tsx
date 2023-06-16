@@ -1,5 +1,4 @@
 import "./App.css";
-import "typeface-roboto";
 import "aos/dist/aos.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Project from "./pages/Project";

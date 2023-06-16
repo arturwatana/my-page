@@ -61,8 +61,8 @@ export default function CarouselPhotos({
     height: 100%;
     width: 100%;
     background-color: #222;
-    opacity: 0.4;
-    z-index: 20;
+    opacity: 0.8;
+    z-index: 30;
   `;
 
   const Modal = styled.div`
@@ -80,12 +80,12 @@ export default function CarouselPhotos({
   const NavButtons = styled.div`
     position: fixed;
     width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
     padding: 1em;
     z-index: 40;
     button {
@@ -99,8 +99,8 @@ export default function CarouselPhotos({
   `;
 
   const ImgModal = styled.div`
-    width: 80%;
     height: 80%;
+    z-index: 90;
     img {
       object-fit: contain;
       width: 100%;
@@ -149,12 +149,7 @@ export default function CarouselPhotos({
         <>
           <InputsContainer>
             {modalIsOpen ? (
-              <div>
-                <Layer
-                  onClick={() => {
-                    setModalIsOpen(false);
-                  }}
-                />
+              <Modal>
                 <CloseModalButton
                   onClick={() => {
                     setModalIsOpen(false);
@@ -163,18 +158,21 @@ export default function CarouselPhotos({
                   Fechar
                 </CloseModalButton>
                 <NavButtons>
+                  <Layer
+                    onClick={() => {
+                      setModalIsOpen(false);
+                    }}
+                  />
                   <button onClick={handlePreviousImg}>Anterior</button>
                   <button onClick={handleNextImg}>Próxima</button>
                 </NavButtons>
-                <Modal>
-                  <ImgModal>
-                    <img src={photosGallery[img]} alt="" />
-                  </ImgModal>
-                </Modal>
-              </div>
+                <ImgModal>
+                  <img src={photosGallery[img]} alt="" />
+                </ImgModal>
+              </Modal>
             ) : null}
 
-            {photosGallery?.map((photo, index) => (
+            {photosGallery.map((photo, index) => (
               <React.Fragment key={index}>
                 <input
                   type="radio"
