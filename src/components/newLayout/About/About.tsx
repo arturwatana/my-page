@@ -13,6 +13,7 @@ const Section = styled.section`
   align-items: center;
   justify-content: center;
   gap: 5em;
+  padding-bottom: 3em;
 `;
 
 const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
@@ -41,21 +42,23 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
   h2 {
     text-align: left;
     font-weight: normal;
-    font-size: 32px;
+    font-size: 28px;
   }
   h3 {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: normal;
   }
   div {
-    margin-top: 2em;
+    margin-top: 3em;
     display: flex;
     flex-direction: column;
     gap: 2em;
 
     &.buttons {
+      height: 20%;
       display: flex;
       width: 100%;
+      align-items: center;
       justify-content: flex-end;
       flex-direction: row;
     }
@@ -77,7 +80,7 @@ export default function About() {
 
   return (
     <Section>
-      <AboutDescription $theme={theme} $colors={colors} data-aos="fade-up">
+      <AboutDescription $theme={theme} $colors={colors}>
         <h1>Olá, me chamo Artur Watanabe</h1>
         <div>
           <h2>
@@ -99,7 +102,7 @@ export default function About() {
           </SocialBtn>
         </div>
       </AboutDescription>
-      <AboutImg $colors={colors} $theme={theme} data-aos="fade-left">
+      <AboutImg $colors={colors} $theme={theme}>
         <img src={me}></img>
       </AboutImg>
     </Section>

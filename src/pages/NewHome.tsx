@@ -478,7 +478,6 @@ export default function NewHome() {
               $theme={theme}
               className="section-2"
               $colors={colors}
-              data-aos="fade-up"
             >
               <h1>Melhores projetos:</h1>
               <p>
