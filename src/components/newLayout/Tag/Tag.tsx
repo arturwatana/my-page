@@ -32,7 +32,7 @@ export default function Tag({ name, width, height, theme }: TagProps) {
         case "CSS":
           return theme === "light" ? "#82C2FF" : "#000E3C";
         case "TypeScript":
-          return theme === "light" ? "#98FF98" : "#067F00";
+          return theme === "light" ? "#73c2da" : "#44b0d1";
         case "Express":
           return theme === "light" ? "#A5F2A5" : "#2B6B2B";
         case "PostgreSQL":

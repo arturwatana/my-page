@@ -28,6 +28,8 @@ const Li = styled.li<{ $textColor: string }>`
     color: ${(props) => props.$textColor};
     text-decoration: none;
     transition: 0.5s;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+
     cursor: pointer;
     :hover {
       color: #399fbf;
@@ -48,6 +50,7 @@ const ToggleLightMode = styled.div<{ $textColor: string; $bgColor: string }>`
     color: ${(props) => props.$bgColor};
     background-color: ${(props) => props.$textColor};
     transition: 0.5s;
+    font-family: Arial, Arial, Helvetica, sans-serif;
   }
 `;
 

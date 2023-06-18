@@ -73,7 +73,7 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
 
     &.description {
       p {
-        font-size: 32px;
+        font-size: 30px;
         color: ${(props) =>
           props.$theme === "dark"
             ? props.$colors.darkMode["font-primary"]
@@ -145,6 +145,7 @@ const ProjectsSection = styled.section<{
   $theme: string;
   $colors: ColorsProps;
 }>`
+  padding-bottom: 2em;
   background-color: ${(props) =>
     props.$theme === "dark"
       ? props.$colors.darkMode["bg-primary"]
