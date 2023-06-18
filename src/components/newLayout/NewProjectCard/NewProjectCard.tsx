@@ -12,7 +12,7 @@ type ProjectCardProps = {
 
 const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   display: flex;
-  height: 100%;
+  height: 30em;
   width: 51.5em;
   flex-direction: column;
   box-shadow: 0.2em 0.2em 1em
@@ -25,6 +25,10 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   cursor: pointer;
   :hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 1000px) {
+    height: 100%;
   }
   div {
     &.imgBlock {

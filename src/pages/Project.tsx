@@ -90,8 +90,7 @@ const ProjectImg = styled.img`
 const ProjectDetails = styled.div`
   width: 80%;
   padding-left: 5em;
-  padding-bottom: 5em;
-  animation: RenderDetails 2s linear forwards;
+  animation: RenderDetails 1.5s linear forwards;
   @media (max-width: 500px) {
     padding-left: 2em;
   }
@@ -153,22 +152,35 @@ const ProjectDescription = styled.p`
   font-size: 25px;
 `;
 
-const ProjectLinks = styled.div`
-  margin-top: 2em;
+const ProjectLinks = styled.div<{ $theme: string }>`
   display: flex;
-  width: 100%;
   flex-direction: column;
-  align-items: start;
+  justify-content: center;
+  align-items: flex-start;
   gap: 2em;
-  animation: hideLinks 2s linear forwards;
+  animation: ShowLinks 2s linear forwards;
   opacity: 0;
-  display: none;
-
-  @keyframes hideLinks {
-    from {
+  padding-left: 5em;
+  padding-bottom: 2em;
+  width: 80%;
+  @media (max-width: 500px) {
+    padding-left: 2em;
+  }
+  @keyframes ShowLinks {
+    0% {
       opacity: 0;
     }
-    to {
+    25% {
+      opacity: 0;
+    }
+    50% {
+      display: block;
+      opacity: 0;
+    }
+    75% {
+      opacity: 0.9;
+    }
+    100% {
       opacity: 1;
     }
   }
@@ -176,8 +188,9 @@ const ProjectLinks = styled.div`
   button {
     border: none;
     border-radius: 1em;
-    background-color: #222;
-    color: #ffff;
+    background-color: ${(props) =>
+      props.$theme === "light" ? "#222" : "#fff"};
+    color: ${(props) => (props.$theme === "light" ? "#fff" : "#222")};
     font-weight: bold;
     padding: 1em;
     text-align: center;
@@ -194,7 +207,11 @@ const Buttons = styled.div`
   justify-content: center;
   align-items: center;
   gap: 1em;
-
+  @media (max-width: 500px) {
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
   p {
     font-weight: bold;
     font-size: 18px;
@@ -351,7 +368,7 @@ export default function Project() {
                 </ProjectTags>
                 <ProjectDescription>{project.description}</ProjectDescription>
               </ProjectDetails>
-              <ProjectLinks>
+              <ProjectLinks $theme={theme}>
                 <Buttons>
                   <p>Deploy:</p>
                   {project.deployLink ? (
