@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 type CarouselPhotosProps = {
   photosGallery?: any[];
   mainImg: string;
+  setModalIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  modalIsOpen: boolean;
 };
 
 export default function CarouselPhotos({
   photosGallery,
   mainImg,
+  setModalIsOpen,
+  modalIsOpen,
 }: CarouselPhotosProps) {
   const [img, setImg] = useState<number>(0);
-  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
+
+  useEffect(() => {}, [modalIsOpen]);
 
   const Carousel = styled.div`
     position: relative;

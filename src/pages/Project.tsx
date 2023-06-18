@@ -251,6 +251,7 @@ export default function Project() {
   const { theme, colors, setBackToHome } = useContext(ContentContext);
   const [redirect, setRedirect] = useState<boolean>(false);
   const navigate = useNavigate();
+  const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
 
   function redirectUser() {
     setRedirect(true);
@@ -265,15 +266,20 @@ export default function Project() {
       <Wrapper className={redirect ? "redirect" : ""}>
         {project ? (
           <>
-            <BackPageP>
-              <TbSquareRoundedLetterX onClick={redirectUser} />
-            </BackPageP>
+            {!modalIsOpen ? (
+              <BackPageP>
+                <TbSquareRoundedLetterX onClick={redirectUser} />
+              </BackPageP>
+            ) : null}
+
             <ProjectDiv $theme={theme} $colors={colors}>
               {project.photosGallery ? (
                 <WrapperCarousel>
                   <CarouselPhotos
                     photosGallery={project.photosGallery}
                     mainImg={project.img}
+                    setModalIsOpen={setModalIsOpen}
+                    modalIsOpen={modalIsOpen}
                   />
                 </WrapperCarousel>
               ) : (
