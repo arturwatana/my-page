@@ -35,19 +35,6 @@ export default function CarouselPhotos({
     }
   `;
 
-  const Label = styled.label`
-    width: 1em;
-    height: 1em;
-    border-radius: 4em;
-    border: 1px solid white;
-    transition: background-color 0.5s;
-    cursor: pointer;
-
-    &:hover {
-      background-color: white;
-    }
-  `;
-
   const ImgContainer = styled.div`
     width: 100%;
     height: 100%;
@@ -101,15 +88,18 @@ export default function CarouselPhotos({
       border-radius: 2em;
       border: none;
     }
+
+    @media (max-width: 1990px) {
+      top: 45%;
+      justify-content: space-evenly;
+    }
   `;
 
   const ImgModal = styled.div`
-    height: 80%;
     z-index: 90;
     img {
       object-fit: contain;
       width: 100%;
-      height: 100%;
     }
   `;
 
@@ -117,7 +107,7 @@ export default function CarouselPhotos({
     position: fixed;
     border: 1px solid red;
     height: 10%;
-    left: 96%;
+    left: 76%;
     top: 2%;
     border-radius: 1.5em;
     width: 6em;
@@ -126,11 +116,6 @@ export default function CarouselPhotos({
     border: none;
     cursor: pointer;
   `;
-
-  function handleImg(e: any) {
-    const imgIndex = e.target.id.slice(5, 7);
-    setImg(parseInt(imgIndex));
-  }
 
   function handlePreviousImg() {
     if (img === 0) {
@@ -176,19 +161,6 @@ export default function CarouselPhotos({
                 </ImgModal>
               </Modal>
             ) : null}
-
-            {photosGallery.map((photo, index) => (
-              <React.Fragment key={index}>
-                <input
-                  type="radio"
-                  name="carousel-item"
-                  className={photo.slice(0, 1)}
-                  id={`radoo${index}`}
-                  onClick={handleImg}
-                />
-                <Label htmlFor={`radoo${index}`} />
-              </React.Fragment>
-            ))}
           </InputsContainer>
           <ImgContainer>
             <img

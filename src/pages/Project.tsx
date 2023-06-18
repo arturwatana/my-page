@@ -7,14 +7,15 @@ import { TbSquareRoundedLetterX } from "react-icons/tb";
 import Tag from "../components/newLayout/Tag/Tag";
 import { ColorsProps, ContentContext } from "../App";
 import { useContext, useState } from "react";
+import Footer from "../components/layout/Footer/Footer";
 
 type MatchParams = {
   id: string;
 };
 
 const ProjectContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   background-color: ${(props) =>
     props.$theme === "dark"
       ? props.$colors.darkMode["bg-primary"]
@@ -71,6 +72,7 @@ const ProjectDiv = styled.div<{ $theme: string; $colors: ColorsProps }>`
     props.$theme === "dark"
       ? props.$colors.darkMode["font-primary"]
       : props.$colors.lightMode["font-primary"]};
+  overflow: hidden;
 `;
 
 const ProjectTittle = styled.h1`
@@ -90,6 +92,9 @@ const ProjectDetails = styled.div`
   padding-left: 5em;
   padding-bottom: 5em;
   animation: RenderDetails 2s linear forwards;
+  @media (max-width: 500px) {
+    padding-left: 2em;
+  }
 
   @keyframes RenderDetails {
     0% {
@@ -117,16 +122,36 @@ const ProjectTags = styled.div`
   gap: 1em;
   margin-bottom: 2em;
 
+  @media (max-width: 910px) {
+    flex-direction: column;
+  }
+
+  div {
+    &.tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
+
+      @media (max-width: 910px) {
+        width: 100%;
+      }
+    }
+  }
   p {
     font-weight: bold;
     font-size: 18px;
+    @media (max-width: 910px) {
+      width: 100%;
+    }
   }
 `;
 
 const ProjectDescription = styled.p`
   font-size: 20px;
   margin-top: 2em;
-  width: 80%;
+  width: 100%;
+  font-size: 25px;
+  border: 1px solid red;
 `;
 
 const ProjectLinks = styled.div`
@@ -221,6 +246,7 @@ const Wrapper = styled.div`
 
 const WrapperCarousel = styled.div`
   width: 100%;
+  height: 30em;
   overflow: hidden;
   transition: 0.5s;
   animation: RenderWrapper 2s linear forwards;
@@ -241,6 +267,12 @@ const WrapperCarousel = styled.div`
   }
 
   img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  @media (max-width: 955px) {
+    height: 100%;
   }
 `;
 
@@ -290,29 +322,33 @@ export default function Project() {
                 <ProjectTittle>{project.name}</ProjectTittle>
                 <ProjectTags>
                   <p>Plataformas:</p>
-                  {project.tags.map((tag) => (
-                    <Tag
-                      height="2.5em"
-                      width="8em"
-                      theme={theme ? theme : "dark"}
-                      name={tag}
-                    >
-                      {tag}
-                    </Tag>
-                  ))}
+                  <div className="tags">
+                    {project.tags.map((tag) => (
+                      <Tag
+                        height="2.5em"
+                        width="8em"
+                        theme={theme ? theme : "dark"}
+                        name={tag}
+                      >
+                        {tag}
+                      </Tag>
+                    ))}
+                  </div>
                 </ProjectTags>
                 <ProjectTags>
                   <p>Tecnologias utilizadas:</p>
-                  {project.techs.map((tag) => (
-                    <Tag
-                      height="2.5em"
-                      width="8em"
-                      theme={theme ? theme : "dark"}
-                      name={tag}
-                    >
-                      {tag}
-                    </Tag>
-                  ))}
+                  <div className="tags">
+                    {project.techs.map((tag) => (
+                      <Tag
+                        height="2.5em"
+                        width="8em"
+                        theme={theme ? theme : "dark"}
+                        name={tag}
+                      >
+                        {tag}
+                      </Tag>
+                    ))}
+                  </div>
                 </ProjectTags>
                 <ProjectDescription>{project.description}</ProjectDescription>
               </ProjectDetails>
@@ -353,6 +389,7 @@ export default function Project() {
           </NotFound>
         )}
       </Wrapper>
+      <Footer />
     </ProjectContainer>
   );
 }

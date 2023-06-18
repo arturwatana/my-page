@@ -59,6 +59,12 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
       }
       h1 {
         width: 100%;
+        @media (max-width: 500px) {
+          font-size: 30px;
+        }
+        @media (max-width: 350px) {
+          font-size: 26px;
+        }
       }
     }
 
