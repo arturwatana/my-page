@@ -48,7 +48,10 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
       : props.$colors.lightMode["bg-primary"]};
   transition: background-color 0.5s ease;
   animation: colorTransition 0.5s linear;
-
+  @media (max-width: 1010px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
   @keyframes colorTransition {
     from {
       background-color: ${(props) =>
@@ -71,6 +74,10 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
     flex-direction: column;
     height: 25%;
 
+    @media (max-width: 600px) {
+      gap: 1em;
+    }
+
     &.description {
       p {
         font-size: 30px;
@@ -78,7 +85,22 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
           props.$theme === "dark"
             ? props.$colors.darkMode["font-primary"]
             : props.$colors.lightMode["font-primary"]};
+        @media (max-width: 2160px) {
+          font-size: 28px;
+        }
+        @media (max-width: 1714px) {
+          font-size: 25px;
+        }
+        @media (max-width: 1270px) {
+          font-size: 22px;
+        }
       }
+      @media (max-width: 2160px) {
+        margin-top: 1em;
+      }
+    }
+    @media (max-width: 1010px) {
+      margin-top: 2em;
     }
 
     h1,
@@ -90,12 +112,35 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
     }
     h1 {
       font-size: 60px;
+      @media (max-width: 1714px) {
+        font-size: 50px;
+      }
+      @media (max-width: 1270px) {
+        font-size: 40px;
+      }
+      @media (max-width: 610px) {
+        font-size: 36px;
+      }
+      @media (max-width: 1010px) {
+        margin-bottom: 2em;
+      }
     }
     h2 {
       font-size: 37px;
     }
   }
 
+  img {
+    @media (max-width: 1580px) {
+      width: 45%;
+    }
+    @media (max-width: 1400px) {
+      width: 40%;
+    }
+    @media (max-width: 1010px) {
+      width: 60%;
+    }
+  }
   &.green {
     background-color: green;
   }
@@ -307,6 +352,17 @@ const TextContainers = styled.div<{
       box-shadow: none;
     }
   }
+
+  @media (max-width: 432px) {
+    h1 {
+      font-size: 32px;
+    }
+  }
+  @media (max-width: 320px) {
+    h1 {
+      font-size: 27px;
+    }
+  }
 `;
 
 const DivCenter = styled.div`
@@ -314,6 +370,12 @@ const DivCenter = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+`;
+
+const FinalText = styled.p`
+  @media (max-width: 900px) {
+    width: 70%;
+  }
 `;
 
 export default function NewHome() {
@@ -516,10 +578,10 @@ export default function NewHome() {
                 ))}
               </div>
 
-              <p>
+              <FinalText>
                 Gostaria de ver mais? Entre em contato que terei o prazer de
                 compartilhar. :)
-              </p>
+              </FinalText>
             </ProjectsSection>
             <Footer />
           </Wrapper>

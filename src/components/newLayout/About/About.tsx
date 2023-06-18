@@ -14,14 +14,16 @@ const Section = styled.section`
   justify-content: center;
   gap: 5em;
   padding-bottom: 3em;
+  @media (max-width: 1345px) {
+    flex-direction: column-reverse;
+    height: 100%;
+  }
 `;
 
 const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
   width: 60%;
-  height: 56%;
   display: flex;
   flex-direction: column;
-  padding: 1em;
   box-shadow: 0.2em 0.2em 1em
     ${(props) =>
       props.$theme === "light"
@@ -34,19 +36,43 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
       ? props.$colors.lightMode["font-primary"]
       : props.$colors.darkMode["font-primary"]};
   padding: 3em;
+  @media (max-width: 2240px) {
+    width: 50%;
+  }
+  @media (max-width: 1345px) {
+    width: 100%;
+  }
+  @media (max-width: 650px) {
+    padding: 3em 2em 3em 2em;
+  }
   h1 {
     font-size: 50px;
     width: 100%;
+    @media (max-width: 2230px) {
+      font-size: 42px;
+    }
   }
 
   h2 {
     text-align: left;
     font-weight: normal;
     font-size: 28px;
+    @media (max-width: 2230px) {
+      font-size: 26px;
+    }
+    @media (max-width: 980px) {
+      font-size: 22px;
+    }
   }
   h3 {
     font-size: 28px;
     font-weight: normal;
+    @media (max-width: 2230px) {
+      font-size: 26px;
+    }
+    @media (max-width: 980px) {
+      font-size: 22px;
+    }
   }
   div {
     margin-top: 3em;
@@ -62,6 +88,10 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
       justify-content: flex-end;
       flex-direction: row;
 
+      @media (max-width: 500px) {
+        flex-direction: column;
+      }
+
       a {
         text-decoration: none;
       }
@@ -76,7 +106,13 @@ const AboutImg = styled.div<{ $theme: string; $colors: ColorsProps }>`
   width: 40%;
   transition: 0.5s;
   img {
+    width: 100%;
+    object-fit: contain;
     border-radius: 4em;
+  }
+
+  @media (max-width: 1340px) {
+    transform: scale(1.3);
   }
   :hover {
     transform: scale(1.2);

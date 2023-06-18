@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { RxHamburgerMenu } from "react-icons/rx";
+
+import { useState } from "react";
 
 type NavBarProps = {
   textColor: string;
@@ -13,6 +16,10 @@ const Nav = styled.nav<{ $textColor: string }>`
   justify-content: center;
   align-items: center;
   margin-right: 1em;
+
+  @media (max-width: 1010px) {
+    display: none;
+  }
 `;
 
 const Ul = styled.ul`
@@ -71,12 +78,40 @@ const NavContainer = styled.div`
     }
   }
 `;
+
+const Burger = styled.div<{ $textColor: string }>`
+  color: ${(props) => props.$textColor};
+  height: 100%;
+  position: relative;
+  display: none;
+
+  @media (max-width: 1010px) {
+    display: block;
+  }
+
+  svg {
+    font-size: 40px;
+  }
+
+  ul {
+    position: absolute;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-top: 2em;
+    border: 1px solid red;
+    padding: 1em;
+  }
+`;
+
 export default function NavBar({
   bgColor,
   textColor,
   setTheme,
   setScrollTo,
 }: NavBarProps) {
+  const [burgerIsOpen, setBurgerIsOpen] = useState<boolean>(false);
   return (
     <NavContainer>
       <div className="centered">
@@ -91,6 +126,24 @@ export default function NavBar({
             {textColor === "#222" ? "Dark Mode" : "Light Mode"}
           </button>
         </ToggleLightMode>
+        <Burger $textColor={textColor}>
+          <RxHamburgerMenu onClick={() => setBurgerIsOpen((prev) => !prev)} />
+          {burgerIsOpen ? (
+            <ul>
+              <Li $textColor={textColor}>
+                <p onClick={() => setScrollTo(".section-1")}>Home</p>
+              </Li>
+              <Li $textColor={textColor}>
+                <p onClick={() => setScrollTo(".section-2")}> About</p>
+              </Li>
+              <Li $textColor={textColor}>
+                <p onClick={() => setScrollTo(".section-3")}>Projects</p>
+              </Li>
+            </ul>
+          ) : (
+            ""
+          )}
+        </Burger>
         <Nav $textColor={textColor}>
           <Ul>
             <Li $textColor={textColor}>

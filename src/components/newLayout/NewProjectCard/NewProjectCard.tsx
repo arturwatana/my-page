@@ -12,7 +12,7 @@ type ProjectCardProps = {
 
 const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   display: flex;
-  height: 32em;
+  height: 100%;
   width: 51.5em;
   flex-direction: column;
   box-shadow: 0.2em 0.2em 1em
@@ -56,6 +56,9 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
       p {
         font-size: 18px;
         text-align: left;
+      }
+      h1 {
+        width: 100%;
       }
     }
 
