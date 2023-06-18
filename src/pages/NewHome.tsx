@@ -8,7 +8,6 @@ import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCar
 import { ColorsProps, ContentContext } from "../App";
 import Footer from "../components/layout/Footer/Footer";
 import About from "../components/newLayout/About/About";
-import AOS from "aos";
 
 const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
@@ -127,6 +126,19 @@ const Wrapper = styled.div`
       }
     }
   }
+
+  &.render {
+    animation: RenderBody 0.3s linear forwards;
+
+    @keyframes RenderBody {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  }
 `;
 
 const ProjectsSection = styled.section<{
@@ -142,7 +154,6 @@ const ProjectsSection = styled.section<{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 5em 2em 5em;
   color: ${(props) =>
     props.$theme === "dark"
       ? props.$colors.darkMode["font-primary"]
@@ -183,7 +194,7 @@ const ProjectsSection = styled.section<{
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      width: 80%;
+      width: 70%;
       height: 100%;
       gap: 4em;
     }
@@ -317,8 +328,9 @@ export default function NewHome() {
     setAccess,
     closeIntro,
     setCloseIntro,
+    backToHome,
   } = useContext(ContentContext);
-
+  const [scrollTo, setScrollTo] = useState<string>("section-1");
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
@@ -404,11 +416,17 @@ export default function NewHome() {
     };
   }, [text]);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
+  function redirectUser() {
+    const section = document.querySelector(`${scrollTo}`);
+    section?.scrollIntoView({
+      behavior: "smooth",
     });
-  }, []);
+  }
+
+  useEffect(() => {
+    redirectUser();
+    setScrollTo("section-1");
+  }, [scrollTo]);
 
   return (
     <Body $theme={theme} $colors={colors}>
@@ -436,8 +454,13 @@ export default function NewHome() {
 
       {access ? (
         <>
-          <Wrapper className={`${redirectToProject.redirect ? "erase" : ""}`}>
+          <Wrapper
+            className={`${
+              redirectToProject.redirect ? "erase" : backToHome ? "render" : ""
+            } `}
+          >
             <NavBar
+              setScrollTo={setScrollTo}
               setTheme={setTheme}
               textColor={
                 theme === "light"
@@ -471,19 +494,16 @@ export default function NewHome() {
                 <img src={visionaryImg} alt="" />
               </FirstSection>
             </div>
-            <DivCenter>
+            <DivCenter className="section-2">
               <About />
             </DivCenter>
             <ProjectsSection
               $theme={theme}
-              className="section-2"
+              className="section-3"
               $colors={colors}
             >
-              <h1>Melhores projetos:</h1>
-              <p>
-                Aqui destaquei os projetos mais desafiadores, sendo em
-                tecnologias, tempo ou esforco:
-              </p>
+              <h1>Projetos:</h1>
+
               <div className="cards">
                 {projects.map((project) => (
                   <NewProjectCard
@@ -500,8 +520,8 @@ export default function NewHome() {
                 compartilhar. :)
               </p>
             </ProjectsSection>
+            <Footer />
           </Wrapper>
-          <Footer />
         </>
       ) : null}
     </Body>

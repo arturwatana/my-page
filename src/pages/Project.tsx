@@ -86,7 +86,7 @@ const ProjectImg = styled.img`
 `;
 
 const ProjectDetails = styled.div`
-  width: 100%;
+  width: 80%;
   padding-left: 5em;
   padding-bottom: 5em;
   animation: RenderDetails 2s linear forwards;
@@ -206,6 +206,17 @@ const NotFound = styled.div`
 const Wrapper = styled.div`
   opacity: 1;
   height: 100%;
+  &.redirect {
+    animation: redirectAnimation 0.3s linear forwards;
+    @keyframes redirectAnimation {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0;
+      }
+    }
+  }
 `;
 
 const WrapperCarousel = styled.div`
@@ -229,18 +240,6 @@ const WrapperCarousel = styled.div`
     }
   }
 
-  &.redirect {
-    animation: redirectAnimation 0.3s linear forwards;
-    @keyframes redirectAnimation {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
-  }
-
   img {
   }
 `;
@@ -249,24 +248,21 @@ export default function Project() {
   const projectsRepository = new ProjectsRepository();
   const props = useParams<MatchParams>();
   const project = projectsRepository.findById(props.id || "");
-  const { theme, colors } = useContext(ContentContext);
+  const { theme, colors, setBackToHome } = useContext(ContentContext);
   const [redirect, setRedirect] = useState<boolean>(false);
   const navigate = useNavigate();
 
   function redirectUser() {
     setRedirect(true);
     setTimeout(() => {
+      setBackToHome(true);
       navigate("/");
     }, 500);
   }
 
   return (
-    <ProjectContainer
-      $theme={theme}
-      $colors={colors}
-      className={redirect ? "redirect" : ""}
-    >
-      <Wrapper>
+    <ProjectContainer $theme={theme} $colors={colors}>
+      <Wrapper className={redirect ? "redirect" : ""}>
         {project ? (
           <>
             <BackPageP>

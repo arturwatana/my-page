@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 type NavBarProps = {
   textColor: string;
   bgColor: string;
   setTheme: React.Dispatch<React.SetStateAction<string>> | undefined;
+  setScrollTo: React.Dispatch<React.SetStateAction<string>>;
 };
 
 const Nav = styled.nav<{ $textColor: string }>`
@@ -12,6 +12,7 @@ const Nav = styled.nav<{ $textColor: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 1em;
 `;
 
 const Ul = styled.ul`
@@ -23,10 +24,11 @@ const Ul = styled.ul`
 `;
 
 const Li = styled.li<{ $textColor: string }>`
-  a {
+  p {
     color: ${(props) => props.$textColor};
     text-decoration: none;
     transition: 0.5s;
+    cursor: pointer;
     :hover {
       color: #399fbf;
     }
@@ -59,14 +61,19 @@ const NavContainer = styled.div`
 
   div {
     &.centered {
-      display: flex;
       width: 70%;
+      display: flex;
       justify-content: space-between;
       align-items: center;
     }
   }
 `;
-export default function NavBar({ bgColor, textColor, setTheme }: NavBarProps) {
+export default function NavBar({
+  bgColor,
+  textColor,
+  setTheme,
+  setScrollTo,
+}: NavBarProps) {
   return (
     <NavContainer>
       <div className="centered">
@@ -84,13 +91,13 @@ export default function NavBar({ bgColor, textColor, setTheme }: NavBarProps) {
         <Nav $textColor={textColor}>
           <Ul>
             <Li $textColor={textColor}>
-              <Link to="/">Home</Link>
+              <p onClick={() => setScrollTo(".section-1")}>Home</p>
             </Li>
             <Li $textColor={textColor}>
-              <a href="">About</a>
+              <p onClick={() => setScrollTo(".section-2")}> About</p>
             </Li>
             <Li $textColor={textColor}>
-              <a href="">Projects</a>
+              <p onClick={() => setScrollTo(".section-3")}>Projects</p>
             </Li>
           </Ul>
         </Nav>

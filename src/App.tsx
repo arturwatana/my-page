@@ -13,6 +13,8 @@ export type myContextProps = {
   colors: ColorsProps;
   closeIntro: boolean;
   setCloseIntro: React.Dispatch<React.SetStateAction<boolean>>;
+  backToHome: boolean;
+  setBackToHome: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 export type ColorsProps = {
@@ -45,11 +47,14 @@ export const ContentContext = createContext<myContextProps>({
   setCloseIntro: () => {},
   access: false,
   setAccess: () => {},
+  backToHome: false,
+  setBackToHome: () => {},
 });
 function App() {
   const [closeIntro, setCloseIntro] = useState<boolean>(false);
   const [access, setAccess] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("dark");
+  const [backToHome, setBackToHome] = useState<boolean>(false);
 
   const contextValues = {
     theme,
@@ -59,6 +64,8 @@ function App() {
     closeIntro,
     setCloseIntro,
     colors,
+    backToHome,
+    setBackToHome,
   };
 
   return (

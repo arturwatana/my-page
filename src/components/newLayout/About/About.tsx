@@ -17,8 +17,8 @@ const Section = styled.section`
 `;
 
 const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
-  width: 50%;
-  height: 65%;
+  width: 60%;
+  height: 56%;
   display: flex;
   flex-direction: column;
   padding: 1em;
@@ -61,6 +61,10 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
       align-items: center;
       justify-content: flex-end;
       flex-direction: row;
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 `;
@@ -70,14 +74,16 @@ const AboutImg = styled.div<{ $theme: string; $colors: ColorsProps }>`
   justify-content: center;
   align-items: center;
   width: 40%;
-
+  transition: 0.5s;
   img {
     border-radius: 4em;
+  }
+  :hover {
+    transform: scale(1.2);
   }
 `;
 export default function About() {
   const { theme, colors } = useContext(ContentContext);
-
   return (
     <Section>
       <AboutDescription $theme={theme} $colors={colors}>
@@ -85,21 +91,28 @@ export default function About() {
         <div>
           <h2>
             Desde sempre, tive interesse pela programação e decidi explorar esse
-            mundo em 2021. Tenho me dedicado cada vez mais em aprimorar meus
+            mundo em 2021. Tenho me dedicado cada vez mais a aprimorar meus
             projetos e acompanhar as novas tecnologias disponíveis.
           </h2>
           <h3>
-            Atuo principalmente com React.js, Node.js, TypeScript, Docker,
-            PostgreSQL, MongoDB e Figma.
+            Atualmente, trabalho principalmente com React.js, Node.js,
+            TypeScript, Docker, PostgreSQL, MongoDB e Figma.
           </h3>
         </div>
         <div className="buttons">
-          <SocialBtn btnColor="#0072B1" name="Linkedin">
-            <BsLinkedin className="linkedin" />
-          </SocialBtn>
-          <SocialBtn btnColor="#171515" name="Github">
-            <VscGithub className="github" />
-          </SocialBtn>
+          <a
+            href="https://www.linkedin.com/in/artur-watanabe-225020163/"
+            target="_blank"
+          >
+            <SocialBtn btnColor="#0072B1" name="Linkedin">
+              <BsLinkedin className="linkedin" />
+            </SocialBtn>
+          </a>
+          <a href="https://www.github.com/arturwatana" target="_blank">
+            <SocialBtn btnColor="#171515" name="Github">
+              <VscGithub className="github" />
+            </SocialBtn>
+          </a>
         </div>
       </AboutDescription>
       <AboutImg $colors={colors} $theme={theme}>
