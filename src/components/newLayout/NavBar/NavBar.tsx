@@ -79,7 +79,7 @@ const NavContainer = styled.div`
   }
 `;
 
-const Burger = styled.div<{ $textColor: string }>`
+const Burger = styled.div<{ $textColor: string; $bgColor: string }>`
   color: ${(props) => props.$textColor};
   height: 100%;
   position: relative;
@@ -96,8 +96,9 @@ const Burger = styled.div<{ $textColor: string }>`
   ul {
     border-radius: 1em;
     border: 1px solid white;
-    background-color: #222;
+    background-color: ${(props) => props.$bgColor};
     position: absolute;
+    color: ${(props) => props.$textColor};
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -131,7 +132,7 @@ export default function NavBar({
             {textColor === "#222" ? "Dark Mode" : "Light Mode"}
           </button>
         </ToggleLightMode>
-        <Burger $textColor={textColor}>
+        <Burger $textColor={textColor} $bgColor={bgColor}>
           <RxHamburgerMenu onClick={() => setBurgerIsOpen((prev) => !prev)} />
           {burgerIsOpen ? (
             <ul>
