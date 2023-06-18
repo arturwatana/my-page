@@ -94,14 +94,19 @@ const Burger = styled.div<{ $textColor: string }>`
   }
 
   ul {
+    border-radius: 1em;
+    border: 1px solid white;
+    background-color: #222;
     position: absolute;
     list-style: none;
     display: flex;
     flex-direction: column;
+    top: 0;
+    left: -2em;
     gap: 2em;
     margin-top: 2em;
-    border: 1px solid red;
     padding: 1em;
+    font-size: 20px;
   }
 `;
 

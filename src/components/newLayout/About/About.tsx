@@ -103,7 +103,7 @@ const AboutImg = styled.div<{ $theme: string; $colors: ColorsProps }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40%;
+  width: 30%;
   transition: 0.5s;
   img {
     width: 100%;
@@ -112,10 +112,11 @@ const AboutImg = styled.div<{ $theme: string; $colors: ColorsProps }>`
   }
 
   @media (max-width: 1340px) {
+    width: 50%;
     transform: scale(1.3);
   }
   :hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
   }
 `;
 export default function About() {

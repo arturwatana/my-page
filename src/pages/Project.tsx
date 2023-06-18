@@ -151,7 +151,6 @@ const ProjectDescription = styled.p`
   margin-top: 2em;
   width: 100%;
   font-size: 25px;
-  border: 1px solid red;
 `;
 
 const ProjectLinks = styled.div`
