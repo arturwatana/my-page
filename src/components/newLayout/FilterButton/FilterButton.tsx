@@ -25,7 +25,7 @@ const Button = styled.button<{ $theme: string }>`
     border: 1px solid ${(props) => (props.$theme === "dark" ? "#222" : "#fff")};
   }
   @media (max-width: 440px) {
-    width: em;
+    width: 7em;
   }
 `;
 

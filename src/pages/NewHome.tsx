@@ -360,7 +360,7 @@ const TextContainers = styled.div<{
     padding-right: 0.2em;
     text-align: left;
     text-align: center;
-    margin-top: 1em;
+    margin-top: 1.5em;
     font-size: 18px;
   }
 
