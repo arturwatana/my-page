@@ -612,6 +612,7 @@ export default function NewHome() {
                 <FilterButton
                   theme={theme}
                   setFilterProjects={setFilterProjects}
+                  filterProjects={filterProjects}
                 />
               </div>
               <div className="cards">
