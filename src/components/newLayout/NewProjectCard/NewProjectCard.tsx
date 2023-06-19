@@ -40,6 +40,7 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
       :hover {
         height: 100%;
       }
+
       img {
         width: 100%;
         object-fit: contain;
@@ -53,23 +54,24 @@ const ProjectDetails = styled.div<{ $theme: string; $colors: ColorsProps }>`
   display: flex;
   height: 50%;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
   padding: 1em 2em;
   color: ${(props) =>
     props.$theme === "light"
       ? props.$colors.lightMode["font-primary"]
       : props.$colors.darkMode["font-primary"]};
-  p {
-    font-size: 20px;
-    text-align: left;
-    line-height: 24px;
+
+  @media (max-width: 1000px) {
+    height: 100%;
+    gap: 1em;
   }
 
   div {
     &.details {
       display: flex;
+      justify-content: space-evenly;
       flex-direction: column;
-      justify-content: center;
+      height: 40%;
     }
     &.projectTags {
       display: flex;
@@ -88,6 +90,14 @@ const ProjectDetails = styled.div<{ $theme: string; $colors: ColorsProps }>`
     }
   }
 `;
+
+const ProjectDescription = styled.p`
+  font-size: 18px;
+  font-weight: lighter;
+  text-align: left;
+  line-height: 24px;
+`;
+
 export default function NewProjectCard({
   project,
   setRedirectToProject,
@@ -110,16 +120,14 @@ export default function NewProjectCard({
       </div>
       <ProjectDetails $colors={colors} $theme={theme}>
         <h1>{project.name}</h1>
-        <div className="details">
-          <div className="projectTags">
-            {project.tags.map((tag) => (
-              <Tag theme={theme} name={tag} height="1.5em" width="4em">
-                {tag}
-              </Tag>
-            ))}
-          </div>
-          <p>{project.shortDescription}</p>
+        <div className="projectTags">
+          {project.tags.map((tag) => (
+            <Tag theme={theme} name={tag} height="1.5em" width="4em">
+              {tag}
+            </Tag>
+          ))}
         </div>
+        <ProjectDescription>{project.shortDescription}</ProjectDescription>
       </ProjectDetails>
     </CardContainer>
   );

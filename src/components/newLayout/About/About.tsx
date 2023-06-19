@@ -51,6 +51,12 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
     @media (max-width: 2230px) {
       font-size: 42px;
     }
+    @media (max-width: 650px) {
+      font-size: 32px;
+    }
+    @media (max-width: 450px) {
+      font-size: 26px;
+    }
   }
 
   h2 {
@@ -63,6 +69,9 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
     @media (max-width: 980px) {
       font-size: 22px;
     }
+    @media (max-width: 650px) {
+      font-size: 18px;
+    }
   }
   h3 {
     font-size: 28px;
@@ -72,6 +81,9 @@ const AboutDescription = styled.div<{ $theme: string; $colors: ColorsProps }>`
     }
     @media (max-width: 980px) {
       font-size: 22px;
+    }
+    @media (max-width: 650px) {
+      font-size: 18px;
     }
   }
   div {

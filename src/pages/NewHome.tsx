@@ -75,8 +75,11 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
     flex-direction: column;
     height: 25%;
 
-    @media (max-width: 600px) {
+    @media (max-width: 1000px) {
       gap: 1em;
+    }
+    @media (max-width: 600px) {
+      height: 30%;
     }
 
     &.description {
@@ -96,6 +99,9 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
         @media (max-width: 1270px) {
           font-size: 22px;
         }
+        @media (max-width: 600px) {
+          font-size: 20px;
+        }
       }
       @media (max-width: 2160px) {
         margin-top: 1em;
@@ -103,6 +109,9 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
     }
     @media (max-width: 1010px) {
       margin-top: 2em;
+    }
+    @media (max-width: 400px) {
+      height: 40%;
     }
 
     h1,
@@ -120,11 +129,8 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
       @media (max-width: 1270px) {
         font-size: 40px;
       }
-      @media (max-width: 610px) {
-        font-size: 36px;
-      }
-      @media (max-width: 1010px) {
-        margin-bottom: 2em;
+      @media (max-width: 600px) {
+        font-size: 32px;
       }
     }
     h2 {
@@ -228,11 +234,6 @@ const ProjectsSection = styled.section<{
 
   h1 {
     font-size: 40px;
-  }
-
-  p {
-    margin-top: 2em;
-    font-size: 25px;
   }
 
   div {
@@ -393,6 +394,8 @@ const DivCenter = styled.div`
 `;
 
 const FinalText = styled.p`
+  margin-top: 2em;
+  font-size: 25px;
   @media (max-width: 900px) {
     width: 70%;
   }

@@ -10,6 +10,9 @@ const Button = styled.button<{ $theme: string }>`
   background-color: ${(props) => (props.$theme === "light" ? "#222" : "#fff")};
   color: ${(props) => (props.$theme === "light" ? "#fff" : "#222")};
   cursor: pointer;
+  @media (max-width: 440px) {
+    width: 7em;
+  }
 `;
 
 type FilterButtonProps = {
