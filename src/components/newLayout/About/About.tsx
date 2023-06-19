@@ -2,7 +2,7 @@ import styled from "styled-components";
 import me from "../../../assets/mebw.png";
 import { useContext } from "react";
 import { ColorsProps, ContentContext } from "../../../App";
-import SocialBtn from "../../layout/SocialBtn/SocialBtn";
+import SocialBtn from "../SocialBtn/SocialBtn";
 import { BsLinkedin } from "react-icons/bs";
 import { VscGithub } from "react-icons/vsc";
 
@@ -11,7 +11,7 @@ const Section = styled.section`
   width: 70%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 5em;
   padding-bottom: 3em;
   @media (max-width: 1345px) {
@@ -116,7 +116,7 @@ const AboutImg = styled.div<{ $theme: string; $colors: ColorsProps }>`
     transform: scale(1.3);
   }
   :hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
   }
 `;
 export default function About() {

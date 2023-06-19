@@ -3,11 +3,12 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import NavBar from "../components/newLayout/NavBar/NavBar";
 import visionaryImg from "../assets/undraw_visionary_technology_re_jfp7.svg";
-import { ProjectsRepository } from "../db/Project.repository";
+import { ProjectProps, ProjectsRepository } from "../db/Project.repository";
 import NewProjectCard from "../components/newLayout/NewProjectCard/NewProjectCard";
 import { ColorsProps, ContentContext } from "../App";
-import Footer from "../components/layout/Footer/Footer";
+import Footer from "../components/newLayout/Footer/Footer";
 import About from "../components/newLayout/About/About";
+import FilterButton from "../components/newLayout/FilterButton/FilterButton";
 
 const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
@@ -80,6 +81,7 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
 
     &.description {
       p {
+        line-height: 40px;
         font-size: 30px;
         color: ${(props) =>
           props.$theme === "dark"
@@ -244,6 +246,24 @@ const ProjectsSection = styled.section<{
       height: 100%;
       gap: 4em;
     }
+
+    &.filterButtons {
+      display: flex;
+      gap: 2em;
+      margin-top: 2em;
+
+      @media (max-width: 1400px) {
+        gap: 2em;
+        width: 70%;
+      }
+      @media (max-width: 1400px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+        width: 70%;
+      }
+    }
   }
 `;
 
@@ -397,12 +417,31 @@ export default function NewHome() {
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
   const projects = projectsRepository.showAll();
+  const [filterProjects, setFilterProjects] = useState<string>("Todos");
+  const [projectsToShow, setProjectsToShow] = useState<ProjectProps[]>([]);
 
   useEffect(() => {
     if (redirectToProject) {
       eraseScreenBeforeRedirect();
     }
   }, [redirectToProject]);
+
+  function renderFilteredProjects() {
+    if (filterProjects === "Todos") {
+      setProjectsToShow(projects);
+      return;
+    }
+    setProjectsToShow([]);
+    projects.map((project) => {
+      if (project.techs.findIndex((tech) => tech === filterProjects) != -1) {
+        setProjectsToShow((prev) => [...prev, project]);
+      }
+    });
+  }
+
+  useEffect(() => {
+    renderFilteredProjects();
+  }, [filterProjects]);
 
   function closeIntroContainer() {
     setAccess(true);
@@ -416,7 +455,7 @@ export default function NewHome() {
       navigate(`/${redirectToProject.id}`);
     }, 500);
   }
-  const textToWrite = "Olá, sou Artur Watanabe";
+  const textToWrite = "Artur Watanabe";
   const textToWrite2 = "Desenvolvedor Full Stack";
 
   const [text, setText] = useState({
@@ -566,9 +605,14 @@ export default function NewHome() {
               $colors={colors}
             >
               <h1>Projetos:</h1>
-
+              <div className="filterButtons">
+                <FilterButton
+                  theme={theme}
+                  setFilterProjects={setFilterProjects}
+                />
+              </div>
               <div className="cards">
-                {projects.map((project) => (
+                {projectsToShow.map((project) => (
                   <NewProjectCard
                     theme={theme === "light" ? "light" : "dark"}
                     colors={colors}

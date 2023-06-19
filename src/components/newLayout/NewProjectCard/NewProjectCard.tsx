@@ -22,6 +22,7 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
         : props.$colors.darkMode["font-primary"]};
   transition: 0.5s;
   border-radius: 1em;
+
   cursor: pointer;
   :hover {
     transform: scale(1.05);
@@ -32,8 +33,8 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   }
   div {
     &.imgBlock {
-      width: 100%;
       height: 50%;
+      width: 100%;
       overflow: hidden;
       transition: 0.5s;
       :hover {
@@ -45,38 +46,45 @@ const CardContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
         border-radius: 1em 1em 0 0;
       }
     }
+  }
+`;
 
-    &.projectDetails {
-      height: 50%;
+const ProjectDetails = styled.div<{ $theme: string; $colors: ColorsProps }>`
+  display: flex;
+  height: 50%;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1em 2em;
+  color: ${(props) =>
+    props.$theme === "light"
+      ? props.$colors.lightMode["font-primary"]
+      : props.$colors.darkMode["font-primary"]};
+  p {
+    font-size: 20px;
+    text-align: left;
+    line-height: 24px;
+  }
+
+  div {
+    &.details {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 1em 2em;
-      justify-content: space-evenly;
-      color: ${(props) =>
-        props.$theme === "light"
-          ? props.$colors.lightMode["font-primary"]
-          : props.$colors.darkMode["font-primary"]};
-      p {
-        font-size: 18px;
-        text-align: left;
-      }
-      h1 {
-        width: 100%;
-        @media (max-width: 500px) {
-          font-size: 30px;
-        }
-        @media (max-width: 350px) {
-          font-size: 26px;
-        }
-      }
     }
-
     &.projectTags {
       display: flex;
       width: 100%;
       flex-wrap: wrap;
       gap: 0.5em;
+    }
+  }
+  h1 {
+    width: 100%;
+    @media (max-width: 500px) {
+      font-size: 30px;
+    }
+    @media (max-width: 350px) {
+      font-size: 26px;
     }
   }
 `;
@@ -100,17 +108,19 @@ export default function NewProjectCard({
       <div className="imgBlock">
         <img src={project.img} />
       </div>
-      <div className="projectDetails">
+      <ProjectDetails $colors={colors} $theme={theme}>
         <h1>{project.name}</h1>
-        <div className="projectTags">
-          {project.tags.map((tag) => (
-            <Tag theme={theme} name={tag} height="1.5em" width="4em">
-              {tag}
-            </Tag>
-          ))}
+        <div className="details">
+          <div className="projectTags">
+            {project.tags.map((tag) => (
+              <Tag theme={theme} name={tag} height="1.5em" width="4em">
+                {tag}
+              </Tag>
+            ))}
+          </div>
+          <p>{project.shortDescription}</p>
         </div>
-        <p>{project.description}</p>
-      </div>
+      </ProjectDetails>
     </CardContainer>
   );
 }

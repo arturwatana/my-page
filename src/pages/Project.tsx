@@ -7,7 +7,7 @@ import { TbSquareRoundedLetterX } from "react-icons/tb";
 import Tag from "../components/newLayout/Tag/Tag";
 import { ColorsProps, ContentContext } from "../App";
 import { useContext, useState } from "react";
-import Footer from "../components/layout/Footer/Footer";
+import Footer from "../components/newLayout/Footer/Footer";
 
 type MatchParams = {
   id: string;
