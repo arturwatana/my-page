@@ -150,6 +150,7 @@ const ProjectDescription = styled.p`
   margin-top: 2em;
   width: 100%;
   font-size: 25px;
+  font-weight: lighter;
 `;
 
 const ProjectLinks = styled.div<{ $theme: string }>`

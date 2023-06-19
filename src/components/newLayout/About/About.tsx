@@ -139,9 +139,10 @@ export default function About() {
         <h1>Olá, me chamo Artur Watanabe</h1>
         <div>
           <h2>
-            Desde sempre, tive interesse pela programação e decidi explorar esse
-            mundo em 2021. Tenho me dedicado cada vez mais a aprimorar meus
-            projetos e acompanhar as novas tecnologias disponíveis.
+            Desde sempre, tive interesse pela tecnologia e decidi explorar esse
+            mundo da programação em 2021. Tenho me dedicado cada vez mais a
+            aprimorar meus projetos e acompanhar as novas tecnologias
+            disponíveis.
           </h2>
           <h3>
             Atualmente, trabalho principalmente com React.js, Node.js,

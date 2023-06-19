@@ -26,7 +26,7 @@ export class ProjectsRepository implements IProjectRepository {
       id: "1",
       name: "Schedule React",
       description:
-        "Aplicacao construida com o intuito de gerenciar tarefas. Front-end construido com React e css. Back-end construido com Node.JS utilizando Express e uma instancia de PostgreSQL aberta na AWS. Possui também versão mobile.",
+        "Este projeto foi uma oportunidade para aprimorar minhas habilidades em React. Ao desenvolver a aplicação, explorei o conceito de Single-Page Application (SPA), criando uma interface interativa e responsiva para os usuários. Utilizei React.js, CSS e Vite para construir o front-end, enquanto o back-end foi implementado com Node.js, Express e PostgreSQL. A aplicação também conta com uma versão mobile para oferecer uma experiência otimizada em dispositivos móveis",
       shortDescription:
         "Aplicacao construida com o intuito de gerenciar tarefas. Front-end construido com React e css. Back-end construido com Node.JS utilizando Express e uma instancia de PostgreSQL aberta na AWS. Possui também versão mobile.",
       techs: [

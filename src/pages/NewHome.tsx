@@ -9,6 +9,7 @@ import { ColorsProps, ContentContext } from "../App";
 import Footer from "../components/newLayout/Footer/Footer";
 import About from "../components/newLayout/About/About";
 import FilterButton from "../components/newLayout/FilterButton/FilterButton";
+import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
 const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
@@ -349,13 +350,12 @@ const TextContainers = styled.div<{
 }>`
   h1 {
     width: 100%;
-    font-size: 40px;
+    font-size: 45px;
     border-right: ${(props) =>
       props.$textCompleted ? "none" : "1px solid white"};
   }
   p {
     width: 100%;
-    font-size: 30px;
     animation: typingBorderAnimation 1.5s infinite;
     padding-right: 0.2em;
     text-align: left;
@@ -421,6 +421,7 @@ export default function NewHome() {
   const projects = projectsRepository.showAll();
   const [filterProjects, setFilterProjects] = useState<string>("Todos");
   const [projectsToShow, setProjectsToShow] = useState<ProjectProps[]>([]);
+  const [scrollToTop, setScrollToTop] = useState<boolean>(false);
 
   useEffect(() => {
     if (redirectToProject) {
@@ -440,6 +441,21 @@ export default function NewHome() {
       }
     });
   }
+
+  useEffect(() => {
+    window.addEventListener("scroll", toggleVisibility);
+    return () => {
+      window.removeEventListener("scroll", toggleVisibility);
+    };
+  }, []);
+
+  const toggleVisibility = () => {
+    if (window.scrollY > 300) {
+      setScrollToTop(true);
+    } else {
+      setScrollToTop(false);
+    }
+  };
 
   useEffect(() => {
     renderFilteredProjects();
@@ -577,6 +593,8 @@ export default function NewHome() {
                   : colors.darkMode["bg-primary"]
               }
             />
+            {scrollToTop ? <ScrollToTopBtn theme={theme} /> : null}
+
             <div className="centerContainer">
               <FirstSection
                 $theme={theme}
