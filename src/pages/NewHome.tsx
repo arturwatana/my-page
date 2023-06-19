@@ -358,11 +358,10 @@ const TextContainers = styled.div<{
     font-size: 30px;
     animation: typingBorderAnimation 1.5s infinite;
     padding-right: 0.2em;
-
     text-align: left;
     text-align: center;
-    margin-top: 2em;
-    font-size: 20px;
+    margin-top: 1em;
+    font-size: 18px;
   }
 
   @keyframes typingBorderAnimation {
