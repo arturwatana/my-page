@@ -18,6 +18,12 @@ const Icons = styled.i`
   justify-content: space-evenly;
   align-items: center;
   padding-top: 0.2em;
+  @media (max-width: 1000px) {
+    width: 20%;
+  }
+  @media (max-width: 500px) {
+    width: 30%;
+  }
 
   a {
     text-decoration: none;

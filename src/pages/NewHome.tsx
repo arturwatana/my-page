@@ -93,15 +93,19 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
             : props.$colors.lightMode["font-primary"]};
         @media (max-width: 2160px) {
           font-size: 28px;
+          line-height: 36px;
         }
         @media (max-width: 1714px) {
           font-size: 25px;
+          line-height: 32px;
         }
         @media (max-width: 1270px) {
           font-size: 22px;
+          line-height: 28px;
         }
         @media (max-width: 600px) {
           font-size: 20px;
+          line-height: 26px;
         }
       }
       @media (max-width: 2160px) {
@@ -394,9 +398,19 @@ const DivCenter = styled.div`
 
 const FinalText = styled.p`
   margin-top: 2em;
+  text-align: center;
+
   font-size: 25px;
-  @media (max-width: 900px) {
+  @media (max-width: 1100px) {
+    font-size: 23px;
+    height: 100%;
     width: 70%;
+  }
+  @media (max-width: 600px) {
+    font-size: 21px;
+  }
+  @media (max-width: 400px) {
+    font-size: 19px;
   }
 `;
 
@@ -645,7 +659,7 @@ export default function NewHome() {
 
               <FinalText>
                 Gostaria de ver mais? Entre em contato que terei o prazer de
-                compartilhar. :)
+                compartilhar.
               </FinalText>
             </ProjectsSection>
             <Footer />
