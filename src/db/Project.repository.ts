@@ -153,11 +153,12 @@ export class ProjectsRepository implements IProjectRepository {
         "Node.js",
         "TypeScript",
         "Nest.js",
-        "Socket.io",
+        "PostgreSQL",
       ],
       img: finances4uMain,
       photosGallery: [finances4uMain, finances4uTransactions],
       tags: ["Desktop"],
+      deployLink: "https://finances4u.vercel.app/",
       repoFrontEnd: "https://github.com/arturwatana/finances4u",
     },
   ];
