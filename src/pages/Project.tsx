@@ -149,7 +149,7 @@ const ProjectDescription = styled.p`
   font-size: 20px;
   margin-top: 2em;
   width: 100%;
-  font-size: 25px;
+  font-size: 22px;
   font-weight: lighter;
 `;
 

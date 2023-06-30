@@ -67,6 +67,14 @@ const TagTech = styled.div<{
         return props.$theme === "light" ? "#A7D877" : "#3D6218";
       case "TailWind CSS":
         return props.$theme === "light" ? "#78C4D4" : "#005F6B";
+      case "Socket.io":
+        return props.$theme === "light" ? "#A3D1FF" : "#273957";
+      case "Next.js":
+        return props.$theme === "light" ? "#aaa8a8" : "#191919";
+      case "Nest.js":
+        return props.$theme === "light" ? "#c08686" : "#5e1313";
+      case "Chakra.ui":
+        return props.$theme === "light" ? "#f06a6a" : "#960a0a";
       default:
         return "";
     }

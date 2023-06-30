@@ -5,7 +5,10 @@ import todolist from "../assets/todolist.png";
 import { IProjectRepository } from "./Project.repository.interface";
 import spotifyLogin from "../assets/SpotifyClone/Login.png";
 import spotifyMain from "../assets/SpotifyClone/Main1920x10808.png";
-
+import webchat from "../assets/webchat/main.png";
+import webchatimg from "../assets/webchat/chat.png";
+import finances4uMain from "../assets/finances4u/main.png";
+import finances4uTransactions from "../assets/finances4u/transactions.png";
 export type ProjectProps = {
   id: string;
   name: string;
@@ -48,6 +51,7 @@ export class ProjectsRepository implements IProjectRepository {
       repoBackEnd: "https://github.com/arturwatana/schedule-backend",
       deployLink: "https://schedule-react-nu.vercel.app/",
     },
+
     {
       id: "2",
       name: "Gamer Book",
@@ -111,6 +115,50 @@ export class ProjectsRepository implements IProjectRepository {
       tags: ["Desktop"],
       repoFrontEnd: "https://github.com/arturwatana/Spotify-clone",
       deployLink: "https://spotify-clone-kappa-taupe.vercel.app/",
+    },
+    {
+      id: "5",
+      name: "WebChat",
+      description:
+        "Aprimorei minhas habilidades em React e adquiri experiência prática com a biblioteca Socket.io neste projeto. O WebChat é uma aplicação de chat em tempo real desenvolvida com as tecnologias Next.js, Tailwind CSS, Express e Socket.io. Ele permite uma comunicação instantânea entre os usuários, proporcionando uma experiência de chat fluida e interativa.",
+      shortDescription:
+        "Desenvolvido com Next.js, Tailwind CSS, Express e Socket.io, o WebChat é um chat em tempo real que proporciona comunicação instantânea entre usuários.",
+      techs: [
+        "React.js",
+        "Next.js",
+        "TailWind CSS",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "Socket.io",
+      ],
+      img: webchat,
+      photosGallery: [webchat, webchatimg],
+      tags: ["Desktop"],
+      repoFrontEnd: "https://github.com/arturwatana/webchat",
+      repoBackEnd: "https://github.com/arturwatana/webchat-backend",
+    },
+
+    {
+      id: "6",
+      name: "Finances4u",
+      description:
+        "Desenvolvido com React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT, este projeto foi impulsionado pelo meu estudo em UI/UX, resultando em uma aplicação intuitiva e visualmente atraente. O React.js proporcionou uma estrutura sólida, o Vite otimizou o desempenho, o Chakra UI aprimorou a aparência, o NestJS ofereceu uma API escalável, o PostgreSQL garantiu o armazenamento de dados confiável, e o JWT proporcionou a autenticação segura dos usuários.",
+      shortDescription:
+        "Desenvolvi uma aplicação de gestão financeira utilizando tecnologias modernas como React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT. Destaquei meu estudo em UI/UX para criar uma interface intuitiva e agradável aos usuários.",
+      techs: [
+        "React.js",
+        "Next.js",
+        "Chakra.ui",
+        "Node.js",
+        "TypeScript",
+        "Nest.js",
+        "Socket.io",
+      ],
+      img: finances4uMain,
+      photosGallery: [finances4uMain, finances4uTransactions],
+      tags: ["Desktop"],
+      repoFrontEnd: "https://github.com/arturwatana/finances4u",
     },
   ];
   showAll(): ProjectProps[] {
