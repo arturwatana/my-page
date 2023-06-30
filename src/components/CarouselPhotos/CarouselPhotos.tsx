@@ -38,6 +38,7 @@ export default function CarouselPhotos({
   const ImgContainer = styled.div`
     width: 100%;
     height: 100%;
+    max-height: 30vh;
     img {
       transition: transform 0.5s;
       width: 100%;
@@ -82,7 +83,7 @@ export default function CarouselPhotos({
     z-index: 40;
     button {
       cursor: pointer;
-      z-index: 80;
+      z-index: 100;
       height: 5em;
       width: 10em;
       border-radius: 2em;
@@ -96,10 +97,13 @@ export default function CarouselPhotos({
   `;
 
   const ImgModal = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 90;
     img {
       object-fit: contain;
-      width: 100%;
+      width: 70%;
     }
   `;
 

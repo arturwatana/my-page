@@ -140,7 +140,7 @@ export default function About() {
         <div>
           <h2>
             Desde sempre, tive interesse pela tecnologia e decidi explorar esse
-            mundo da programação em 2021. Tenho me dedicado cada vez mais a
+            mundo da programação em 2022. Tenho me dedicado cada vez mais a
             aprimorar meus projetos e acompanhar as novas tecnologias
             disponíveis.
           </h2>
