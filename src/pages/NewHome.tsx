@@ -432,7 +432,7 @@ export default function NewHome() {
   const [scrollTo, setScrollTo] = useState<string>("section-1");
   const navigate = useNavigate();
   const projectsRepository = new ProjectsRepository();
-  const projects = projectsRepository.showAll();
+  const projects = projectsRepository.showAll().reverse();
   const [filterProjects, setFilterProjects] = useState<string>("Todos");
   const [projectsToShow, setProjectsToShow] = useState<ProjectProps[]>([]);
   const [scrollToTop, setScrollToTop] = useState<boolean>(false);
