@@ -71,13 +71,10 @@ function App() {
   return (
     <ContentContext.Provider value={contextValues}>
       <Router>
-        {/* <Body> */}
-        {/* <NavBar /> */}
         <Routes>
           <Route path="/" element={<NewHome />} />
           <Route path="/:id" element={<Project />} />
         </Routes>
-        {/* </Body> */}
       </Router>
     </ContentContext.Provider>
   );

@@ -90,7 +90,7 @@ export default function CarouselPhotos({
       border: none;
     }
 
-    @media (max-width: 1990px) {
+    @media (max-width: 1000px) {
       top: 45%;
       justify-content: space-evenly;
     }
@@ -103,7 +103,11 @@ export default function CarouselPhotos({
     z-index: 90;
     img {
       object-fit: contain;
-      width: 70%;
+      width: 100%;
+
+      @media (max-width: 1000px) {
+        width: 70%;
+      }
     }
   `;
 

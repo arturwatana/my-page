@@ -72,7 +72,7 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
 
   div {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
     height: 25%;
 
@@ -84,6 +84,7 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
     }
 
     &.description {
+      height: 100%;
       p {
         line-height: 40px;
         font-size: 30px;
@@ -134,8 +135,8 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
       @media (max-width: 1270px) {
         font-size: 40px;
       }
-      @media (max-width: 600px) {
-        font-size: 32px;
+      @media (max-width: 605px) {
+        font-size: 35px;
       }
     }
     h2 {

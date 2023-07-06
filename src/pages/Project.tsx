@@ -90,7 +90,7 @@ const ProjectImg = styled.img`
 const ProjectDetails = styled.div`
   width: 80%;
   padding-left: 5em;
-  animation: RenderDetails 1.5s linear forwards;
+  animation: RenderDetails 1s linear forwards;
   @media (max-width: 500px) {
     padding-left: 2em;
   }
@@ -104,7 +104,7 @@ const ProjectDetails = styled.div`
     }
     50% {
       display: block;
-      opacity: 0;
+      opacity: 0.5;
     }
     75% {
       opacity: 0.9;

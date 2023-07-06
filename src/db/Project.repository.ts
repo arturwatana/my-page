@@ -27,56 +27,6 @@ export class ProjectsRepository implements IProjectRepository {
   items: ProjectProps[] = [
     {
       id: "1",
-      name: "Schedule React",
-      description:
-        "Este projeto foi uma oportunidade para aprimorar minhas habilidades em React. Ao desenvolver a aplicação, explorei o conceito de Single-Page Application (SPA), criando uma interface interativa e responsiva para os usuários. Utilizei React.js, CSS e Vite para construir o front-end, enquanto o back-end foi implementado com Node.js, Express e PostgreSQL. A aplicação também conta com uma versão mobile para oferecer uma experiência otimizada em dispositivos móveis",
-      shortDescription:
-        "Aplicacao construida com o intuito de gerenciar tarefas. Front-end construido com React e css. Back-end construido com Node.JS utilizando Express e uma instancia de PostgreSQL aberta na AWS. Possui também versão mobile.",
-      techs: [
-        "React.js",
-        "Vite",
-        "CSS",
-        "Node.js",
-        "TypeScript",
-        "Express",
-        "PostgreSQL",
-        "TypeORM",
-        "JWT",
-        "AWS",
-      ],
-      img: schedule,
-      photosGallery: [schedule, scheduleMobile],
-      tags: ["Desktop", "Mobile", "API"],
-      repoFrontEnd: "https://github.com/arturwatana/schedule-react",
-      repoBackEnd: "https://github.com/arturwatana/schedule-backend",
-      deployLink: "https://schedule-react-nu.vercel.app/",
-    },
-
-    {
-      id: "2",
-      name: "Gamer Book",
-      shortDescription:
-        "Esta API é um projeto que visa desenvolver um sistema de cadastro de jogadores e jogos, utilizando as seguintes tecnologias e conceitos: Node.js, Express, TypeScript, PostgreSQL, Neon (PostgreSQL), Prisma ORM, Swagger, Vercel, Vitest e SOLID.",
-      description:
-        "Este projeto de API marca minha primeira incursão na criação de uma API do início ao fim. Consiste em uma API para criação de um sistema de cadastro de jogadores e jogos. Utilizando Node.js, Express e TypeScript como base, a API permite cadastrar jogadores, cadastrar jogos, buscar jogadores pelo e-mail, excluir jogadores e adicionar/remover jogos de jogadores. O banco de dados PostgreSQL é utilizado para armazenar as informações. Além disso, foram aplicados conceitos do SOLID e tecnologias como Prisma ORM para manipulação de dados, Swagger para documentação da API, Vercel para hospedagem e Vitest para testes automatizados.",
-      techs: [
-        "Node.js",
-        "Express",
-        "TypeScript",
-        "Docker",
-        "PostgreSQL",
-        "Prisma",
-        "Swagger",
-        "Vitest",
-      ],
-      img: gamerBook,
-      photosGallery: [gamerBook],
-      tags: ["API"],
-      repoBackEnd: "https://github.com/arturwatana/gamerBook",
-      deployLink: "https://gamer-book.vercel.app/docs/",
-    },
-    {
-      id: "3",
       name: "To Do List",
       shortDescription:
         "Esta é uma aplicação de lista de tarefas com sistema de registro e login. Front-end construido com HTML, CSS e JS. Back-end construido com Node.js e TypeScript utilizando MongoDB.",
@@ -102,6 +52,57 @@ export class ProjectsRepository implements IProjectRepository {
       repoBackEnd: "https://github.com/arturwatana/to-do-list",
       deployLink: "https://to-do-list-artur.vercel.app/",
     },
+    {
+      id: "2",
+      name: "Gamer Book",
+      shortDescription:
+        "Esta API é um projeto que visa desenvolver um sistema de cadastro de jogadores e jogos, utilizando as seguintes tecnologias e conceitos: Node.js, Express, TypeScript, PostgreSQL, Neon (PostgreSQL), Prisma ORM, Swagger, Vercel, Vitest e SOLID.",
+      description:
+        "Este projeto de API marca minha primeira incursão na criação de uma API do início ao fim. Consiste em uma API para criação de um sistema de cadastro de jogadores e jogos. Utilizando Node.js, Express e TypeScript como base, a API permite cadastrar jogadores, cadastrar jogos, buscar jogadores pelo e-mail, excluir jogadores e adicionar/remover jogos de jogadores. O banco de dados PostgreSQL é utilizado para armazenar as informações. Além disso, foram aplicados conceitos do SOLID e tecnologias como Prisma ORM para manipulação de dados, Swagger para documentação da API, Vercel para hospedagem e Vitest para testes automatizados.",
+      techs: [
+        "Node.js",
+        "Express",
+        "TypeScript",
+        "Docker",
+        "PostgreSQL",
+        "Prisma",
+        "Swagger",
+        "Vitest",
+      ],
+      img: gamerBook,
+      photosGallery: [gamerBook],
+      tags: ["API"],
+      repoBackEnd: "https://github.com/arturwatana/gamerBook",
+      deployLink: "https://gamer-book.vercel.app/docs/",
+    },
+
+    {
+      id: "3",
+      name: "Schedule React",
+      description:
+        "Este projeto foi uma oportunidade para aprimorar minhas habilidades em React. Ao desenvolver a aplicação, explorei o conceito de Single-Page Application (SPA), criando uma interface interativa e responsiva para os usuários. Utilizei React.js, CSS e Vite para construir o front-end, enquanto o back-end foi implementado com Node.js, Express e PostgreSQL. A aplicação também conta com uma versão mobile para oferecer uma experiência otimizada em dispositivos móveis",
+      shortDescription:
+        "Aplicacao construida com o intuito de gerenciar tarefas. Front-end construido com React e css. Back-end construido com Node.JS utilizando Express e uma instancia de PostgreSQL aberta na AWS. Possui também versão mobile.",
+      techs: [
+        "React.js",
+        "Vite",
+        "CSS",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "PostgreSQL",
+        "TypeORM",
+        "JWT",
+        "AWS",
+      ],
+      img: schedule,
+      photosGallery: [schedule, scheduleMobile],
+      tags: ["Desktop", "Mobile", "API"],
+      repoFrontEnd: "https://github.com/arturwatana/schedule-react",
+      repoBackEnd: "https://github.com/arturwatana/schedule-backend",
+      deployLink: "https://schedule-react-nu.vercel.app/",
+    },
+
     {
       id: "4",
       name: "Spotify Clone",
@@ -141,7 +142,7 @@ export class ProjectsRepository implements IProjectRepository {
 
     {
       id: "6",
-      name: "Finances4u",
+      name: "Finances4u (Em construcão)",
       description:
         "Desenvolvido com React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT, este projeto foi impulsionado pelo meu estudo em UI/UX, resultando em uma aplicação intuitiva e visualmente atraente. O React.js proporcionou uma estrutura sólida, o Vite otimizou o desempenho, o Chakra UI aprimorou a aparência, o NestJS ofereceu uma API escalável, o PostgreSQL garantiu o armazenamento de dados confiável, e o JWT proporcionou a autenticação segura dos usuários.",
       shortDescription:
