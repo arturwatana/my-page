@@ -6,7 +6,7 @@ import CarouselPhotos from "../components/CarouselPhotos/CarouselPhotos";
 import { TbSquareRoundedLetterX } from "react-icons/tb";
 import Tag from "../components/newLayout/Tag/Tag";
 import { ColorsProps, ContentContext } from "../App";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import Footer from "../components/newLayout/Footer/Footer";
 
 type MatchParams = {
@@ -309,6 +309,12 @@ export default function Project() {
       navigate("/");
     }, 500);
   }
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <ProjectContainer $theme={theme} $colors={colors}>
