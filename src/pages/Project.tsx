@@ -17,9 +17,9 @@ const ProjectContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
   height: 100%;
   width: 100%;
   background-color: ${(props) =>
-    props.$theme === "dark"
-      ? props.$colors.darkMode["bg-primary"]
-      : props.$colors.lightMode["bg-primary"]};
+    props.$theme === "light"
+      ? props.$colors.lightMode["bg-primary"]
+      : props.$colors.darkMode["bg-primary"]};
   transition: background-color 0.5s ease;
   animation: colorTransition 0.5s linear;
 
@@ -346,6 +346,7 @@ export default function Project() {
                         width="8em"
                         theme={theme ? theme : "dark"}
                         name={tag}
+                        key={tag}
                       >
                         {tag}
                       </Tag>
@@ -361,6 +362,7 @@ export default function Project() {
                         width="8em"
                         theme={theme ? theme : "dark"}
                         name={tag}
+                        key={tag}
                       >
                         {tag}
                       </Tag>

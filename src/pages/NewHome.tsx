@@ -11,7 +11,7 @@ import About from "../components/newLayout/About/About";
 import FilterButton from "../components/newLayout/FilterButton/FilterButton";
 import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
-const Body = styled.body<{ $theme: string; $colors: ColorsProps }>`
+const Body = styled.div<{ $theme: string; $colors: ColorsProps }>`
   background-color: ${(props) =>
     props.$theme === "dark"
       ? props.$colors.darkMode["bg-primary"]
@@ -365,7 +365,7 @@ const TextContainers = styled.div<{
     padding-right: 0.2em;
     text-align: left;
     text-align: center;
-    margin-top: 1.5em;
+    margin-top: 1em;
     font-size: 18px;
   }
 
@@ -650,6 +650,7 @@ export default function NewHome() {
               <div className="cards">
                 {projectsToShow.map((project) => (
                   <NewProjectCard
+                    key={project.id}
                     theme={theme === "light" ? "light" : "dark"}
                     colors={colors}
                     project={project}

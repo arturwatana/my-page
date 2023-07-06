@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { RxHamburgerMenu } from "react-icons/rx";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { ContentContext } from "../../../App";
 
 type NavBarProps = {
   textColor: string;
   bgColor: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>> | undefined;
+  setTheme: React.Dispatch<React.SetStateAction<string>>;
   setScrollTo: React.Dispatch<React.SetStateAction<string>>;
 };
 
@@ -114,22 +115,20 @@ const Burger = styled.div<{ $textColor: string; $bgColor: string }>`
 export default function NavBar({
   bgColor,
   textColor,
-  setTheme,
   setScrollTo,
 }: NavBarProps) {
   const [burgerIsOpen, setBurgerIsOpen] = useState<boolean>(false);
+  const { setTheme } = useContext(ContentContext);
   return (
     <NavContainer>
       <div className="centered">
         <ToggleLightMode $bgColor={bgColor} $textColor={textColor}>
           <button
             onClick={() => {
-              setTheme
-                ? setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-                : null;
+              setTheme((prev) => (prev === "dark" ? "light" : "dark"));
             }}
           >
-            {textColor === "#222" ? "Dark Mode" : "Light Mode"}
+            {textColor === "#f5d2d2" ? "Dark Mode" : "Light Mode"}
           </button>
         </ToggleLightMode>
         <Burger $textColor={textColor} $bgColor={bgColor}>
