@@ -145,8 +145,8 @@ export default function About() {
             disponíveis.
           </h2>
           <h3>
-            Atualmente, trabalho principalmente com React.js, Node.js,
-            TypeScript, Docker, PostgreSQL, MongoDB e Figma.
+            Atualmente, atuo com React.js, Node.js, TypeScript, Docker,
+            PostgreSQL, MongoDB e estudando React Native e UI/UX.
           </h3>
         </div>
         <div className="buttons">

@@ -96,7 +96,7 @@ const Burger = styled.div<{ $textColor: string; $bgColor: string }>`
 
   ul {
     border-radius: 1em;
-    border: 1px solid white;
+    border: 1px solid ${(props) => props.$textColor};
     background-color: ${(props) => props.$bgColor};
     position: absolute;
     color: ${(props) => props.$textColor};
