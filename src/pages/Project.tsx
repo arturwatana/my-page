@@ -379,11 +379,13 @@ export default function Project() {
               </ProjectDetails>
               <ProjectLinks $theme={theme}>
                 <Buttons>
-                  <p>Deploy:</p>
                   {project.deployLink ? (
-                    <Link to={project.deployLink} target="_blank">
-                      <button> Deploy</button>
-                    </Link>
+                    <>
+                      <p>Deploy:</p>
+                      <Link to={project.deployLink} target="_blank">
+                        <button> Deploy</button>
+                      </Link>
+                    </>
                   ) : null}
                 </Buttons>
                 <Buttons>
