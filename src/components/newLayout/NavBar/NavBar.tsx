@@ -118,7 +118,7 @@ export default function NavBar({
   setScrollTo,
 }: NavBarProps) {
   const [burgerIsOpen, setBurgerIsOpen] = useState<boolean>(false);
-  const { setTheme } = useContext(ContentContext);
+  const { setTheme, theme } = useContext(ContentContext);
   return (
     <NavContainer>
       <div className="centered">
@@ -128,7 +128,7 @@ export default function NavBar({
               setTheme((prev) => (prev === "dark" ? "light" : "dark"));
             }}
           >
-            {textColor === "#f5d2d2" ? "Dark Mode" : "Light Mode"}
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
           </button>
         </ToggleLightMode>
         <Burger $textColor={textColor} $bgColor={bgColor}>
