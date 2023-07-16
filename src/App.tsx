@@ -15,6 +15,18 @@ export type myContextProps = {
   setCloseIntro: React.Dispatch<React.SetStateAction<boolean>>;
   backToHome: boolean;
   setBackToHome: React.Dispatch<React.SetStateAction<boolean>>;
+  setColors: React.Dispatch<
+    React.SetStateAction<{
+      lightMode: {
+        "bg-primary": string;
+        "font-primary": string;
+      };
+      darkMode: {
+        "bg-primary": string;
+        "font-primary": string;
+      };
+    }>
+  >;
 };
 
 export type ColorsProps = {
@@ -42,6 +54,7 @@ const colors = {
 export const ContentContext = createContext<myContextProps>({
   theme: "dark",
   colors,
+  setColors: () => {},
   setTheme: () => {},
   closeIntro: false,
   setCloseIntro: () => {},
@@ -55,6 +68,16 @@ function App() {
   const [access, setAccess] = useState<boolean>(false);
   const [theme, setTheme] = useState<string>("dark");
   const [backToHome, setBackToHome] = useState<boolean>(false);
+  const [colors, setColors] = useState({
+    lightMode: {
+      "bg-primary": "#EDEDED",
+      "font-primary": "#222",
+    },
+    darkMode: {
+      "bg-primary": "#222",
+      "font-primary": "#fff",
+    },
+  });
 
   const contextValues = {
     theme,
@@ -64,6 +87,7 @@ function App() {
     closeIntro,
     setCloseIntro,
     colors,
+    setColors,
     backToHome,
     setBackToHome,
   };

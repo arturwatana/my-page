@@ -161,6 +161,7 @@ export class ProjectsRepository implements IProjectRepository {
       tags: ["Desktop"],
       deployLink: "https://finances4u.vercel.app/",
       repoFrontEnd: "https://github.com/arturwatana/finances4u",
+      repoBackEnd: "https://github.com/arturwatana/finances4u-backend",
     },
   ];
   showAll(): ProjectProps[] {
