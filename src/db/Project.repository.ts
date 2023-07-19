@@ -149,7 +149,7 @@ export class ProjectsRepository implements IProjectRepository {
         "Desenvolvi uma aplicação de gestão financeira utilizando tecnologias modernas como React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT. Destaquei meu estudo em UI/UX para criar uma interface intuitiva e agradável aos usuários.",
       techs: [
         "React.js",
-        "Next.js",
+        "Vite",
         "Chakra.ui",
         "Node.js",
         "TypeScript",
