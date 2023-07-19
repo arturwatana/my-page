@@ -142,9 +142,9 @@ export class ProjectsRepository implements IProjectRepository {
 
     {
       id: "6",
-      name: "Finances4u (Em construcão)",
+      name: "Finances4u",
       description:
-        "Desenvolvido com React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT, este projeto foi impulsionado pelo meu estudo em UI/UX, resultando em uma aplicação intuitiva e visualmente atraente. O React.js proporcionou uma estrutura sólida, o Vite otimizou o desempenho, o Chakra UI aprimorou a aparência, o NestJS ofereceu uma API escalável, o PostgreSQL garantiu o armazenamento de dados confiável, e o JWT proporcionou a autenticação segura dos usuários.",
+        "Desenvolvido com React.js, Vite, Chakra UI, NestJS, Prisma,  PostgreSQL e JWT, este projeto foi impulsionado pelo meu estudo em UI/UX, resultando em uma aplicação intuitiva e visualmente atraente. O React.js proporcionou uma estrutura sólida, o Vite otimizou o desempenho, o Chakra UI aprimorou a aparência, o NestJS ofereceu uma API escalável, o PostgreSQL garantiu o armazenamento de dados confiável, e o JWT proporcionou a autenticação segura dos usuários.",
       shortDescription:
         "Desenvolvi uma aplicação de gestão financeira utilizando tecnologias modernas como React.js, Vite, Chakra UI, NestJS, PostgreSQL e JWT. Destaquei meu estudo em UI/UX para criar uma interface intuitiva e agradável aos usuários.",
       techs: [
@@ -155,6 +155,7 @@ export class ProjectsRepository implements IProjectRepository {
         "TypeScript",
         "Nest.js",
         "PostgreSQL",
+        "Prisma",
       ],
       img: finances4uMain,
       photosGallery: [finances4uMain, finances4uTransactions],
