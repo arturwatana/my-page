@@ -79,7 +79,7 @@ const NavButtons = styled.div`
     border: none;
   }
 
-  @media (max-width: 1000px) {
+  @media (max-width: 1900px) {
     top: 45%;
     justify-content: space-evenly;
   }
@@ -94,7 +94,7 @@ const ImgModal = styled.div`
     object-fit: contain;
     width: 100%;
 
-    @media (max-width: 1000px) {
+    @media (max-width: 1900px) {
       width: 70%;
     }
   }
@@ -104,7 +104,7 @@ const CloseModalButton = styled.button`
   position: fixed;
   border: 1px solid red;
   height: 10%;
-  left: 76%;
+  left: 90%;
   top: 2%;
   border-radius: 1.5em;
   width: 6em;
@@ -112,6 +112,12 @@ const CloseModalButton = styled.button`
   height: 4em;
   border: none;
   cursor: pointer;
+  @media (max-width: 1000px) {
+    left: 85%;
+  }
+  @media (max-width: 600px) {
+    left: 75%;
+  }
 `;
 
 export default function CarouselPhotos({
