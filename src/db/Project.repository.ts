@@ -159,7 +159,7 @@ export class ProjectsRepository implements IProjectRepository {
       ],
       img: finances4uMain,
       photosGallery: [finances4uMain, finances4uTransactions],
-      tags: ["Desktop"],
+      tags: ["Desktop", "Mobile", "API"],
       deployLink: "https://finances4u.vercel.app/",
       repoFrontEnd: "https://github.com/arturwatana/finances4u",
       repoBackEnd: "https://github.com/arturwatana/finances4u-backend",
