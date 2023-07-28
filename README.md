@@ -2,7 +2,7 @@
 
 ### Olá, este repositório é destinado ao meu portfolio pessoal.
 
-### Para acessar, basta acessar pelo link: https://arturwatanabe.vercel.app/
+### Para acessar, basta seguir pelo link: https://arturwatanabe.vercel.app/
 
 <br>
 
