@@ -562,7 +562,7 @@ export default function NewHome() {
               >
                 <div className="content">
                   <div className="tittle">
-                    <h1>Que ótimo ter voce aqui!</h1>
+                    <h1>Que ótimo ter você aqui!</h1>
                   </div>
                   <div className="description">
                     <p>
