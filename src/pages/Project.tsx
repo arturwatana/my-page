@@ -175,7 +175,6 @@ const ProjectLinks = styled.div<{ $theme: string }>`
       opacity: 0;
     }
     50% {
-      display: block;
       opacity: 0;
     }
     75% {
