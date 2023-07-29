@@ -9,37 +9,6 @@ import { ColorsProps, ContentContext } from "../App";
 import { useContext, useState, useEffect } from "react";
 import Footer from "../components/newLayout/Footer/Footer";
 
-type MatchParams = {
-  id: string;
-};
-
-const ProjectContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
-  height: 100%;
-  width: 100%;
-  background-color: ${(props) =>
-    props.$theme === "light"
-      ? props.$colors.lightMode["bg-primary"]
-      : props.$colors.darkMode["bg-primary"]};
-  transition: background-color 0.5s ease;
-  animation: colorTransition 0.5s linear;
-
-  @keyframes colorTransition {
-    from {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-
-    to {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-  }
-`;
-
 const BackPageP = styled.h1`
   display: flex;
   font-size: 20px;
@@ -244,22 +213,6 @@ const NotFound = styled.div`
   }
 `;
 
-const Wrapper = styled.div`
-  opacity: 1;
-  height: 100%;
-  &.redirect {
-    animation: redirectAnimation 0.3s linear forwards;
-    @keyframes redirectAnimation {
-      from {
-        opacity: 1;
-      }
-      to {
-        opacity: 0;
-      }
-    }
-  }
-`;
-
 const WrapperCarousel = styled.div`
   width: 100%;
   height: 30em;
@@ -291,6 +244,32 @@ const WrapperCarousel = styled.div`
     height: 100%;
   }
 `;
+
+const ProjectContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+ 
+  }
+`;
+const Wrapper = styled.div`
+    opacity: 1;
+    height: 100%;
+    &.redirect {
+      animation: redirectAnimation 0.3s linear forwards;
+      @keyframes redirectAnimation {
+       from {
+        opacity: 1;
+
+       } to {
+        opacity: 0;
+       }
+    }
+  `;
+
+type MatchParams = {
+  id: string;
+};
 
 export default function Project() {
   const projectsRepository = new ProjectsRepository();

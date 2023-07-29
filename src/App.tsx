@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Project from "./pages/Project";
 import NewHome from "./pages/NewHome";
 import { createContext, useState } from "react";
+import styled from "styled-components";
 
 export type myContextProps = {
   theme: string;
@@ -63,6 +64,17 @@ export const ContentContext = createContext<myContextProps>({
   backToHome: false,
   setBackToHome: () => {},
 });
+
+const Body = styled.div<{ $theme: string; $colors: ColorsProps }>`
+  background-color: ${(props) =>
+    props.$theme === "dark"
+      ? props.$colors.darkMode["bg-primary"]
+      : props.$colors.lightMode["bg-primary"]};
+  height: 100%;
+  width: 100%;
+  transition: background-color 0.5s ease;
+  }
+`;
 function App() {
   const [closeIntro, setCloseIntro] = useState<boolean>(false);
   const [access, setAccess] = useState<boolean>(false);
@@ -94,12 +106,14 @@ function App() {
 
   return (
     <ContentContext.Provider value={contextValues}>
-      <Router>
-        <Routes>
-          <Route path="/" element={<NewHome />} />
-          <Route path="/:id" element={<Project />} />
-        </Routes>
-      </Router>
+      <Body $colors={colors} $theme={theme}>
+        <Router>
+          <Routes>
+            <Route path="/" element={<NewHome />} />
+            <Route path="/:id" element={<Project />} />
+          </Routes>
+        </Router>
+      </Body>
     </ContentContext.Provider>
   );
 }

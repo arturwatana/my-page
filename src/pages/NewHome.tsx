@@ -11,33 +11,6 @@ import About from "../components/newLayout/About/About";
 import FilterButton from "../components/newLayout/FilterButton/FilterButton";
 import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
-const Body = styled.div<{ $theme: string; $colors: ColorsProps }>`
-  background-color: ${(props) =>
-    props.$theme === "dark"
-      ? props.$colors.darkMode["bg-primary"]
-      : props.$colors.lightMode["bg-primary"]};
-  height: 100%;
-  width: 100%;
-  transition: background-color 0.5s ease;
-  animation: colorTransition 0.5s linear;
-
-  @keyframes colorTransition {
-    from {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-
-    to {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-  }
-`;
-
 const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
   height: 100vh;
   display: flex;
@@ -49,25 +22,11 @@ const FirstSection = styled.section<{ $theme: string; $colors: ColorsProps }>`
       ? props.$colors.darkMode["bg-primary"]
       : props.$colors.lightMode["bg-primary"]};
   transition: background-color 0.5s ease;
-  animation: colorTransition 0.5s linear;
   @media (max-width: 1010px) {
     flex-direction: column-reverse;
     justify-content: center;
   }
-  @keyframes colorTransition {
-    from {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-
-    to {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
+  
   }
 
   div {
@@ -220,22 +179,7 @@ const ProjectsSection = styled.section<{
       : props.$colors.lightMode["font-primary"]};
   transition: background-color 0.5s ease;
 
-  animation: colorTransition 0.5s linear;
-
-  @keyframes colorTransition {
-    from {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
-
-    to {
-      background-color: ${(props) =>
-        props.$theme === "dark"
-          ? props.$colors.darkMode["bg-primary"]
-          : props.$colors.lightMode["bg-primary"]};
-    }
+ 
   }
 
   h1 {
@@ -564,7 +508,7 @@ export default function NewHome() {
   }, [scrollTo]);
 
   return (
-    <Body $theme={theme} $colors={colors}>
+    <>
       {!closeIntro ? (
         <Intro className={access ? "animation" : ""}>
           <IntroContainer>
@@ -668,6 +612,6 @@ export default function NewHome() {
           </Wrapper>
         </>
       ) : null}
-    </Body>
+    </>
   );
 }
