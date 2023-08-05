@@ -8,7 +8,12 @@ import spotifyMain from "../assets/SpotifyClone/Main1920x10808.png";
 import webchat from "../assets/webchat/main.png";
 import webchatimg from "../assets/webchat/chat.png";
 import finances4uMain from "../assets/finances4u/main.png";
+import finances4uMain1 from "../assets/finances4u/main1.png";
 import finances4uTransactions from "../assets/finances4u/transactions.png";
+import finances4uLogin from "../assets/finances4u/login.png";
+import finances4uAccount from "../assets/finances4u/account.png";
+import financesModal from "../assets/finances4u/modal.png";
+import finances4uMainMobile from "../assets/finances4u/mob-PhotoRoom.png-PhotoRoom.png";
 export type ProjectProps = {
   id: string;
   name: string;
@@ -158,7 +163,14 @@ export class ProjectsRepository implements IProjectRepository {
         "Prisma",
       ],
       img: finances4uMain,
-      photosGallery: [finances4uMain, finances4uTransactions],
+      photosGallery: [
+        finances4uMain1,
+        finances4uLogin,
+        finances4uTransactions,
+        financesModal,
+        finances4uAccount,
+        finances4uMainMobile,
+      ],
       tags: ["Desktop", "Mobile", "API"],
       deployLink: "https://finances4u.vercel.app/",
       repoFrontEnd: "https://github.com/arturwatana/finances4u",

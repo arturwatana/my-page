@@ -90,7 +90,7 @@ const ImgModal = styled.div`
   align-items: center;
   justify-content: center;
   z-index: 90;
-  img {
+  img:first-child {
     object-fit: contain;
     width: 100%;
 
