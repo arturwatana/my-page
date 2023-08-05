@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Project from "./pages/Project";
 import NewHome from "./pages/NewHome";
 import { createContext, useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import styled from "styled-components";
 
 export type myContextProps = {
@@ -106,6 +107,7 @@ function App() {
 
   return (
     <ContentContext.Provider value={contextValues}>
+      <Analytics />
       <Body $colors={colors} $theme={theme}>
         <Router>
           <Routes>
