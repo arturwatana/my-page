@@ -32,6 +32,7 @@ const BackPageP = styled.h1`
 const ProjectDiv = styled.div<{ $theme: string; $colors: ColorsProps }>`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -246,7 +247,7 @@ const WrapperCarousel = styled.div`
 `;
 
 const ProjectContainer = styled.div<{ $theme: string; $colors: ColorsProps }>`
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   transition: background-color 0.5s ease;
  
