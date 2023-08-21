@@ -15,6 +15,7 @@ const ScrollToTopContainer = styled.div<{ $theme: string }>`
   justify-content: center;
   align-items: center;
   transition: 0.2s;
+  cursor: pointer;
   @keyframes RenderBtn {
     from {
       opacity: 0;
