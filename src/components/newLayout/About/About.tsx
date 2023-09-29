@@ -145,7 +145,7 @@ export default function About() {
             disponíveis.
           </h2>
           <h3>
-            Atualmente, atuo com React.js, Node.js, TypeScript, Docker,
+            Atualmente, atuo com React.js, Node.js, TypeScript, GraphQL, Docker,
             PostgreSQL, MongoDB, Figma e estudando React Native, UI/UX e Linux.
           </h3>
         </div>
