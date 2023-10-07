@@ -146,7 +146,7 @@ export default function About() {
           </h2>
           <h3>
             Atualmente, atuo com React.js, Node.js, TypeScript, GraphQL, Docker,
-            PostgreSQL, MongoDB, Figma e estudando React Native, UI/UX e Linux.
+            SQL, NoSQL, Figma e estudando React Native, UI/UX e Linux.
           </h3>
         </div>
         <div className="buttons">

@@ -44,8 +44,9 @@ export default function FilterButtons({
     "Todos",
     "React.js",
     "Node.js",
-    "PostgreSQL",
-    "MongoDB",
+    "GraphQL",
+    "SQL",
+    "NoSQL",
     "TypeScript",
   ];
 
