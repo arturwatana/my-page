@@ -75,6 +75,10 @@ const TagTech = styled.div<{
         return props.$theme === "light" ? "#c08686" : "#5e1313";
       case "Chakra.ui":
         return props.$theme === "light" ? "#f06a6a" : "#960a0a";
+      case "Apollo Server":
+        return props.$theme === "light" ? "#283593" : "#283593";
+      case "Apollo Client":
+        return props.$theme === "light" ? "#283593" : "#283593";
       default:
         return "";
     }

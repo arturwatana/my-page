@@ -14,6 +14,8 @@ import finances4uLogin from "../assets/finances4u/login.png";
 import finances4uAccount from "../assets/finances4u/account.png";
 import financesModal from "../assets/finances4u/modal.png";
 import finances4uMainMobile from "../assets/finances4u/mob-PhotoRoom.png-PhotoRoom.png";
+import currencyQueryMain from "../assets/CurrencyQuery/main.png";
+import currencyQuerySearches from "../assets/CurrencyQuery/MySearches.png";
 export type ProjectProps = {
   id: string;
   name: string;
@@ -175,6 +177,30 @@ export class ProjectsRepository implements IProjectRepository {
       deployLink: "https://finances4u.vercel.app/",
       repoFrontEnd: "https://github.com/arturwatana/finances4u",
       repoBackEnd: "https://github.com/arturwatana/finances4u-backend",
+    },
+    {
+      id: "7",
+      name: "Currencies query",
+      description:
+        "Currency Query é um aplicativo projetado para consulta de valores de diversas moedas, como EUR, USD e GBP. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente.",
+      shortDescription:
+        "Currency Query é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
+      techs: [
+        "React.js",
+        "Next.js",
+        "TailWind CSS",
+        "Node.js",
+        "TypeScript",
+        "Apollo Client",
+        "Apollo Server",
+        "MongoDB",
+        "Mongoose",
+      ],
+      img: currencyQueryMain,
+      photosGallery: [currencyQueryMain, currencyQuerySearches],
+      tags: ["Desktop", "API"],
+      repoFrontEnd: "https://github.com/arturwatana/currency-front",
+      repoBackEnd: "https://github.com/arturwatana/currency-graphql",
     },
   ];
   showAll(): ProjectProps[] {
