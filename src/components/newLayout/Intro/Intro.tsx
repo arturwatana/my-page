@@ -73,6 +73,7 @@ export default function Intro({ closeIntroContainer, access }: IntroProps) {
       font-size: 20px;
       opacity: 0;
       animation: PopUpBtn 2s forwards;
+      cursor: pointer;
 
       &.visible {
         opacity: 1;
