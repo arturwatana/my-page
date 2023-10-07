@@ -79,6 +79,8 @@ const TagTech = styled.div<{
         return props.$theme === "light" ? "#283593" : "#283593";
       case "Apollo Client":
         return props.$theme === "light" ? "#283593" : "#283593";
+      case "GraphQL":
+        return props.$theme === "light" ? "#e535ab" : "#e535ab";
       default:
         return "";
     }
