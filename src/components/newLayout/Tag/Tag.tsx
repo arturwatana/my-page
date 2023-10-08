@@ -81,6 +81,10 @@ const TagTech = styled.div<{
         return props.$theme === "light" ? "#283593" : "#283593";
       case "GraphQL":
         return props.$theme === "light" ? "#e535ab" : "#e535ab";
+      case "SQL":
+        return props.$theme === "light" ? "#0000FF" : "#0000FF";
+      case "NoSQL":
+        return props.$theme === "light" ? "#FFA500" : "#FFA500";
       default:
         return "";
     }
