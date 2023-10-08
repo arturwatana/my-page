@@ -184,11 +184,11 @@ export class ProjectsRepository implements IProjectRepository {
     },
     {
       id: "7",
-      name: "Currencies query",
+      name: "CoinPulse",
       description:
-        "Currency Query é um aplicativo projetado para consulta de valores de diversas moedas, como EUR, USD e GBP. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
+        "CoinPulse é um aplicativo projetado para consulta de valores de diversas moedas, como EUR, USD e GBP. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
       shortDescription:
-        "Currency Query é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
+        "CoinPulse é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
       techs: [
         "React.js",
         "Next.js",

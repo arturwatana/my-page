@@ -67,13 +67,13 @@ export default function Intro({ closeIntroContainer, access }: IntroProps) {
       background-color: #222;
       border: 1px solid white;
       color: white;
+      cursor: pointer;
       height: 2.5em;
       border-radius: 3em;
       transition: 0.5s;
       font-size: 20px;
       opacity: 0;
       animation: PopUpBtn 2s forwards;
-      cursor: pointer;
 
       &.visible {
         opacity: 1;
