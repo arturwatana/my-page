@@ -213,6 +213,7 @@ export class ProjectsRepository implements IProjectRepository {
       tags: ["Desktop", "API"],
       repoFrontEnd: "https://github.com/arturwatana/currency-front",
       repoBackEnd: "https://github.com/arturwatana/currency-graphql",
+      deployLink: "https://coinpulse-front.vercel.app/"
     },
   ];
   showAll(): ProjectProps[] {
