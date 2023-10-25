@@ -85,6 +85,8 @@ const TagTech = styled.div<{
         return props.$theme === "light" ? "#0000FF" : "#0000FF";
       case "NoSQL":
         return props.$theme === "light" ? "#FFA500" : "#FFA500";
+      case "WebSocket":
+        return props.$theme === "light" ? "#968c79" : "#c0b5a1";
       default:
         return "";
     }

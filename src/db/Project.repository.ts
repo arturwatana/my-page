@@ -14,8 +14,12 @@ import finances4uLogin from "../assets/finances4u/login.png";
 import finances4uAccount from "../assets/finances4u/account.png";
 import financesModal from "../assets/finances4u/modal.png";
 import finances4uMainMobile from "../assets/finances4u/mob-PhotoRoom.png-PhotoRoom.png";
-import currencyQueryMain from "../assets/CurrencyQuery/main.png";
-import currencyQuerySearches from "../assets/CurrencyQuery/MySearches.png";
+import coinPulseMain from "../assets/CurrencyQuery/newmain.png";
+import coinPulseMainGetSearch from "../assets/CurrencyQuery/getsearch.png";
+import coinPulseQuerySearches from "../assets/CurrencyQuery/searches.png";
+import coinPulseLogin from "../assets/CurrencyQuery/Login.png";
+import coinPulseRegister from "../assets/CurrencyQuery/register.png";
+import coinPulseTracking from "../assets/CurrencyQuery/tracking.png";
 export type ProjectProps = {
   id: string;
   name: string;
@@ -141,6 +145,7 @@ export class ProjectsRepository implements IProjectRepository {
         "Node.js",
         "TypeScript",
         "Express",
+        "WebSocket",
         "Socket.io",
       ],
       img: webchat,
@@ -186,9 +191,9 @@ export class ProjectsRepository implements IProjectRepository {
       id: "7",
       name: "CoinPulse",
       description:
-        "CoinPulse é um aplicativo projetado para consulta de valores de diversas moedas, como EUR, USD e GBP. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
+        "CoinPulse é um aplicativo projetado para consulta de valores de diversas moedas FIAT e as principais cryptos. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, WebSockets para envio de notificacoes, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
       shortDescription:
-        "CoinPulse é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
+        "CoinPulse é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, WebSockets, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
       techs: [
         "React.js",
         "Next.js",
@@ -198,12 +203,13 @@ export class ProjectsRepository implements IProjectRepository {
         "GraphQL",
         "Apollo Client",
         "Apollo Server",
+        "WebSocket",
         "MongoDB",
         "Mongoose",
         "NoSQL",
       ],
-      img: currencyQueryMain,
-      photosGallery: [currencyQueryMain, currencyQuerySearches],
+      img: coinPulseMain,
+      photosGallery: [coinPulseMain, coinPulseMainGetSearch, coinPulseTracking, coinPulseQuerySearches, coinPulseTracking,  coinPulseLogin, coinPulseRegister ],
       tags: ["Desktop", "API"],
       repoFrontEnd: "https://github.com/arturwatana/currency-front",
       repoBackEnd: "https://github.com/arturwatana/currency-graphql",
