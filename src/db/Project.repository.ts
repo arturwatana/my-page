@@ -14,12 +14,11 @@ import finances4uLogin from "../assets/finances4u/login.png";
 import finances4uAccount from "../assets/finances4u/account.png";
 import financesModal from "../assets/finances4u/modal.png";
 import finances4uMainMobile from "../assets/finances4u/mob-PhotoRoom.png-PhotoRoom.png";
-import coinPulseMain from "../assets/CurrencyQuery/newmain.png";
-import coinPulseMainGetSearch from "../assets/CurrencyQuery/getsearch.png";
-import coinPulseQuerySearches from "../assets/CurrencyQuery/searches.png";
-import coinPulseLogin from "../assets/CurrencyQuery/Login.png";
-import coinPulseRegister from "../assets/CurrencyQuery/register.png";
-import coinPulseTracking from "../assets/CurrencyQuery/tracking.png";
+import coinPulseMain from "../assets/CurrencyQuery/newnewmain.png";
+import coinPulseMainMobile from "../assets/CurrencyQuery/newnewmainmobile.png"
+import coinPulsePanel from "../assets/CurrencyQuery/panel.png";
+import coinPulsePanelMobile from "../assets/CurrencyQuery/panelmobile.png";
+import coinPulsePanelMobileMenu from "../assets/CurrencyQuery/mobilemenu.png";
 export type ProjectProps = {
   id: string;
   name: string;
@@ -209,11 +208,11 @@ export class ProjectsRepository implements IProjectRepository {
         "NoSQL",
       ],
       img: coinPulseMain,
-      photosGallery: [coinPulseMain, coinPulseMainGetSearch, coinPulseTracking, coinPulseQuerySearches, coinPulseTracking,  coinPulseLogin, coinPulseRegister ],
+      photosGallery: [coinPulseMain, coinPulseMainMobile, coinPulsePanel, coinPulsePanelMobile, coinPulsePanelMobileMenu],
       tags: ["Desktop", "API"],
-      repoFrontEnd: "https://github.com/arturwatana/currency-front",
+      repoFrontEnd: "https://github.com/arturwatana/newcoinpulse-front",
       repoBackEnd: "https://github.com/arturwatana/currency-graphql",
-      deployLink: "https://coinpulse-front.vercel.app/"
+      deployLink: "https://newcoinpulse-front.vercel.app/"
     },
   ];
   showAll(): ProjectProps[] {
