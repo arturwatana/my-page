@@ -188,15 +188,15 @@ export class ProjectsRepository implements IProjectRepository {
     },
     {
       id: "7",
-      name: "CoinPulse",
+      name: "CoinPulse (Em progresso)",
       description:
-        "CoinPulse é um aplicativo projetado para consulta de valores de diversas moedas FIAT e as principais cryptos. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, WebSockets para envio de notificacoes, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
+        "CoinPulse é um aplicativo projetado para criar interesses em cima de valores de diversas moedas FIAT e as principais cryptos, enviando notificacoes em tempo real quando suas conversões de interesse atingirem determinado valor. As tecnologias empregadas nesse projeto incluem Next.js 13 para a base da aplicação, Tailwind CSS para o estilo, GraphQL com Apollo Client e Apollo Server para integração de dados, WebSockets para envio de notificacoes, TypeScript para segurança no código, JWT e bcrypt para autenticação, MongoDB para o armazenamento de dados e Node.js para a execução do ambiente. API integrada para consulta dos valores: https://economia.awesomeapi.com.br/json/last/",
       shortDescription:
-        "CoinPulse é um aplicativo de consulta de valores de moedas, utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, WebSockets, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
+        "CoinPulse é um aplicativo para trackear de valores de moedas, recebendo notificacoes em tempo real quando atingirem determinado valor. Utilizando tecnologias como Next.js 13, Tailwind CSS, GraphQL com Apollo Client e Apollo Server, WebSockets, TypeScript, JWT, bcrypt, MongoDB e Node.js. ",
       techs: [
         "React.js",
         "Next.js",
-        "TailWind CSS",
+        "Chakra.ui",
         "Node.js",
         "TypeScript",
         "GraphQL",
