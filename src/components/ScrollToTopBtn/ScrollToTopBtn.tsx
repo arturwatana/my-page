@@ -24,7 +24,9 @@ const ScrollToTopContainer = styled.div<{ $theme: string }>`
       opacity: 1;
     }
   }
-
+  :hover {
+    transform: scale(1.2);
+  }
   @media (max-width: 1350px) {
     left: 90%;
   }
